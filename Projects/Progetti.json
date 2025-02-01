@@ -1,0 +1,19 @@
+{
+  "Progetti": [
+    {
+      "nome": "Modello A",
+      "descrizione": "Descrizione dettagliata del Modello A.",
+      "immagine": "images/modelloA.jpg"
+    },
+    {
+      "nome": "Modello B",
+      "descrizione": "Descrizione dettagliata del Modello B.",
+      "immagine": "images/modelloB.jpg"
+    },
+    {
+      "nome": "Modello C",
+      "descrizione": "Descrizione dettagliata del Modello C.",
+      "immagine": "images/modelloC.jpg"
+    }
+  ]
+}

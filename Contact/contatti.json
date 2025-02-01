@@ -1,0 +1,34 @@
+{
+  "contatti": [
+    {
+      "nome": "Sede Centrale",
+      "telefono": "+390612345678",
+      "email": "info@azienda.com",
+      "whatsapp": "+390612345678",
+      "instagram": "azienda_centrale",
+      "facebook": "azienda_centrale_fb",
+      "immagine": "Contact/Img/azienda1.jpg",
+      "descrizione": "La sede centrale si occupa della gestione e coordinamento dell'azienda."
+    },
+    {
+      "nome": "Filiale Milano",
+      "telefono": "+390267890123",
+      "email": "milano@azienda.com",
+      "whatsapp": "+390267890123",
+      "instagram": "filiale_milano",
+      "facebook": "filiale_milano_fb",
+      "immagine": "Contact/Img/azienda2.jpg",
+      "descrizione": "La nostra filiale di Milano è specializzata nel supporto ai clienti del nord Italia."
+    },
+    {
+      "nome": "Filiale Roma",
+      "telefono": "+390645678901",
+      "email": "roma@azienda.com",
+      "whatsapp": "+390645678901",
+      "instagram": "filiale_roma",
+      "facebook": "filiale_roma_fb",
+      "immagine": "Contact/Img/azienda3.jpg",
+      "descrizione": "Il punto di riferimento per i clienti nel centro Italia."
+    }
+  ]
+}

@@ -1,0 +1,890 @@
+/* Media Queries per Tablet e Mobile */
+
+/* Tablet (tra 768px e 1024px) */
+@media (max-width: 1024px) {
+  header nav ul {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  header nav ul li {
+    margin: 10px 0;
+  }
+
+  .main-container {
+    margin-top: 120px; /* Più spazio per il menu su tablet */
+  }
+
+  .section h2 {
+    font-size: 1.8em;
+  }
+
+  .section p {
+    font-size: 1rem;
+  }
+
+  table {
+    max-width: 100%;
+  }
+}
+
+/* Mobile (fino a 768px) */
+@media (max-width: 768px) {
+  body {
+    font-size: 16px;
+  }
+
+  header {
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+  }
+
+  header nav ul {
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10px;
+  }
+
+  header nav ul li {
+    margin: 8px 0;
+  }
+
+  .main-container {
+    margin-top: 140px; /* Più spazio per il menu su mobile */
+  }
+
+  .section h2 {
+    font-size: 1.6em;
+  }
+
+  .section p {
+    font-size: 1rem;
+  }
+
+  table {
+    max-width: 100%;
+  }
+
+  footer {
+    padding: 10px;
+  }
+}
+
+/* Mobile Ultra (fino a 480px) */
+@media (max-width: 480px) {
+  header nav ul {
+    margin-top: 10px;
+  }
+
+  .main-container {
+    margin-top: 160px; /* Ulteriore spazio per mobile ultra */
+  }
+
+  footer {
+    font-size: 0.9em;
+  }
+}
+
+.Progetti-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 colonne per PC */
+  gap: 30px;
+  justify-items: center;
+}
+
+.Progetti-card {
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.Progetti-card img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.Progetti-card:hover {
+  transform: translateY(-10px); /* Effetto hover per le card */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Media Queries per Tablet e Mobile */
+
+/* Tablet (tra 768px e 1024px) */
+@media (max-width: 1024px) {
+  .Progetti-container {
+    grid-template-columns: repeat(2, 1fr); /* 2 colonne per tablet */
+  }
+}
+
+/* Mobile (fino a 768px) */
+@media (max-width: 768px) {
+  .Progetti-container {
+    grid-template-columns: 1fr; /* 1 colonna per mobile */
+  }
+
+  .Progetti-card {
+    padding: 15px;
+  }
+
+  .Progetti-card h3 {
+    font-size: 1.5em;
+  }
+
+  .Progetti-card p {
+    font-size: 1.1em;
+  }
+}
+
+/* Contenitore delle card */
+.contatti-container,
+.Progetti-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+/* Card generiche */
+.card {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  width: 250px;
+}
+
+.card img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+/* Icone contatti */
+.contact-icons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+.contact-icons a {
+  text-decoration: none;
+  font-size: 24px;
+  color: #2d2d2d;
+}
+
+.contact-icons a:hover {
+  color: #007bff;
+}
+
+/* Stile del contenitore principale */
+#contatti-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px;
+}
+
+/* Stile delle card */
+.card {
+  width: 300px;
+  background: #fff;
+  border: 2px solid #ddd;
+  border-radius: 10px;
+  padding: 16px;
+  text-align: center;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Stile delle immagini */
+.card img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+
+/* Nome */
+.card h3 {
+  margin: 5px 0;
+  font-size: 1.2em;
+  color: #333;
+}
+
+/* Descrizione */
+.card p {
+  font-size: 0.9em;
+  color: #555;
+  text-align: center;
+  flex-grow: 1; /* Rende tutte le card alte uguali */
+}
+
+/* Contenitore dei bottoni */
+.contact-icons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  width: 100%;
+  padding-top: 10px;
+  border-top: 1px solid #ddd;
+  margin-top: 10px;
+}
+
+/* Stile delle icone */
+.contact-icons img {
+  width: 30px;
+  height: 30px;
+  transition: transform 0.2s;
+}
+
+.contact-icons img:hover {
+  transform: scale(1.2);
+}
+
+/* Contenitore della sezione news */
+.news-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px;
+}
+
+/* Stile delle card delle news */
+.news-card {
+  width: 300px;
+  background: #fff;
+  border: 2px solid #ddd;
+  border-radius: 10px;
+  padding: 16px;
+  text-align: center;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Immagine della news */
+.news-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+/* Titolo della news */
+.news-card h3 {
+  margin: 10px 0;
+  font-size: 1.2em;
+  color: #333;
+}
+
+/* Testo della news */
+.news-card p {
+  font-size: 0.9em;
+  color: #555;
+  text-align: center;
+  flex-grow: 1;
+}
+
+/* Data della news */
+.news-date {
+  font-size: 0.8em;
+  color: #777;
+  margin-top: 10px;
+  display: block;
+}
+
+/* Contatti */
+.card:hover,
+.news-card:hover {
+  transform: translateY(-10px); /* Effetto hover per le card */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Bottone Contatti */
+.contact-icons a:hover {
+  color: #63b3ed; /* Azzurro accento come nella sezione Progetti */
+  transform: scale(1.1); /* Leggero ingrandimento al passaggio del mouse */
+}
+
+/* Stile hover sulle icone contatti */
+.contact-icons img:hover {
+  transform: scale(1.2); /* Effetto hover sulle icone */
+}
+
+/* News */
+.news-card:hover {
+  transform: translateY(-10px); /* Effetto hover per le card */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Sezione news con Flexbox */
+.news-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 20px;
+}
+
+.news-card {
+  width: calc(33.33% - 20px); /* 3 colonne, calcolando lo spazio tra le card */
+}
+
+/* Sezione news con Flexbox */
+.news-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 20px;
+}
+
+.news-card {
+  width: calc(33.33% - 20px); /* 3 colonne per desktop */
+}
+
+/* Tablet (tra 768px e 1024px) */
+@media (max-width: 1024px) {
+  .news-card {
+    width: calc(50% - 20px); /* 2 colonne per tablet */
+  }
+}
+
+/* Mobile (fino a 768px) */
+@media (max-width: 768px) {
+  .news-card {
+    width: 100%; /* 1 colonna per mobile */
+  }
+}
+
+/* Sezione contatti */
+#contatti-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px;
+}
+
+/* Stile delle card contatti */
+.card {
+  width: 300px;
+  background: #fff;
+  border: 2px solid #ddd;
+  border-radius: 10px;
+  padding: 16px;
+  text-align: center;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Stile delle immagini contatti */
+.card img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+
+/* Nome */
+.card h3 {
+  margin: 5px 0;
+  font-size: 1.2em;
+  color: #333;
+}
+
+/* Descrizione */
+.card p {
+  font-size: 0.9em;
+  color: #555;
+  text-align: center;
+  flex-grow: 1;
+}
+
+/* Contenitore delle icone contatti */
+.contact-icons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  width: 100%;
+  padding-top: 10px;
+  border-top: 1px solid #ddd;
+  margin-top: 10px;
+}
+
+/* Stile delle icone */
+.contact-icons img {
+  width: 30px;
+  height: 30px;
+  transition: transform 0.2s;
+}
+
+.contact-icons img:hover {
+  transform: scale(1.2);
+}
+
+/* Sezione news */
+.news-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px;
+}
+
+/* Stile delle card delle news */
+.news-card {
+  width: 300px;
+  background: #fff;
+  border: 2px solid #ddd;
+  border-radius: 10px;
+  padding: 16px;
+  text-align: center;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Immagine della news */
+.news-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+/* Titolo della news */
+.news-card h3 {
+  margin: 10px 0;
+  font-size: 1.2em;
+  color: #333;
+}
+
+/* Testo della news */
+.news-card p {
+  font-size: 0.9em;
+  color: #555;
+  text-align: center;
+  flex-grow: 1;
+}
+
+/* Data della news */
+.news-date {
+  font-size: 0.8em;
+  color: #777;
+  margin-top: 10px;
+  display: block;
+}
+
+/* Hover per le card */
+.card:hover,
+.news-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Sezione news con Flexbox */
+.news-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 20px;
+}
+
+.news-card {
+  width: calc(33.33% - 20px); /* 3 colonne per desktop */
+}
+
+/* Media Queries per Tablet e Mobile */
+
+/* Tablet (tra 768px e 1024px) */
+@media (max-width: 1024px) {
+  .news-card {
+    width: calc(50% - 20px); /* 2 colonne per tablet */
+  }
+  .card {
+    width: calc(50% - 20px); /* 2 colonne per i contatti */
+  }
+}
+
+/* Mobile (fino a 768px) */
+@media (max-width: 768px) {
+  .news-card {
+    width: 100%; /* 1 colonna per mobile */
+  }
+  .card {
+    width: 100%; /* 1 colonna per i contatti */
+  }
+}
+
+/* Mobile Ultra (fino a 480px) */
+@media (max-width: 480px) {
+  .news-card {
+    width: 100%; /* 1 colonna per mobile ultra */
+  }
+  .card {
+    width: 100%; /* 1 colonna per i contatti */
+  }
+}
+
+a {
+  text-decoration: none;
+}
+
+/* Contenitore principale dell'indirizzo */
+.address-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  text-align: center;
+  max-width: 350px;
+  margin: 20px auto;
+}
+
+/* Icona dell'indirizzo */
+.address-container .icon {
+  font-size: 36px;
+  color: #007bff;
+  margin-bottom: 10px;
+}
+
+/* Titolo */
+.address-container h3 {
+  font-size: 1.5em;
+  color: #333;
+  margin-bottom: 8px;
+}
+
+/* Testo dell'indirizzo */
+.address-container p {
+  font-size: 1em;
+  color: #555;
+  margin-bottom: 12px;
+}
+
+/* Stile del link alla mappa */
+.map-link {
+  display: inline-block;
+  text-decoration: none;
+  background-color: #8b5a2b;
+  color: white;
+  padding: 8px 14px;
+  border-radius: 6px;
+  font-weight: bold;
+  transition: background 0.3s ease-in-out;
+}
+
+/* Effetto hover per il link */
+.map-link:hover {
+  background-color: #5a3a1a;
+  text-decoration: none;
+}
+
+/* Effetto hover sul contenitore */
+.address-container:hover {
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  transform: translateY(-3px);
+  transition: all 0.3s ease-in-out;
+}
+
+header img {
+  width: 100px;
+  height: 100px;
+}
+
+/* Stile base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  color: #2d2d2d;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+/* Header */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #8b5a2b; /* Tonalità legno scuro */
+  color: #edf2f7;
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000;
+}
+
+header nav ul {
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+}
+
+header nav ul li {
+  margin: 0 15px;
+}
+
+header nav ul li a {
+  color: #edf2f7;
+  text-decoration: none;
+  font-size: 1em;
+  transition: color 0.3s;
+}
+
+header nav ul li a:hover {
+  color: #d2b48c;
+}
+
+/* Contenitore principale */
+.main-container {
+  margin-top: 80px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Sezioni */
+.section {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.section h2 {
+  font-size: 2em;
+  margin-bottom: 20px;
+  color: #4a2c2a;
+}
+
+.section p {
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+  line-height: 1.6;
+  color: #4a2c2a;
+}
+
+/* Footer */
+footer {
+  background-color: #8b5a2b;
+  color: #edf2f7;
+  text-align: center;
+  padding: 15px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+/* Media Queries */
+@media (max-width: 1024px) {
+  header nav ul {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .main-container {
+    margin-top: 120px;
+  }
+}
+
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+  }
+
+  .main-container {
+    margin-top: 140px;
+  }
+
+  footer {
+    padding: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .main-container {
+    margin-top: 160px;
+  }
+}
+
+/* Contenitore Progetti */
+.Progetti-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  justify-items: center;
+}
+
+.Progetti-card {
+  background-color: white; /* Sfondo bianco per le card */
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.Progetti-card img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.Progetti-card a.contact-button {
+  background-color: #8b5a2b;
+  color: #fff;
+  padding: 12px 25px;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.Progetti-card a.contact-button:hover {
+  background-color: #5a3a1a;
+}
+
+.Progetti-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Contenitore delle card */
+.contatti-container,
+.Progetti-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+/* Card generiche */
+.card,
+.news-card {
+  background: white; /* Sfondo bianco per le card */
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  width: 250px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card img,
+.news-card img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+.card h3,
+.news-card h3 {
+  font-size: 1.2em;
+  color: #333;
+}
+
+.card p,
+.news-card p {
+  font-size: 0.9em;
+  color: #555;
+  text-align: center;
+  flex-grow: 1;
+}
+
+.contact-icons a {
+  text-decoration: none;
+  font-size: 24px;
+  color: #2d2d2d;
+  transition: transform 0.2s;
+}
+
+.contact-icons a:hover {
+  color: #8b5a2b;
+  transform: scale(1.1);
+}
+
+body {
+  background: linear-gradient(to bottom, rgba(233, 236, 239, 0.7), rgba(139, 90, 43, 0.7)), url('images/legno-lavorato.jpg'); /* Immagine di legno lavorato */
+  background-size: cover; /* Adatta l'immagine per coprire l'intera pagina */
+  background-position: center; /* Centra l'immagine */
+  background-attachment: fixed; /* Fissa lo sfondo durante lo scorrimento */
+}
+
+/* Stile generale per il contenitore delle news */
+#news-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* Centra gli elementi */
+  gap: 20px; /* Spazio tra gli elementi */
+}
+
+/* Stile per ogni news item */
+.news-item {
+  background: #f9f9f9;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+/* Stile per schermi grandi (desktop) */
+@media screen and (min-width: 1025px) {
+  .news-item {
+    width: 30%; /* Tre per riga */
+    max-width: 350px;
+  }
+}
+
+/* Stile per Tablet (due elementi centrati per riga) */
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  .news-item {
+    width: 45%; /* Due per riga */
+    max-width: 400px;
+  }
+}
+
+/* Stile per Mobile (un elemento centrato per riga) */
+@media screen and (max-width: 767px) {
+  .news-item {
+    width: 90%; /* Occupa quasi tutto lo spazio disponibile */
+    max-width: 500px;
+  }
+}

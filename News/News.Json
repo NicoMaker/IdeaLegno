@@ -1,0 +1,22 @@
+{
+  "news": [
+    {
+      "titolo": "Nuovo modello in arrivo!",
+      "descrizione": "Il nostro nuovo modello sarà disponibile dal prossimo mese, con caratteristiche avanzate.",
+      "data": "2025-02-15",
+      "immagine": "News/Img/modello-nuovo.jpg"
+    },
+    {
+      "titolo": "Espansione in nuove città",
+      "descrizione": "Azienda apre nuove filiali a Torino e Firenze, migliorando il servizio clienti.",
+      "data": "2025-01-20",
+      "immagine": "News/Img/espansione.jpg"
+    },
+    {
+      "titolo": "Evento speciale",
+      "descrizione": "Partecipa al nostro evento esclusivo per scoprire i segreti dei nostri modelli.",
+      "data": "2025-03-10",
+      "immagine": "News/Img/evento.jpg"
+    }
+  ]
+}

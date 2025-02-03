@@ -1,12 +1,12 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const container = document.querySelector("#Progetti-container");
-  const prevButton = document.createElement("button");
-  const nextButton = document.createElement("button");
-  const pageInfo = document.createElement("span"); // Modifica per creare la variabile come un elemento <span>
+  const container = document.querySelector("#Progetti-container"),
+    prevButton = document.createElement("button"),
+    nextButton = document.createElement("button"),
+    pageInfo = document.createElement("span"); // Modifica per creare la variabile come un elemento <span>
   pageInfo.id = "page-info"; // Aggiunto id per riferimento in CSS e JS
-  let progettiData = [];
-  let currentPage = 1;
-  let itemsPerPage = 3;
+  let progettiData = [],
+    currentPage = 1,
+    itemsPerPage = 3;
 
   // Creazione dei bottoni di navigazione
   prevButton.innerHTML = "<span class='material-icons'>arrow_back</span>";
@@ -38,9 +38,9 @@ document.addEventListener("DOMContentLoaded", () => {
   function updatePage() {
     container.innerHTML = "";
 
-    const start = (currentPage - 1) * itemsPerPage;
-    const end = start + itemsPerPage;
-    const paginatedItems = progettiData.slice(start, end);
+    const start = (currentPage - 1) * itemsPerPage,
+      end = start + itemsPerPage,
+      paginatedItems = progettiData.slice(start, end);
 
     paginatedItems.forEach((progetti) => {
       const progettiCard = document.createElement("div");

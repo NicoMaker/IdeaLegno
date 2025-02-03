@@ -29,6 +29,16 @@
       "facebook": "filiale_roma_fb",
       "immagine": "Contact/Img/azienda3.jpg",
       "descrizione": "Il punto di riferimento per i clienti nel centro Italia."
+    },
+    {
+      "nome": "Filiale Roma",
+      "telefono": "+390645678901",
+      "email": "roma@azienda.com",
+      "whatsapp": "+390645678901",
+      "instagram": "filiale_roma",
+      "facebook": "filiale_roma_fb",
+      "immagine": "Contact/Img/azienda3.jpg",
+      "descrizione": "Il punto di riferimento per i clienti nel centro Italia."
     }
   ]
 }

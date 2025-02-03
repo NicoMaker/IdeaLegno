@@ -1,12 +1,12 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const newsContainer = document.querySelector("#news-container");
-  const prevButton = document.createElement("button");
-  const nextButton = document.createElement("button");
-  const pageInfo = document.createElement("span");
+  const newsContainer = document.querySelector("#news-container"),
+    prevButton = document.createElement("button"),
+    nextButton = document.createElement("button"),
+    pageInfo = document.createElement("span");
   pageInfo.id = "page-info"; // Aggiunto id per riferimento in CSS e JS
-  let newsData = [];
-  let currentPage = 1;
-  let itemsPerPage = 3;
+  let newsData = [],
+    currentPage = 1,
+    itemsPerPage = 3;
 
   // Creazione dei bottoni di navigazione
   prevButton.innerHTML = "<span class='material-icons'>arrow_back</span>";
@@ -24,9 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // Carica i dati dal JSON
   fetch("News/news.json")
     .then((response) => {
-      if (!response.ok) {
-        throw new Error(`Errore HTTP: ${response.status}`);
-      }
+      if (!response.ok) throw new Error(`Errore HTTP: ${response.status}`);
       return response.json();
     })
     .then((data) => {
@@ -43,9 +41,9 @@ document.addEventListener("DOMContentLoaded", () => {
   function updatePage() {
     newsContainer.innerHTML = ""; // Svuota il contenitore delle notizie
 
-    const start = (currentPage - 1) * itemsPerPage;
-    const end = start + itemsPerPage;
-    const paginatedItems = newsData.slice(start, end);
+    const start = (currentPage - 1) * itemsPerPage,
+      end = start + itemsPerPage,
+      paginatedItems = newsData.slice(start, end);
 
     paginatedItems.forEach((newsItem) => {
       const newsCard = document.createElement("div");

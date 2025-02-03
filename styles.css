@@ -1020,9 +1020,29 @@ body {
 .logo {
   height: auto;
   width: 150px;
+  border-radius: 2px;
 }
 
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 80px; /* Cambia il valore in base all'altezza del tuo header */
+}
+
+/* Logo container styling */
+.logo-container {
+  flex: 1;
+  display: flex;
+  justify-content: flex-start; /* Align the logo to the left */
+  align-items: center;
+}
+
+.logo {
+  width: 150px; /* Adjust logo size */
+  height: auto;
+}
+
+
+/* hover logo incrandimento */
+.logo:hover {
+  transform: scale(1.1);
 }

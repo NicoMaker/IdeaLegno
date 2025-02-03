@@ -931,7 +931,6 @@ body {
   margin-top: 20px;
 }
 
-
 .page-info {
   display: inline-block;
   margin-top: 20px;
@@ -953,7 +952,6 @@ body {
 .material-icons:hover {
   transform: scale(1.2); /* Effetto hover per ingrandire le frecce */
 }
-
 
 /* Pageinfo Section */
 .pageinfo-container {
@@ -1017,4 +1015,14 @@ body {
   .pageinfo-container p {
     font-size: 0.95em;
   }
+}
+
+.logo {
+  height: auto;
+  width: 150px;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px; /* Cambia il valore in base all'altezza del tuo header */
 }

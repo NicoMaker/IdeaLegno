@@ -35,7 +35,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
   // Funzione per aggiornare la pagina
-  function updatePage() {
+  const updatePage = () => {
     container.innerHTML = "";
 
     const start = (currentPage - 1) * itemsPerPage,
@@ -58,20 +58,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
     updateButtons();
     updatePageInfo(); // Aggiorna il numero della pagina e il totale delle pagine
-  }
+  };
 
   // Funzione per aggiornare la visibilità dei pulsanti
-  function updateButtons() {
+  const updateButtons = () => {
     prevButton.style.visibility = currentPage > 1 ? "visible" : "hidden";
     nextButton.style.visibility =
       currentPage * itemsPerPage < progettiData.length ? "visible" : "hidden";
-  }
+  };
 
   // Funzione per aggiornare la pagina corrente
-  function updatePageInfo() {
+  const updatePageInfo = () => {
     const totalPages = Math.ceil(progettiData.length / itemsPerPage);
     pageInfo.textContent = ` Pagina ${currentPage} di ${totalPages} `;
-  }
+  };
 
   // Eventi click per la navigazione
   prevButton.addEventListener("click", () => {
@@ -89,12 +89,12 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // Adatta il numero di elementi per pagina in base allo schermo
-  function adjustItemsPerPage() {
+  const adjustItemsPerPage = () => {
     if (window.innerWidth >= 1024) itemsPerPage = 3;
     else if (window.innerWidth >= 768) itemsPerPage = 2;
     else itemsPerPage = 1;
     updatePage();
-  }
+  };
 
   window.addEventListener("resize", adjustItemsPerPage);
 });

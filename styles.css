@@ -22,10 +22,6 @@
   .section p {
     font-size: 1rem;
   }
-
-  table {
-    max-width: 100%;
-  }
 }
 
 /* Mobile (fino a 768px) */
@@ -842,7 +838,12 @@ footer {
 }
 
 body {
-  background: linear-gradient(to bottom, rgba(233, 236, 239, 0.7), rgba(139, 90, 43, 0.7)), url('images/legno-lavorato.jpg'); /* Immagine di legno lavorato */
+  background: linear-gradient(
+      to bottom,
+      rgba(233, 236, 239, 0.7),
+      rgba(139, 90, 43, 0.7)
+    ),
+    url("images/legno-lavorato.jpg"); /* Immagine di legno lavorato */
   background-size: cover; /* Adatta l'immagine per coprire l'intera pagina */
   background-position: center; /* Centra l'immagine */
   background-attachment: fixed; /* Fissa lo sfondo durante lo scorrimento */
@@ -888,3 +889,38 @@ body {
     max-width: 500px;
   }
 }
+
+.Progetti-card {
+  margin-bottom: 20px; /* Spazio tra le carte e l'icona sotto */
+}
+
+.page-info {
+  display: inline-block; /* Affianca la pagina alla freccia */
+  margin-top: 20px;
+  text-align: center;
+  font-size: 16px;
+  color: #333;
+}
+
+.nav-button {
+  display: inline-block; /* Affianca il bottone alla pagina */
+  margin-top: 20px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: #007bff;
+  cursor: pointer;
+}
+
+.material-icons {
+  font-size: 24px;
+  vertical-align: middle;
+  background-color: #007bff;
+  color: white;
+}
+
+.page-info-container {
+  text-align: center;
+  margin-top: 20px;
+}
+

@@ -1034,6 +1034,9 @@ html {
   display: flex;
   justify-content: flex-start; /* Align the logo to the left */
   align-items: center;
+  width: 154px; /* Adjust the width to fit the logo */
+  border-radius: 2px;
+  background-color: white;
 }
 
 .logo {
@@ -1042,6 +1045,6 @@ html {
 }
 
 /* hover logo incrandimento */
-.logo:hover {
+.logo-container:hover {
   transform: scale(1.1);
 }

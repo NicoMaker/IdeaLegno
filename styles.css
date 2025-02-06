@@ -1052,7 +1052,7 @@ html {
 footer {
   background: #333;
   color: #fff;
-  padding: 10px 3%;  /* Riduci il padding per rendere il footer più piccolo */
+  padding: 10px 3%; /* Riduci il padding per rendere il footer più piccolo */
   text-align: center;
 }
 
@@ -1060,19 +1060,21 @@ footer {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-  gap: 15px;  /* Distanza tra gli elementi */
-  max-height: 130px;  /* Altezza massima ridotta, ma abbastanza grande per contenere il testo */
-  overflow-y: auto;  /* Contenuto scrollabile se supera l'altezza massima */
+  gap: 15px; /* Distanza tra gli elementi */
+  max-height: 130px; /* Altezza massima ridotta, ma abbastanza grande per contenere il testo */
+  overflow-y: auto; /* Contenuto scrollabile se supera l'altezza massima */
 }
 
-.contact-info, .location-info {
+.contact-info,
+.location-info {
   flex: 1;
-  min-width: 220px;  /* Riduci leggermente la larghezza minima */
+  min-width: 220px; /* Riduci leggermente la larghezza minima */
 }
 
-.contact-info h3, .location-info h3 {
-  font-size: 18px;  /* Aumenta la dimensione del font */
-  margin-bottom: 8px;  /* Aumenta leggermente la distanza tra il titolo e i contenuti */
+.contact-info h3,
+.location-info h3 {
+  font-size: 18px; /* Aumenta la dimensione del font */
+  margin-bottom: 8px; /* Aumenta leggermente la distanza tra il titolo e i contenuti */
   text-transform: uppercase;
 }
 
@@ -1084,28 +1086,31 @@ footer {
 .contact-info li {
   display: flex;
   align-items: center;
-  gap: 8px;  /* Aumenta la distanza tra l'icona e il testo */
-  margin-bottom: 6px;  /* Aumenta lo spazio tra gli elementi */
+  gap: 8px; /* Aumenta la distanza tra l'icona e il testo */
+  margin-bottom: 6px; /* Aumenta lo spazio tra gli elementi */
 }
 
-.contact-info li img, .location-info img {
-  width: 18px;  /* Aumenta leggermente la dimensione delle icone */
+.contact-info li img,
+.location-info img {
+  width: 18px; /* Aumenta leggermente la dimensione delle icone */
   height: 18px;
 }
 
-.contact-info a, .map-link {
-  color: black;
+.contact-info a,
+.map-link {
+  color: white;
   text-decoration: none;
   font-weight: bold;
 }
 
-.contact-info a:hover, .map-link:hover {
+.contact-info a:hover,
+.map-link:hover {
   text-decoration: underline;
 }
 
 .copyright {
-  margin-top: 10px;  /* Aumenta leggermente lo spazio sopra il copyright */
-  font-size: 20px;  /* Aumenta la dimensione del font */
+  margin-top: 10px; /* Aumenta leggermente lo spazio sopra il copyright */
+  font-size: 20px; /* Aumenta la dimensione del font */
   opacity: 0.8;
 }
 
@@ -1113,4 +1118,6 @@ footer {
   background-color: #8b5a2b;
 }
 
-
+.contact-title {
+  text-align: left;
+}

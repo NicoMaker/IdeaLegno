@@ -64,7 +64,7 @@ document.addEventListener("DOMContentLoaded", () => {
       <img src="${progetto.immagine}" alt="${progetto.nome}">
       <h3>${progetto.nome}</h3>
       <p>${progetto.descrizione}</p>
-      <a href="mailto:info@azienda.com?subject=Richiesta%20info%20su%20${encodeURIComponent(progetto.nome)}" class="contact-button">Contattaci</a>
+      <a href="mailto:paolobomben81@gmail.com?subject=Richiesta%20info%20su%20${encodeURIComponent(progetto.nome)}" class="contact-button">Contattaci</a>
     `;
     container.appendChild(card);
   }

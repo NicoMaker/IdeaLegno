@@ -2,7 +2,7 @@ document.getElementById("footer").innerHTML = `
   <footer>
     <div class="footer-container">
       <div class="contact-info">
-        <h3>Contatti</h3>
+        <h3 class="contact-title">Contatti</h3>
         <ul>
           <li>
             <a href="tel:+393356508231">

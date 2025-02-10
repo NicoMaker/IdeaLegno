@@ -1049,10 +1049,11 @@ html {
   transform: scale(1.1);
 }
 
+
 footer {
   background: #333;
   color: #fff;
-  padding: 10px 3%; /* Riduci il padding per rendere il footer più piccolo */
+  padding: 10px 3%;
   text-align: center;
 }
 
@@ -1060,21 +1061,21 @@ footer {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-  gap: 15px; /* Distanza tra gli elementi */
-  max-height: 130px; /* Altezza massima ridotta, ma abbastanza grande per contenere il testo */
-  overflow-y: auto; /* Contenuto scrollabile se supera l'altezza massima */
+  gap: 15px;
+  max-height: 200px;
+  overflow-y: auto;
 }
 
 .contact-info,
 .location-info {
   flex: 1;
-  min-width: 220px; /* Riduci leggermente la larghezza minima */
+  min-width: 220px;
 }
 
 .contact-info h3,
 .location-info h3 {
-  font-size: 18px; /* Aumenta la dimensione del font */
-  margin-bottom: 8px; /* Aumenta leggermente la distanza tra il titolo e i contenuti */
+  font-size: 18px;
+  margin-bottom: 8px;
   text-transform: uppercase;
 }
 
@@ -1086,13 +1087,13 @@ footer {
 .contact-info li {
   display: flex;
   align-items: center;
-  gap: 8px; /* Aumenta la distanza tra l'icona e il testo */
-  margin-bottom: 6px; /* Aumenta lo spazio tra gli elementi */
+  gap: 8px;
+  margin-bottom: 6px;
 }
 
 .contact-info li img,
 .location-info img {
-  width: 18px; /* Aumenta leggermente la dimensione delle icone */
+  width: 18px;
   height: 18px;
 }
 
@@ -1109,15 +1110,70 @@ footer {
 }
 
 .copyright {
-  margin-top: 10px; /* Aumenta leggermente lo spazio sopra il copyright */
-  font-size: 20px; /* Aumenta la dimensione del font */
+  margin-top: 10px;
+  font-size: 20px;
   opacity: 0.8;
 }
 
+/* Nuovo footer per schermi più piccoli */
 footer {
   background-color: #8b5a2b;
 }
 
 .contact-title {
   text-align: left;
+}
+
+/* Media Query per schermi piccoli */
+@media (max-width: 768px) {
+  footer {
+    padding: 8px 2%;
+  }
+
+  .footer-container {
+    flex-direction: column; /* Imposta il layout in colonna per schermi più piccoli */
+    align-items: center; /* Centra gli elementi */
+    max-height: none; /* Rimuove la limitazione dell'altezza */
+  }
+
+  .contact-info,
+  .location-info {
+    min-width: 100%; /* Imposta la larghezza a 100% per dispositivi mobili */
+  }
+
+  /* Prima la posizione, poi i contatti */
+  .footer-container {
+    flex-direction: column-reverse; /* Cambia l'ordine degli elementi */
+  }
+
+  .contact-info h3,
+  .location-info h3 {
+    font-size: 16px; /* Riduci la dimensione del font per dispositivi mobili */
+  }
+
+  .copyright {
+    font-size: 16px; /* Riduci la dimensione del font per il copyright */
+  }
+}
+
+/* Media Query per schermi molto piccoli (telefono) */
+@media (max-width: 480px) {
+  footer {
+    padding: 6px 2%;
+  }
+
+  .contact-info h3,
+  .location-info h3 {
+    font-size: 14px; /* Ancora più piccolo per schermi molto piccoli */
+  }
+
+  .contact-info li img,
+  .location-info img {
+    width: 16px; /* Riduci la dimensione delle icone */
+    height: 16px;
+  }
+
+  .copyright {
+    font-size: 14px; /* Ancora più piccolo per il copyright */
+  }
 }

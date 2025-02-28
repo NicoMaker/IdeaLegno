@@ -1057,11 +1057,6 @@ html {
   height: auto;
 }
 
-/* hover logo incrandimento */
-.logo-container:hover {
-  transform: scale(1.1);
-}
-
 footer {
   background: #333;
   color: #fff;

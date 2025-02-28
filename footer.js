@@ -66,16 +66,17 @@ const createContactItem = (href, imgSrc, altText, text) => `
       Visualizza sulla mappa
     </a>
   </div>
+  <br>
 `,
   generateFooter = () => {
     document.getElementById("footer").innerHTML = `
     <footer>
       <div class="footer-container">
+        ${getLocationSection()} <!-- Posizione prima -->
         <div class="footer-columns">
-          ${getContactSection()}
-          ${getSocialSection()}
+          ${getContactSection()} <!-- Contatti dopo -->
+          ${getSocialSection()} <!-- Social dopo i contatti -->
         </div>
-        ${getLocationSection()}
       </div>
       <p class="copyright">&copy; ${new Date().getFullYear()} IdeaLegno. Tutti i diritti riservati.</p>
     </footer>
@@ -85,16 +86,15 @@ const createContactItem = (href, imgSrc, altText, text) => `
 // Initialize footer when DOM is loaded
 document.addEventListener("DOMContentLoaded", generateFooter);
 
-
 window.addEventListener("scroll", function () {
   let footer = document.querySelector("footer");
-  
+
   // Calcola se l'utente è arrivato in fondo alla pagina
   if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 10) {
-    footer.style.opacity = "1";  // Mostra il footer
+    footer.style.opacity = "1"; // Mostra il footer
     footer.style.transform = "translateY(0)"; // Fa salire il footer
   } else {
-    footer.style.opacity = "0";  // Nasconde il footer
+    footer.style.opacity = "0"; // Nasconde il footer
     footer.style.transform = "translateY(100%)"; // Sposta il footer fuori dallo schermo
   }
 });

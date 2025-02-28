@@ -1426,23 +1426,6 @@ footer {
   border-bottom: 2px solid black;
 }
 
-.container-immagine {
-  display: flex; /* Abilita Flexbox */
-  justify-content: center; /* Centra orizzontalmente */
-  align-items: center; /* Centra verticalmente */
-  height: 200px; /* Altezza del contenitore (adatta in base alle esigenze) */
-  width: 200px;
-  background-color: #f0f0f0; /* Solo per visibilità */
-  margin: auto;
-}
-
-.immagine {
-  max-width: 80%; /* Limita la larghezza al massimo 80% del contenitore */
-  max-height: 100px; /* Imposta un'altezza massima */
-  width: auto; /* Mantiene le proporzioni */
-  height: auto; /* Mantiene le proporzioni */
-}
-
 .download-icon {
   display: inline-block;
   margin-left: 10px;
@@ -1566,7 +1549,34 @@ header .menu li a:hover {
 }
 
 
-
 .nav-link.active {
   color: orange ; /* Colore blu quando sei nella sezione attiva */
+}
+
+.Progetti-card,
+.news-card{
+  border-radius: 10px;
+}
+
+.container-immagine {
+  display: flex; /* Abilita Flexbox */
+  justify-content: center; /* Centra orizzontalmente */
+  align-items: center; /* Centra verticalmente */
+  height: 200px; /* Altezza del contenitore (adatta in base alle esigenze) */
+  width: 200px;
+  background-color: #f0f0f0; /* Solo per visibilità */
+  margin: auto;
+}
+
+.immagine {
+  max-width: 80%; /* Limita la larghezza al massimo 80% del contenitore */
+  max-height: 100px; /* Imposta un'altezza massima */
+  width: auto; /* Mantiene le proporzioni */
+  height: auto; /* Mantiene le proporzioni */
+  border-radius: 10px;
+}
+
+#footer img{
+  height: 40px;
+  width: 40px;
 }

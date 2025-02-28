@@ -35,7 +35,7 @@ const createContactItem = (href, imgSrc, altText, text) => `
 `,
   getSocialSection = () => `
   <div class="social-section">
-    <h3 class="section-title">Social</h3>
+    <h3 class="section-title">Seguici sui Social</h3>
     <ul class="social-list">
       ${createSocialItem(
         "https://wa.me/393356508231",

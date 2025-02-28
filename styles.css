@@ -925,6 +925,7 @@ body {
   vertical-align: middle;
   background-color: #007bff;
   color: white;
+  border-radius: 20px;
 }
 
 .material-icons .icon {
@@ -932,6 +933,10 @@ body {
   vertical-align: middle;
   background-color: #007bff;
   color: white;
+}
+
+.material-icons:hover {
+  transform: scale(1.2); /* Effetto hover per ingrandire le frecce */
 }
 
 .page-info-container {
@@ -1033,7 +1038,7 @@ body {
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 100px; /* Cambia il valore in base all'altezza del tuo header */
+  scroll-padding-top: 120px; /* Cambia il valore in base all'altezza del tuo header */
 }
 
 /* Logo container styling */
@@ -1436,14 +1441,14 @@ footer {
   }
 }
 
-/* Media Query per schermi molto piccoli */
+/* Media Query per schermi */
 @media (max-width: 1080px) {
   #Home h2 {
-    font-size: 2em;
+    font-size: 1.7em;
   }
 
   #Home p {
-    font-size: 1.5em;
+    font-size: 1.3em;
   }
 }
 
@@ -1466,3 +1471,4 @@ footer {
   width: auto; /* Mantiene le proporzioni */
   height: auto; /* Mantiene le proporzioni */
 }
+

@@ -1466,3 +1466,56 @@ footer {
   width: auto; /* Mantiene le proporzioni */
   height: auto; /* Mantiene le proporzioni */
 }
+
+.download-icon {
+  display: inline-block;
+  margin-left: 10px;
+  text-decoration: none;
+  color: #000;
+}
+
+.download-icon .material-icons {
+  font-size: 20px;
+  vertical-align: middle;
+}
+
+.news-footer {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.download-icon {
+  color: #007bff;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+.download-icon:hover {
+  color: #0056b3;
+}
+
+.news-footer {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Spazio tra data e icona */
+}
+
+.news-date {
+  font-size: 14px;
+  color: #333;
+}
+
+.download-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #007bff;
+  text-decoration: none;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.download-icon:hover {
+  color: #0056b3;
+}

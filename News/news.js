@@ -9,7 +9,6 @@ document.addEventListener("DOMContentLoaded", () => {
     currentPage = 1,
     itemsPerPage = 3;
 
-  // Funzione per creare i bottoni di navigazione
   function createNavButton(icon, className) {
     const button = document.createElement("button");
     button.innerHTML = `<span class='material-icons'>${icon}</span>`;
@@ -17,7 +16,6 @@ document.addEventListener("DOMContentLoaded", () => {
     return button;
   }
 
-  // Funzione per creare il contenitore della pagina
   function createPageInfoContainer() {
     const pageInfoContainer = document.createElement("div");
     pageInfoContainer.classList.add("page-info-container");
@@ -27,7 +25,6 @@ document.addEventListener("DOMContentLoaded", () => {
     newsContainer.parentElement.appendChild(pageInfoContainer);
   }
 
-  // Funzione per caricare i dati dal JSON
   function loadNewsData() {
     fetch("News/news.json")
       .then(handleResponse)
@@ -35,26 +32,22 @@ document.addEventListener("DOMContentLoaded", () => {
       .catch(handleError);
   }
 
-  // Funzione per gestire la risposta JSON
   function handleResponse(response) {
     if (!response.ok) throw new Error(`Errore HTTP: ${response.status}`);
     return response.json();
   }
 
-  // Funzione per gestire i dati ricevuti
   function handleData(data) {
     if (!data.news) throw new Error("Formato JSON non valido");
     newsData = data.news;
     updatePage();
   }
 
-  // Funzione per gestire gli errori
   function handleError(error) {
     console.error("Errore nel caricamento delle news:", error);
     newsContainer.innerHTML = "<p>Impossibile caricare le news.</p>";
   }
 
-  // Funzione per aggiornare la pagina
   function updatePage() {
     clearNewsContainer();
     const paginatedItems = getPaginatedItems();
@@ -63,49 +56,66 @@ document.addEventListener("DOMContentLoaded", () => {
     updatePageInfo();
   }
 
-  // Funzione per svuotare il contenitore delle notizie
   const clearNewsContainer = () => (newsContainer.innerHTML = "");
 
-  // Funzione per ottenere gli elementi della pagina corrente
   function getPaginatedItems() {
     const start = (currentPage - 1) * itemsPerPage,
       end = start + itemsPerPage;
     return newsData.slice(start, end);
   }
 
-  // Funzione per creare una card di notizia
   function createNewsCard(newsItem) {
     const newsCard = document.createElement("div");
     newsCard.classList.add("news-card");
+  
+    // Creazione del contenitore per la data e l'icona
+    const newsFooter = document.createElement("div");
+    newsFooter.classList.add("news-footer");
+  
+    const newsDate = document.createElement("span");
+    newsDate.classList.add("news-date");
+    newsDate.textContent = newsItem.data;
+    newsFooter.appendChild(newsDate);
+  
+    // Se esiste un file da scaricare, aggiungi l'icona di download
+    if (newsItem.download) {
+      const downloadLink = document.createElement("a");
+      downloadLink.href = newsItem.download;
+      downloadLink.download = ""; // Per forzare il download
+      downloadLink.classList.add("download-icon");
+      downloadLink.innerHTML = `<span class="material-icons">download</span>`;
+      newsFooter.appendChild(downloadLink);
+    }
+  
+    // Creazione del contenuto della card
     newsCard.innerHTML = `
-    <div class="container-immagine">
-      <img class="immagine" src="${newsItem.immagine}" alt="${newsItem.titolo}">
-    </div>
-    <br>
+      <div class="container-immagine">
+        <img class="immagine" src="${newsItem.immagine}" alt="${newsItem.titolo}">
+      </div>
+      <br>
       <h3>${newsItem.titolo}</h3>
-      <p>${newsItem.descrizione}
+      <p>${newsItem.descrizione}</p>
       <br>
-      <br>
-      </p>
-      <span class="news-date">${newsItem.data}</span>
     `;
+  
+    // Aggiunta del contenitore data + icona alla card
+    newsCard.appendChild(newsFooter);
     newsContainer.appendChild(newsCard);
   }
+  
+  
 
-  // Funzione per aggiornare la visibilità dei pulsanti
   function updateButtonsVisibility() {
     prevButton.style.visibility = currentPage > 1 ? "visible" : "hidden";
     nextButton.style.visibility =
       currentPage * itemsPerPage < newsData.length ? "visible" : "hidden";
   }
 
-  // Funzione per aggiornare le informazioni della pagina
   function updatePageInfo() {
     const totalPages = Math.ceil(newsData.length / itemsPerPage);
     pageInfo.textContent = `  Pagina ${currentPage} di ${totalPages}  `;
   }
 
-  // Funzione per navigare alla pagina precedente
   function prevPage() {
     if (currentPage > 1) {
       currentPage--;
@@ -113,7 +123,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  // Funzione per navigare alla pagina successiva
   function nextPage() {
     if (currentPage * itemsPerPage < newsData.length) {
       currentPage++;
@@ -121,7 +130,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  // Funzione per adattare il numero di elementi per pagina in base alla larghezza dello schermo
   function adjustItemsPerPage() {
     if (window.innerWidth >= 1024) itemsPerPage = 3;
     else if (window.innerWidth >= 768) itemsPerPage = 2;
@@ -129,20 +137,17 @@ document.addEventListener("DOMContentLoaded", () => {
     updatePage();
   }
 
-  // Aggiungere gli event listener
   function addEventListeners() {
     prevButton.addEventListener("click", prevPage);
     nextButton.addEventListener("click", nextPage);
     window.addEventListener("resize", adjustItemsPerPage);
   }
 
-  // Funzione di inizializzazione
   function init() {
     createPageInfoContainer();
     loadNewsData();
     addEventListeners();
   }
 
-  // Avvio dell'app
   init();
 });

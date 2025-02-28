@@ -79,7 +79,7 @@ document.addEventListener("DOMContentLoaded", () => {
     newsCard.classList.add("news-card");
     newsCard.innerHTML = `
     <div class="container-immagine">
-      <img class="immagine" src="${newsItem.immagine}" alt="${newsItem.nome}">
+      <img class="immagine" src="${newsItem.immagine}" alt="${newsItem.titolo}">
     </div>
     <br>
       <h3>${newsItem.titolo}</h3>

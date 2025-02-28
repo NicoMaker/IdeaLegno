@@ -935,9 +935,6 @@ body {
   color: white;
 }
 
-.material-icons:hover {
-  transform: scale(1.2); /* Effetto hover per ingrandire le frecce */
-}
 
 .page-info-container {
   text-align: center;
@@ -962,9 +959,6 @@ body {
   cursor: pointer;
 }
 
-.material-icons:hover {
-  transform: scale(1.2); /* Effetto hover per ingrandire le frecce */
-}
 
 /* Pageinfo Section */
 .pageinfo-container {
@@ -1540,16 +1534,14 @@ footer {
 }
 
 .news-item:hover {
-  transform: scale(1.1); /* Ingrandisce l'intero footer (data e icona) al passaggio del mouse */
+  transform: scale(
+    1.1
+  ); /* Ingrandisce l'intero footer (data e icona) al passaggio del mouse */
 }
 
 /* Effetto per l'icona di download */
 .download-icon {
   transition: transform 0.3s ease; /* Aggiungi una transizione per l'icona di download */
-}
-
-.download-icon:hover {
-  transform: scale(1.3); /* Ingrandisce l'icona di download al passaggio del mouse */
 }
 
 /* Effetto per la data */
@@ -1559,4 +1551,9 @@ footer {
 
 .news-date:hover {
   transform: scale(1.1); /* Ingrandisce la data al passaggio del mouse */
+}
+
+.material-icons.arrow_back:hover,
+.material-icons.arrow_forward:hover {
+  transition: transform 0.3s ease;
 }

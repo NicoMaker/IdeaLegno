@@ -1099,12 +1099,6 @@ footer {
   text-decoration: underline;
 }
 
-.copyright {
-  margin-top: 10px;
-  font-size: 20px;
-  opacity: 0.8;
-}
-
 /* Nuovo footer per schermi più piccoli */
 footer {
   background-color: #8b5a2b;
@@ -1276,16 +1270,6 @@ footer {
 .map-link:hover {
   background-color: #fff;
   color: #8b5a2b;
-}
-
-/* Copyright */
-.copyright {
-  text-align: center;
-  margin: 15px 0 0 0;
-  padding-top: 15px;
-  border-top: 1px solid rgba(255, 255, 255, 0.2);
-  font-size: 14px;
-  opacity: 0.9;
 }
 
 /* Responsive Styles */
@@ -1566,10 +1550,17 @@ footer {
 }
 
 header .menu li a:hover {
-  color: #5a3a1a;
+  color: blue;
 }
 
 .material-icons.arrow_back:hover,
 .material-icons.arrow_forward:hover {
   transform: scale(1.1);
+}
+
+.copyright {
+  font-size: 20px;
+  color: white; /* Oppure #fff */
+  border-top: 2px solid white;
+  padding-top: 5px; /* Per separare il testo dalla linea */
 }

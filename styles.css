@@ -1550,7 +1550,7 @@ footer {
 }
 
 header .menu li a:hover {
-  color: blue;
+  color: orange;
 }
 
 .material-icons.arrow_back:hover,
@@ -1563,4 +1563,10 @@ header .menu li a:hover {
   color: white; /* Oppure #fff */
   border-top: 2px solid white;
   padding-top: 5px; /* Per separare il testo dalla linea */
+}
+
+
+
+.nav-link.active {
+  color: orange ; /* Colore blu quando sei nella sezione attiva */
 }

@@ -107,7 +107,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // Funzione per aggiornare l'informazione della pagina
   function updatePageInfo() {
     const totalPages = Math.ceil(filteredProjects.length / itemsPerPage);
-    pageInfo.textContent = ` Pagina ${currentPage} di ${totalPages} `;
+    pageInfo.textContent = `  Pagina ${currentPage} di ${totalPages}  `;
   }
 
   // Navigazione tra le pagine

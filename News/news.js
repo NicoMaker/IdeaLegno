@@ -99,7 +99,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // Funzione per aggiornare le informazioni della pagina
   function updatePageInfo() {
     const totalPages = Math.ceil(newsData.length / itemsPerPage);
-    pageInfo.textContent = ` Pagina ${currentPage} di ${totalPages} `;
+    pageInfo.textContent = `  Pagina ${currentPage} di ${totalPages}  `;
   }
 
   // Funzione per navigare alla pagina precedente

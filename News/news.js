@@ -68,8 +68,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Funzione per ottenere gli elementi della pagina corrente
   function getPaginatedItems() {
-    const start = (currentPage - 1) * itemsPerPage;
-    const end = start + itemsPerPage;
+    const start = (currentPage - 1) * itemsPerPage,
+      end = start + itemsPerPage;
     return newsData.slice(start, end);
   }
 
@@ -80,7 +80,10 @@ document.addEventListener("DOMContentLoaded", () => {
     newsCard.innerHTML = `
       <img src="${newsItem.immagine}" alt="${newsItem.titolo}">
       <h3>${newsItem.titolo}</h3>
-      <p>${newsItem.descrizione}</p>
+      <p>${newsItem.descrizione}
+      <br>
+      <br>
+      </p>
       <span class="news-date">${newsItem.data}</span>
     `;
     newsContainer.appendChild(newsCard);

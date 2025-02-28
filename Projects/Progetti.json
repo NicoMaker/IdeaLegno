@@ -3,22 +3,38 @@
     {
       "nome": "Modello A",
       "descrizione": "Descrizione dettagliata del Modello A.",
-      "immagine": "images/modelloA.jpg"
+      "immagine": "images/modelloA.jpg",
+      "categoria": "sviluppo"
     },
     {
       "nome": "Modello B",
       "descrizione": "Descrizione dettagliata del Modello B.",
-      "immagine": "images/modelloB.jpg"
+      "immagine": "images/modelloB.jpg",
+      "categoria": "design"
     },
     {
       "nome": "Modello C",
       "descrizione": "Descrizione dettagliata del Modello C.",
-      "immagine": "images/modelloC.jpg"
+      "immagine": "images/modelloC.jpg",
+      "categoria": "sviluppo"
     },
     {
       "nome": "Modello C",
       "descrizione": "Descrizione dettagliata del Modello C.",
-      "immagine": "images/modelloC.jpg"
+      "immagine": "images/modelloC.jpg",
+      "categoria": "sviluppo"
+    },
+    {
+      "nome": "Modello C",
+      "descrizione": "Descrizione dettagliata del Modello C.",
+      "immagine": "images/modelloC.jpg",
+      "categoria": "sviluppo"
+    },
+    {
+      "nome": "Modello D",
+      "descrizione": "Descrizione dettagliata del Modello D.",
+      "immagine": "images/modelloD.jpg",
+      "categoria": "altri"
     }
   ]
 }

@@ -1,15 +1,18 @@
 document.addEventListener("DOMContentLoaded", () => {
   const container = document.querySelector("#Progetti-container"),
+    filterButtons = document.querySelectorAll(".filter-button"),
     prevButton = document.createElement("button"),
     nextButton = document.createElement("button"),
     pageInfo = document.createElement("span");
 
-  pageInfo.id = "page-info"; // Aggiunto id per riferimento in CSS e JS
+  pageInfo.id = "page-info";
   let progettiData = [],
+    filteredProjects = [],
     currentPage = 1,
-    itemsPerPage = 3;
+    itemsPerPage = 3,
+    currentCategory = "all";
 
-  // Funzione per creare i bottoni di navigazione
+  // Creazione dei bottoni di navigazione
   function createNavigationButtons() {
     prevButton.innerHTML = "<span class='material-icons'>arrow_back</span>";
     nextButton.innerHTML = "<span class='material-icons'>arrow_forward</span>";
@@ -24,48 +27,65 @@ document.addEventListener("DOMContentLoaded", () => {
     container.parentElement.appendChild(pageInfoContainer);
   }
 
-  // Funzione per caricare i dati dal JSON
+  // Caricamento dati JSON
   function fetchData() {
     fetch("Projects/Progetti.json")
-      .then((response) => {
-        if (!response.ok) throw new Error(`Errore HTTP: ${response.status}`);
-        return response.json();
-      })
+      .then((response) => response.json())
       .then((data) => {
-        if (!data.Progetti) throw new Error("Formato JSON non valido");
         progettiData = data.Progetti;
-        updatePage();
+        updateFilter("all"); // Mostra tutto all'inizio
       })
       .catch((error) => {
-        console.error("Errore nel caricamento dei Progetti:", error);
-        container.innerHTML = "<p>Impossibile caricare i Progetti.</p>";
+        console.error("Errore nel caricamento:", error);
+        container.innerHTML = "<p>Errore nel caricamento dei progetti.</p>";
       });
   }
 
-  // Funzione per aggiornare la pagina con i progetti
+  // Funzione per filtrare i progetti per categoria
+  function updateFilter(category) {
+    currentCategory = category;
+    currentPage = 1; // Reset alla prima pagina
+    filteredProjects =
+      category === "all"
+        ? progettiData
+        : progettiData.filter((progetto) => progetto.categoria === category);
+    updatePage();
+  }
+
+  // Funzione per aggiornare la pagina
   function updatePage() {
-    container.innerHTML = ""; // Svuota il contenitore dei progetti
+    container.innerHTML = "";
 
     const start = (currentPage - 1) * itemsPerPage,
       end = start + itemsPerPage,
-      paginatedItems = progettiData.slice(start, end);
+      paginatedItems = filteredProjects.slice(start, end);
 
-    paginatedItems.forEach(createCard);
+    if (paginatedItems.length === 0) 
+      container.innerHTML = "<p>Nessun progetto trovato.</p>";
+    else
+      paginatedItems.forEach(createCard);
 
     updateButtons();
     updatePageInfo();
   }
 
-  // Funzione per creare una card di progetto
+  // Creazione della card progetto
   function createCard(progetto) {
     const card = document.createElement("div");
     card.classList.add("Progetti-card");
     card.innerHTML = `
-      <img src="${progetto.immagine}" alt="${progetto.nome}">
-      <h3>${progetto.nome}</h3>
-      <p>${progetto.descrizione}</p>
-      <a href="mailto:paolobomben81@gmail.com?subject=Richiesta%20info%20su%20${encodeURIComponent(progetto.nome)}" class="contact-button">Contattaci</a>
-    `;
+    <img src="${progetto.immagine}" alt="${progetto.nome}">
+    <h3>${progetto.nome}</h3>
+    <p>${progetto.descrizione}</p>
+    ${
+      currentCategory === "all"
+        ? `<p class="categoria">Categoria: ${progetto.categoria}</p>`
+        : ""
+    }
+    <a href="mailto:paolobomben81@gmail.com?subject=Richiesta%20info%20su%20${encodeURIComponent(
+      progetto.nome
+    )}" class="contact-button">Contattaci</a>
+  `;
     container.appendChild(card);
   }
 
@@ -73,16 +93,18 @@ document.addEventListener("DOMContentLoaded", () => {
   function updateButtons() {
     prevButton.style.visibility = currentPage > 1 ? "visible" : "hidden";
     nextButton.style.visibility =
-      currentPage * itemsPerPage < progettiData.length ? "visible" : "hidden";
+      currentPage * itemsPerPage < filteredProjects.length
+        ? "visible"
+        : "hidden";
   }
 
-  // Funzione per aggiornare le informazioni della pagina corrente
+  // Funzione per aggiornare l'informazione della pagina
   function updatePageInfo() {
-    const totalPages = Math.ceil(progettiData.length / itemsPerPage);
+    const totalPages = Math.ceil(filteredProjects.length / itemsPerPage);
     pageInfo.textContent = ` Pagina ${currentPage} di ${totalPages} `;
   }
 
-  // Funzione per navigare alla pagina precedente
+  // Navigazione tra le pagine
   function prevPage() {
     if (currentPage > 1) {
       currentPage--;
@@ -90,15 +112,14 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  // Funzione per navigare alla pagina successiva
   function nextPage() {
-    if (currentPage * itemsPerPage < progettiData.length) {
+    if (currentPage * itemsPerPage < filteredProjects.length) {
       currentPage++;
       updatePage();
     }
   }
 
-  // Funzione per adattare il numero di elementi per pagina in base alla larghezza dello schermo
+  // Adattamento elementi per pagina in base allo schermo
   function adjustItemsPerPage() {
     if (window.innerWidth >= 1024) itemsPerPage = 3;
     else if (window.innerWidth >= 768) itemsPerPage = 2;
@@ -106,11 +127,21 @@ document.addEventListener("DOMContentLoaded", () => {
     updatePage();
   }
 
-  // Aggiungere gli eventi per la navigazione
+  // Aggiunta eventi ai pulsanti
   function addEventListeners() {
     prevButton.addEventListener("click", prevPage);
     nextButton.addEventListener("click", nextPage);
     window.addEventListener("resize", adjustItemsPerPage);
+
+    filterButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        document
+          .querySelector(".filter-button.active")
+          ?.classList.remove("active");
+        button.classList.add("active");
+        updateFilter(button.dataset.category);
+      });
+    });
   }
 
   // Inizializzazione

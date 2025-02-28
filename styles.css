@@ -935,7 +935,6 @@ body {
   color: white;
 }
 
-
 .page-info-container {
   text-align: center;
   margin-top: 20px;
@@ -958,7 +957,6 @@ body {
   color: #007bff;
   cursor: pointer;
 }
-
 
 /* Pageinfo Section */
 .pageinfo-container {
@@ -1556,4 +1554,19 @@ footer {
 .material-icons.arrow_back:hover,
 .material-icons.arrow_forward:hover {
   transition: transform 0.3s ease;
+}
+
+header,
+footer {
+  background-image: url("Img/Legno.jpeg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+}
+
+
+
+header .menu li a:hover{
+  color: #5a3a1a;
 }

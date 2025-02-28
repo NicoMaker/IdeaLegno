@@ -67,16 +67,28 @@ document.addEventListener("DOMContentLoaded", () => {
   function createNewsCard(newsItem) {
     const newsCard = document.createElement("div");
     newsCard.classList.add("news-card");
-  
-    // Creazione del contenitore per la data e l'icona
+
+    // Creazione del contenuto principale della news
+    newsCard.innerHTML = `
+      <div class="container-immagine">
+        <img class="immagine" src="${newsItem.immagine}" alt="${newsItem.titolo}">
+      </div>
+      <h3>${newsItem.titolo}</h3>
+      <p>${newsItem.descrizione}
+      <br>
+      <br>
+      </p>
+    `;
+
+    // Contenitore per la data e l'icona di download
     const newsFooter = document.createElement("div");
-    newsFooter.classList.add("news-footer");
-  
+    newsFooter.classList.add("news-item");
+
     const newsDate = document.createElement("span");
     newsDate.classList.add("news-date");
     newsDate.textContent = newsItem.data;
     newsFooter.appendChild(newsDate);
-  
+
     // Se esiste un file da scaricare, aggiungi l'icona di download
     if (newsItem.download) {
       const downloadLink = document.createElement("a");
@@ -86,24 +98,11 @@ document.addEventListener("DOMContentLoaded", () => {
       downloadLink.innerHTML = `<span class="material-icons">download</span>`;
       newsFooter.appendChild(downloadLink);
     }
-  
-    // Creazione del contenuto della card
-    newsCard.innerHTML = `
-      <div class="container-immagine">
-        <img class="immagine" src="${newsItem.immagine}" alt="${newsItem.titolo}">
-      </div>
-      <br>
-      <h3>${newsItem.titolo}</h3>
-      <p>${newsItem.descrizione}</p>
-      <br>
-    `;
-  
-    // Aggiunta del contenitore data + icona alla card
+
+    // Aggiunta del footer alla news card
     newsCard.appendChild(newsFooter);
     newsContainer.appendChild(newsCard);
   }
-  
-  
 
   function updateButtonsVisibility() {
     prevButton.style.visibility = currentPage > 1 ? "visible" : "hidden";

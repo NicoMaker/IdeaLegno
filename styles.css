@@ -1501,9 +1501,23 @@ footer {
   gap: 10px; /* Spazio tra data e icona */
 }
 
+.news-item {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Centra tutti gli elementi nella riga */
+  gap: 10px; /* Spazio tra gli elementi */
+  width: 100%; /* Occupa tutta la larghezza disponibile */
+  padding: 5px 0;
+  text-shadow: none;
+  border: 1px solid black;
+}
+
 .news-date {
   font-size: 14px;
-  color: #333;
+  font-weight: bold; /* Rende la data più evidente */
+  color: #333; /* Testo ben leggibile */
+  margin: 0;
+  text-align: center; /* Centra il testo */
 }
 
 .download-icon {
@@ -1512,10 +1526,37 @@ footer {
   justify-content: center;
   color: #007bff;
   text-decoration: none;
-  font-size: 18px;
+  font-size: 20px;
   cursor: pointer;
 }
 
 .download-icon:hover {
   color: #0056b3;
+}
+
+/* Effetto per il footer della notizia (che contiene l'icona di download e la data) */
+.news-item {
+  transition: transform 0.3s ease; /* Aggiungi una transizione per un effetto più fluido */
+}
+
+.news-item:hover {
+  transform: scale(1.1); /* Ingrandisce l'intero footer (data e icona) al passaggio del mouse */
+}
+
+/* Effetto per l'icona di download */
+.download-icon {
+  transition: transform 0.3s ease; /* Aggiungi una transizione per l'icona di download */
+}
+
+.download-icon:hover {
+  transform: scale(1.3); /* Ingrandisce l'icona di download al passaggio del mouse */
+}
+
+/* Effetto per la data */
+.news-date {
+  transition: transform 0.3s ease; /* Aggiungi una transizione per la data */
+}
+
+.news-date:hover {
+  transform: scale(1.1); /* Ingrandisce la data al passaggio del mouse */
 }

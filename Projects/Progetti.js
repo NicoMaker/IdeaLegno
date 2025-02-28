@@ -14,8 +14,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Creazione dei bottoni di navigazione
   function createNavigationButtons() {
-    prevButton.innerHTML = "<span class='material-icons'>arrow_back</span>";
-    nextButton.innerHTML = "<span class='material-icons'>arrow_forward</span>";
+    prevButton.innerHTML =
+      "<span class='material-icons arrow_back'>arrow_back</span>";
+    nextButton.innerHTML =
+      "<span class='material-icons arrow_forward'>arrow_forward</span>";
+
     prevButton.classList.add("nav-button", "prev");
     nextButton.classList.add("nav-button", "next");
 

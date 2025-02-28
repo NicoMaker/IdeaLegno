@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function createNavButton(icon, className) {
     const button = document.createElement("button");
-    button.innerHTML = `<span class='material-icons'>${icon}</span>`;
+    button.innerHTML = `<span class='material-icons ${icon}'>${icon}</span>`;
     button.classList.add("nav-button", className);
     return button;
   }

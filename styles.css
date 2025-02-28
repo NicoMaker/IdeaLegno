@@ -1209,8 +1209,8 @@ footer {
   position: absolute;
   bottom: 0;
   left: 0;
-  width: 100%; /* Cambiato da 40px a 100% */
-  height: 2px;
+  width: 100%;
+  height: 2px; /* Altezza della riga */
   background-color: #fff;
 }
 
@@ -1252,7 +1252,7 @@ footer {
 .location-section {
   margin-top: 15px;
   padding-top: 15px;
-  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  border-top: 2px solid white;
   text-align: center;
 }
 
@@ -1565,8 +1565,11 @@ footer {
   background-repeat: no-repeat;
 }
 
-
-
-header .menu li a:hover{
+header .menu li a:hover {
   color: #5a3a1a;
+}
+
+.material-icons.arrow_back:hover,
+.material-icons.arrow_forward:hover {
+  transform: scale(1.1);
 }

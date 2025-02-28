@@ -60,10 +60,9 @@ document.addEventListener("DOMContentLoaded", () => {
       end = start + itemsPerPage,
       paginatedItems = filteredProjects.slice(start, end);
 
-    if (paginatedItems.length === 0) 
+    if (paginatedItems.length === 0)
       container.innerHTML = "<p>Nessun progetto trovato.</p>";
-    else
-      paginatedItems.forEach(createCard);
+    else paginatedItems.forEach(createCard);
 
     updateButtons();
     updatePageInfo();
@@ -74,12 +73,19 @@ document.addEventListener("DOMContentLoaded", () => {
     const card = document.createElement("div");
     card.classList.add("Progetti-card");
     card.innerHTML = `
-    <img src="${progetto.immagine}" alt="${progetto.nome}">
+    <div class="container-immagine">
+      <img class="immagine" src="${progetto.immagine}" alt="${progetto.nome}">
+    </div>
+    <br>
     <h3>${progetto.nome}</h3>
-    <p>${progetto.descrizione}</p>
+    ${
+      currentCategory !== "all"
+        ? `<p>${progetto.descrizione}</p> <br>`
+        : `<p>${progetto.descrizione}</p>`
+    }
     ${
       currentCategory === "all"
-        ? `<p class="categoria">Categoria: ${progetto.categoria}</p>`
+        ? `<p class="categoria">Categoria: ${progetto.categoria}</p> <br>`
         : ""
     }
     <a href="mailto:paolobomben81@gmail.com?subject=Richiesta%20info%20su%20${encodeURIComponent(

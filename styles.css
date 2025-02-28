@@ -1064,14 +1064,6 @@ footer {
   text-align: center;
 }
 
-.footer-container {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 15px;
-  max-height: 200px;
-  overflow-y: auto;
-}
 
 .contact-info,
 .location-info {
@@ -1457,4 +1449,20 @@ footer {
 
 .news-container p {
   border-bottom: 2px solid black;
+}
+
+
+.container-immagine {
+  display: flex; /* Abilita Flexbox */
+  justify-content: center; /* Centra orizzontalmente */
+  align-items: center; /* Centra verticalmente */
+  height: 200px; /* Altezza del contenitore (adatta in base alle esigenze) */
+  background-color: #f0f0f0; /* Solo per visibilità */
+}
+
+.immagine {
+  max-width: 80%; /* Limita la larghezza al massimo 80% del contenitore */
+  max-height: 100px; /* Imposta un'altezza massima */
+  width: auto; /* Mantiene le proporzioni */
+  height: auto; /* Mantiene le proporzioni */
 }

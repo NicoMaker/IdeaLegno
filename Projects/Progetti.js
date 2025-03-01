@@ -93,7 +93,7 @@ document.addEventListener("DOMContentLoaded", () => {
         currentCategory === "all"
           ? `<p class="categoria">Categorie: ${progetto.categorie.join(
               ", "
-            )}</p><br>`
+            )}</p>`
           : ""
       }
     `;

@@ -9,8 +9,17 @@ document.addEventListener("DOMContentLoaded", () => {
   let progettiData = [],
     filteredProjects = [],
     currentPage = 1,
-    itemsPerPage = 3,
+    itemsPerPage = 3, // Impostiamo il valore di default per PC
     currentCategory = "all";
+
+  // Funzione per aggiornare il numero di progetti per pagina in base alla larghezza dello schermo
+  function updateItemsPerPage() {
+    const width = window.innerWidth;
+    if (width <= 600) itemsPerPage = 1; // 1 per mobile
+    else if (width <= 900) itemsPerPage = 2; // 2 per tablet
+    else itemsPerPage = 3; // 3 per desktop
+    updatePage(); // Ricarica la pagina dopo aver aggiornato itemsPerPage
+  }
 
   // Creazione dei bottoni di navigazione
   function createNavigationButtons() {
@@ -79,7 +88,7 @@ document.addEventListener("DOMContentLoaded", () => {
   function createCard(progetto) {
     const card = document.createElement("div");
     card.classList.add("Progetti-card");
-    card.innerHTML = `
+    card.innerHTML = ` 
       <div class="container-immagine">
         <a href="${progetto.link}">
           <img class="immagine" src="${progetto.immagine}" alt="${
@@ -151,6 +160,8 @@ document.addEventListener("DOMContentLoaded", () => {
     createNavigationButtons();
     fetchData();
     addEventListeners();
+    updateItemsPerPage(); // Imposta itemsPerPage iniziale
+    window.addEventListener("resize", updateItemsPerPage); // Aggiungi l'evento di resize
   }
 
   init();

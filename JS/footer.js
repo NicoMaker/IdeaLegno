@@ -49,12 +49,6 @@ const createContactItem = (href, imgSrc, altText, text) => `
         "Instagram",
         "Instagram"
       )}
-      ${createSocialItem(
-        "https://www.facebook.com/search/top?q=ideal%20legno",
-        "Contact/Img/Facebook.png",
-        "Facebook",
-        "Facebook"
-      )}
     </ul>
   </div>
 `,
@@ -98,3 +92,11 @@ window.addEventListener("scroll", function () {
     footer.style.transform = "translateY(100%)"; // Sposta il footer fuori dallo schermo
   }
 });
+
+
+// ${createSocialItem(
+//   "https://www.facebook.com/ideallegnopavimenti",
+//   "Contact/Img/Facebook.png",
+//   "Facebook",
+//   "Facebook"
+// )}

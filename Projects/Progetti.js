@@ -87,21 +87,20 @@ document.addEventListener("DOMContentLoaded", () => {
       <div class="Progetti-card">
         <div class="container-immagine">
           <a href="${progetto.link}">
-            <img class="immagine" src="${progetto.immagine}" alt="${
-      progetto.nome
-    }">
+            <img class="immagine" src="${progetto.immagine}" alt="${progetto.nome}">
           </a>
         </div>
         <h3>${progetto.nome}</h3>
         ${
-          progetto.categorie.length > 0
+          currentCategory === "all" && progetto.categorie.length > 0
             ? `<p class="categoria">${
                 progetto.categorie.length > 1 ? "Categorie" : "Categoria"
-              }: ${progetto.categorie.join(" , ")}</p>`
+              }: ${progetto.categorie.join(", ")}</p>`
             : ""
         }
       </div>`;
   }
+  
 
   function updateButtons() {
     prevButton.style.visibility = currentPage > 1 ? "visible" : "hidden";

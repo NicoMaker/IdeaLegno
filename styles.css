@@ -1585,3 +1585,8 @@ header .menu li a:hover {
 .news-card img:hover {
   transform: scale(1.1); /* Ingrandisce l'immagine al passaggio del mouse */
 }
+
+.highlight{
+  /* sottolineato */
+  text-decoration: underline;
+}

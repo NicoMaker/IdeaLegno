@@ -1,31 +1,9 @@
 {
   "news": [
     {
-      "titolo": "Nuovo modello in arrivo!",
-      "descrizione": "Il nostro nuovo modello sarà disponibile dal prossimo mese, con caratteristiche avanzate.",
-      "data": "2025-02-15",
-      "immagine": "News/Img/modello-nuovo.jpg",
-      "download": "News/Files/modello-nuovo.pdf"
-    },
-    {
-      "titolo": "Espansione in nuove città",
-      "descrizione": "Azienda apre nuove filiali a Torino e Firenze, migliorando il servizio clienti.",
-      "data": "2025-01-20",
-      "immagine": "News/Img/espansione.jpg"
-    },
-    {
-      "titolo": "Evento speciale",
-      "descrizione": "Partecipa al nostro evento esclusivo per scoprire i segreti dei nostri modelli.",
-      "data": "2025-03-10",
-      "immagine": "News/Img/evento.jpg",
-      "download": "News/Files/evento.pdf"
-    },
-    {
-      "titolo": "Evento speciale",
-      "descrizione": "Partecipa al nostro evento esclusivo per scoprire i segreti dei nostri modelli.",
-      "data": "2025-03-10",
-      "immagine": "News/Img/evento.jpg",
-      "download": "News/Files/evento.pdf"
+      "titolo": "Premiato dalla Camera di Commercio di Pordenone-Udine alla Premiazione dell’economia e dello sviluppo 2024",
+      "immagine": "News/Img/PREMIAZIONI_2024.jpg",
+      "data": "18/11/2024"
     }
   ]
 }

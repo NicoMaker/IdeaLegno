@@ -45,7 +45,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function handleError(error) {
     console.error("Errore nel caricamento delle news:", error);
-    newsContainer.innerHTML = "<p>Impossibile caricare le news.</p>";
+    newsContainer.innerHTML = "<p> Novità in arrivo... stay tuned</p>";
   }
 
   function updatePage() {
@@ -71,10 +71,13 @@ document.addEventListener("DOMContentLoaded", () => {
     // Creazione del contenuto principale della news
     newsCard.innerHTML = `
       <div class="container-immagine">
+      <a href="${newsItem.immagine} " target="_blank">
         <img class="immagine" src="${newsItem.immagine}" alt="${newsItem.titolo}">
+      </a>
       </div>
+      <br>
+      <br>
       <h3>${newsItem.titolo}</h3>
-      <p>${newsItem.descrizione}
       <br>
       <br>
       </p>

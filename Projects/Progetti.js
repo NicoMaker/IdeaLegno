@@ -77,23 +77,17 @@ document.addEventListener("DOMContentLoaded", () => {
     card.classList.add("Progetti-card");
     card.innerHTML = `
     <div class="container-immagine">
+    <a href="${progetto.link}">
       <img class="immagine" src="${progetto.immagine}" alt="${progetto.nome}">
+    </a>
     </div>
     <br>
     <h3>${progetto.nome}</h3>
-    ${
-      currentCategory !== "all"
-        ? `<p>${progetto.descrizione}</p> <br>`
-        : `<p>${progetto.descrizione}</p>`
-    }
     ${
       currentCategory === "all"
         ? `<p class="categoria">Categoria: ${progetto.categoria}</p> <br>`
         : ""
     }
-    <a href="mailto:paolobomben81@gmail.com?subject=Richiesta%20info%20su%20${encodeURIComponent(
-      progetto.nome
-    )}" class="contact-button">Contattaci</a>
   `;
     container.appendChild(card);
   }

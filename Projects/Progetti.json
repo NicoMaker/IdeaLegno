@@ -1,40 +1,65 @@
 {
   "Progetti": [
     {
-      "nome": "Modello A",
-      "descrizione": "Descrizione dettagliata del Modello A.",
-      "immagine": "images/modelloA.jpg",
-      "categoria": "sviluppo"
+      "nome": "Scala",
+      "immagine": "Projects/Img/Scala/Scala1.jpg",
+      "categoria": "Casa",
+      "link":"Projects/Pages/Scala.html"
     },
     {
-      "nome": "Modello B",
-      "descrizione": "Descrizione dettagliata del Modello B.",
-      "immagine": "images/modelloB.jpg",
-      "categoria": "design"
+      "nome": "Scala con cassetto",
+      "immagine": "Projects/Img/Scala_Cassetto/Scala1.jpg",
+      "categoria": "Casa"
     },
     {
-      "nome": "Modello C",
-      "descrizione": "Descrizione dettagliata del Modello C.",
-      "immagine": "images/modelloC.jpg",
-      "categoria": "sviluppo"
+      "nome": "Scala ellittica",
+      "immagine": "Projects/Img/Scala_Ellittica/Scala1.jpg",
+      "categoria": "Casa"
     },
     {
-      "nome": "Modello C",
-      "descrizione": "Descrizione dettagliata del Modello C.",
-      "immagine": "images/modelloC.jpg",
-      "categoria": "sviluppo"
+      "nome": "Arredamento Vineria",
+      "immagine": "Projects/Img/vineria.gif",
+      "categoria": "Commerciale"
     },
     {
-      "nome": "Modello C",
-      "descrizione": "Descrizione dettagliata del Modello C.",
-      "immagine": "images/modelloC.jpg",
-      "categoria": "sviluppo"
+      "nome": "Parete",
+      "immagine": "Projects/Img/Parete/Parete1.jpg",
+      "categoria": "Casa"
     },
     {
-      "nome": "Modello D",
-      "descrizione": "Descrizione dettagliata del Modello D.",
-      "immagine": "images/modelloD.jpg",
-      "categoria": "altri"
+      "nome": "Tavolo Cucina",
+      "immagine": "Projects/Img/Tavolo/Tavolo1.jpg",
+      "categoria": "Casa"
+    },
+    {
+      "nome": "Elementi Arredo Bar",
+      "immagine": "Projects/Img/Bar/Bar.jpg",
+      "categoria": "Commerciale"
+    },
+    {
+      "nome": "Cameretta",
+      "immagine": "Projects/Img/Cameretta/Cameretta1.jpg",
+      "categoria": "Casa"
+    },
+    {
+      "nome": "Arredamento Ristorante",
+      "immagine": "Projects/Img/Ristorante/Ristorante1.jpg",
+      "categoria": "Commerciale"
+    },
+    {
+      "nome": "Parete Luminosa",
+      "immagine": "Projects/Img/Parete_Luminosa/Parete1.jpg",
+      "categoria": "Commerciale"
+    },
+    {
+      "nome": "Bagno",
+      "immagine": "Projects/Img/Bagno/Bagno1.jpg",
+      "categoria": "Casa"
+    },
+    {
+      "nome": "Bagno",
+      "immagine": "Projects/Img/Bagno/Bagno2.jpg",
+      "categoria": "Commerciale"
     }
   ]
 }

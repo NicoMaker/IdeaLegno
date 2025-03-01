@@ -1562,9 +1562,8 @@ header .menu li a:hover {
   display: flex; /* Abilita Flexbox */
   justify-content: center; /* Centra orizzontalmente */
   align-items: center; /* Centra verticalmente */
-  height: 200px; /* Altezza del contenitore (adatta in base alle esigenze) */
-  width: 200px;
-  background-color: #f0f0f0; /* Solo per visibilità */
+  height: 100px; /* Altezza del contenitore (adatta in base alle esigenze) */
+  width: 100px;
   margin: auto;
 }
 
@@ -1574,6 +1573,8 @@ header .menu li a:hover {
   width: auto; /* Mantiene le proporzioni */
   height: auto; /* Mantiene le proporzioni */
   border-radius: 10px;
+  height: 500px; /* Altezza del contenitore (adatta in base alle esigenze) */
+  width: 500px;
 }
 
 #footer img{

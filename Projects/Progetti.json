@@ -2,64 +2,75 @@
   "Progetti": [
     {
       "nome": "Scala",
-      "immagine": "Projects/Img/Scala/Scala1.jpg",
+      "immagine": "Projects/Img/Casa/Scala/Scala/Scala1.jpg",
       "categoria": "Casa",
-      "link":"Projects/Pages/Scala.html"
+      "link":"Projects/Pages/HTML/Scala.html"
     },
     {
       "nome": "Scala con cassetto",
-      "immagine": "Projects/Img/Scala_Cassetto/Scala1.jpg",
-      "categoria": "Casa"
+      "immagine": "Projects/Img/Casa/Scala/Scala_Cassetto/Scala1.jpg",
+      "categoria": "Casa",
+      "link":"Projects/Pages/HTML/Scala_con_casetto.html"
     },
     {
       "nome": "Scala ellittica",
-      "immagine": "Projects/Img/Scala_Ellittica/Scala1.jpg",
-      "categoria": "Casa"
+      "immagine": "Projects/Img/Casa/Scala/Scala_Ellittica/Scala1.jpg",
+      "categoria": "Casa",
+      "link":"Projects/Pages/HTML/Scala_ellittica.html"
     },
     {
       "nome": "Arredamento Vineria",
-      "immagine": "Projects/Img/vineria.gif",
-      "categoria": "Commerciale"
+      "immagine": "Projects/Img/Commerciale/Vineria.gif",
+      "categoria": "Commerciale",
+      "link":"Projects/Pages/HTML/Arredamento_Vineria.html"
     },
     {
       "nome": "Parete",
-      "immagine": "Projects/Img/Parete/Parete1.jpg",
-      "categoria": "Casa"
+      "immagine": "Projects/Img/Casa/Parete/Parete1.jpg",
+      "categoria": "Casa",
+      "link":"Projects/Pages/HTML/Parete.html"
     },
     {
       "nome": "Tavolo Cucina",
-      "immagine": "Projects/Img/Tavolo/Tavolo1.jpg",
-      "categoria": "Casa"
+      "immagine": "Projects/Img/Casa/Tavolo/Tavolo1.jpg",
+      "categoria": "Casa",
+      "link":"Projects/Pages/HTML/Tavolo_Cucina.html"
     },
     {
       "nome": "Elementi Arredo Bar",
-      "immagine": "Projects/Img/Bar/Bar.jpg",
-      "categoria": "Commerciale"
+      "immagine": "Projects/Img/Commerciale/Bar/Bar.jpg",
+      "categoria": "Commerciale",
+      "link":"Projects/Pages/HTML/Elementi_Arredo_Bar.html"
     },
     {
       "nome": "Cameretta",
-      "immagine": "Projects/Img/Cameretta/Cameretta1.jpg",
-      "categoria": "Casa"
+      "immagine": "Projects/Img/Casa/Cameretta/Cameretta1.jpg",
+      "categoria": "Casa",
+      "link":"Projects/Pages/HTML/Cameretta.html"
     },
     {
       "nome": "Arredamento Ristorante",
-      "immagine": "Projects/Img/Ristorante/Ristorante1.jpg",
-      "categoria": "Commerciale"
+      "immagine": "Projects/Img/Commerciale/Ristorante/Ristorante1.jpg",
+      "categoria": "Commerciale",
+      "link":"Projects/Pages/HTML/Arredamento_Ristorante.html"
     },
     {
       "nome": "Parete Luminosa",
-      "immagine": "Projects/Img/Parete_Luminosa/Parete1.jpg",
-      "categoria": "Commerciale"
+      "immagine": "Projects/Img/Commerciale/Parete_Luminosa/Parete1.jpg",
+      "categoria": "Commerciale",
+      "link":"Projects/Pages/HTML/Parete_Luminosa.html"
     },
     {
       "nome": "Bagno",
-      "immagine": "Projects/Img/Bagno/Bagno1.jpg",
-      "categoria": "Casa"
+      "immagine": "Projects/Img/Casa/Bagno/Bagno1.jpg",
+      "categoria": "Casa",
+      "link":"Projects/Pages/HTML/Bagno.html"
     },
     {
       "nome": "Bagno",
-      "immagine": "Projects/Img/Bagno/Bagno2.jpg",
-      "categoria": "Commerciale"
+      "immagine": "Projects/Img/Casa/Bagno/Bagno2.jpg",
+      "categoria": "Commerciale",
+      "link":"Projects/Pages/HTML/Bagno.html"
     }
   ]
 }

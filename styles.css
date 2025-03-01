@@ -1548,13 +1548,12 @@ header .menu li a:hover {
   padding-top: 5px; /* Per separare il testo dalla linea */
 }
 
-
 .nav-link.active {
-  color: orange ; /* Colore blu quando sei nella sezione attiva */
+  color: orange; /* Colore blu quando sei nella sezione attiva */
 }
 
 .Progetti-card,
-.news-card{
+.news-card {
   border-radius: 10px;
 }
 
@@ -1577,7 +1576,12 @@ header .menu li a:hover {
   width: 500px;
 }
 
-#footer img{
+#footer img {
   height: 40px;
   width: 40px;
+}
+
+.Progetti-card img:hover,
+.news-card img:hover {
+  transform: scale(1.1); /* Ingrandisce l'immagine al passaggio del mouse */
 }

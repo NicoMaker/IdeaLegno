@@ -4,6 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
     prevButton = document.createElement("button"),
     nextButton = document.createElement("button"),
     pageInfo = document.createElement("span");
+    
 
   pageInfo.id = "page-info";
   let progettiData = [],
@@ -14,11 +15,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function updateItemsPerPage() {
     const width = window.innerWidth;
-    if (width <= 600) itemsPerPage = 1;
-    else if (width <= 900) itemsPerPage = 2;
-    else itemsPerPage = 3;
+    if (width <= 600) itemsPerPage = 1; // Mobile: 1 per riga
+    else if (width <= 900) itemsPerPage = 2; // Tablet: 2 per riga
+    else itemsPerPage = 3; // PC: 3 per riga
 
-    currentPage = 1;
     updatePage();
   }
 
@@ -87,7 +87,9 @@ document.addEventListener("DOMContentLoaded", () => {
       <div class="Progetti-card">
         <div class="container-immagine">
           <a href="${progetto.link}">
-            <img class="immagine" src="${progetto.immagine}" alt="${progetto.nome}">
+            <img class="immagine" src="${progetto.immagine}" alt="${
+      progetto.nome
+    }">
           </a>
         </div>
         <h3>${progetto.nome}</h3>
@@ -100,7 +102,6 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       </div>`;
   }
-  
 
   function updateButtons() {
     prevButton.style.visibility = currentPage > 1 ? "visible" : "hidden";
@@ -135,8 +136,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     filterButtons.forEach((button) => {
       button.addEventListener("click", () => {
-        const activeButton = document.querySelector(".filter-button.active");
-        if (activeButton) activeButton.classList.remove("active");
+        document.querySelectorAll(".filter-button").forEach((btn) => {
+          btn.classList.remove("active");
+        });
 
         button.classList.add("active");
         updateFilter(button.dataset.category);

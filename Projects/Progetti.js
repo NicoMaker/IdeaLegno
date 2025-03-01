@@ -48,10 +48,14 @@ document.addEventListener("DOMContentLoaded", () => {
   function updateFilter(category) {
     currentCategory = category;
     currentPage = 1; // Reset alla prima pagina
-    filteredProjects =
-      category === "all"
-        ? progettiData
-        : progettiData.filter((progetto) => progetto.categoria === category);
+
+    if (category === "all") filteredProjects = progettiData;
+    else {
+      filteredProjects = progettiData.filter((progetto) =>
+        progetto.categorie.includes(category)
+      );
+    }
+
     updatePage();
   }
 
@@ -76,19 +80,23 @@ document.addEventListener("DOMContentLoaded", () => {
     const card = document.createElement("div");
     card.classList.add("Progetti-card");
     card.innerHTML = `
-    <div class="container-immagine">
-    <a href="${progetto.link}">
-      <img class="immagine" src="${progetto.immagine}" alt="${progetto.nome}">
-    </a>
-    </div>
-    <br>
-    <h3>${progetto.nome}</h3>
-    ${
-      currentCategory === "all"
-        ? `<p class="categoria">Categoria: ${progetto.categoria}</p> <br>`
-        : ""
-    }
-  `;
+      <div class="container-immagine">
+        <a href="${progetto.link}">
+          <img class="immagine" src="${progetto.immagine}" alt="${
+      progetto.nome
+    }">
+        </a>
+      </div>
+      <br>
+      <h3>${progetto.nome}</h3>
+      ${
+        currentCategory === "all"
+          ? `<p class="categoria">Categorie: ${progetto.categorie.join(
+              ", "
+            )}</p><br>`
+          : ""
+      }
+    `;
     container.appendChild(card);
   }
 
@@ -122,19 +130,10 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  // Adattamento elementi per pagina in base allo schermo
-  function adjustItemsPerPage() {
-    if (window.innerWidth >= 1024) itemsPerPage = 3;
-    else if (window.innerWidth >= 768) itemsPerPage = 2;
-    else itemsPerPage = 1;
-    updatePage();
-  }
-
   // Aggiunta eventi ai pulsanti
   function addEventListeners() {
     prevButton.addEventListener("click", prevPage);
     nextButton.addEventListener("click", nextPage);
-    window.addEventListener("resize", adjustItemsPerPage);
 
     filterButtons.forEach((button) => {
       button.addEventListener("click", () => {

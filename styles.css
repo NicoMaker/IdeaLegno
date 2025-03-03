@@ -1905,6 +1905,7 @@ header .menu li a:hover {
   min-height: 100vh;
 }
 
+
 .revoke {
   position: fixed;
   bottom: 20px;
@@ -2065,4 +2066,8 @@ header .menu li a:hover {
       right: 10px;
       padding: 8px 12px;
   }
+}
+
+#Home{
+  min-height: 55vh;
 }

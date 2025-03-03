@@ -1,3 +1,6 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
 /* Media Queries per Tablet e Mobile */
 
 /* Tablet (tra 768px e 1024px) */
@@ -680,7 +683,7 @@ header nav ul li a:hover {
 
 /* Sezioni */
 .section {
-  min-height: 100vh;
+  min-height: 55vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -1586,9 +1589,6 @@ header .menu li a:hover {
   transform: scale(1.1); /* Ingrandisce l'immagine al passaggio del mouse */
 }
 
-.highlight{
-  text-decoration: underline;
-}
 
 .footer-logo {
   width: 100%;
@@ -1727,3 +1727,181 @@ header .menu li a:hover {
   object-fit: cover; /* Fa in modo che l'immagine riempia completamente il contenitore senza deformarsi */
   object-position: center; /* Centra l'immagine all'interno del contenitore */
 }
+
+* {
+  font-family: "Roboto", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: weight;
+  font-style: normal;
+  font-variation-settings: "wdth" 100;
+}
+
+#Home h2 {
+  font-family: "Raleway", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: weight;
+  font-style: normal;
+
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.cookie-banner {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #8b5a2b; /* Marrone legno */
+  color: white;
+  text-align: center;
+  padding: 15px;
+  font-size: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.cookie-banner p {
+  margin: 0;
+  flex: 1;
+}
+
+.cookie-banner a {
+  color: #ffcc80;
+  text-decoration: underline;
+}
+
+.cookie-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.cookie-btn {
+  background-color: #d2691e;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 1rem;
+  border-radius: 5px;
+}
+
+.cookie-btn:hover {
+  background-color: #a0522d;
+}
+
+.cookie-btn.decline {
+  background-color: #a52a2a;
+}
+
+.cookie-btn.decline:hover {
+  background-color: #8b0000;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .cookie-banner {
+    flex-direction: column;
+    text-align: center;
+  }
+  .cookie-buttons {
+    flex-direction: column;
+    width: 100%;
+  }
+  .cookie-btn {
+    width: 100%;
+  }
+}
+
+.cookie-banner {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #8b5a2b;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  font-size: 0.875rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.cookie-banner p {
+  margin: 0;
+  flex: 1;
+}
+
+.cookie-banner a {
+  color: #ffcc80;
+  text-decoration: underline;
+}
+
+.cookie-buttons {
+  display: flex;
+  gap: 5px;
+}
+
+.cookie-btn {
+  background-color: #d2691e;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  cursor: pointer;
+  font-size: 0.875rem;
+  border-radius: 4px;
+}
+
+.cookie-btn:hover {
+  background-color: #a0522d;
+}
+
+.cookie-btn.decline {
+  background-color: #a52a2a;
+}
+
+.cookie-btn.decline:hover {
+  background-color: #8b0000;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .cookie-banner {
+    flex-direction: column;
+    text-align: center;
+    padding: 8px;
+  }
+  .cookie-buttons {
+    flex-direction: column;
+    width: 100%;
+    gap: 3px;
+  }
+  .cookie-btn {
+    width: 100%;
+    padding: 5px 10px;
+  }
+}
+
+#Home {
+  background-image: url("Projects/Img/Casa/Scala/Scala/Scala1.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+#Home p,
+#Home h2 {
+  color: white;
+}
+
+#Riconoscimenti {
+  background-image: url("News/Img/PREMIAZIONI_2024.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+

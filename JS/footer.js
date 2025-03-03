@@ -72,7 +72,6 @@ const createContactItem = (href, imgSrc, altText, text) => `
           ${getSocialSection()} <!-- Social dopo i contatti -->
         </div>
       </div>
-      <img clas="footer-logo" src="  News/Img/PREMIAZIONI_2024.jpg" alt="Logo" class="footer-logo">
       <br>
       <p class="copyright">&copy; ${new Date().getFullYear()} IdeaLegno. Tutti i diritti riservati.</p>
     </footer>
@@ -94,7 +93,6 @@ window.addEventListener("scroll", function () {
     footer.style.transform = "translateY(100%)"; // Sposta il footer fuori dallo schermo
   }
 });
-
 
 // ${createSocialItem(
 //   "https://www.facebook.com/ideallegnopavimenti",

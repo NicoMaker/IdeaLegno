@@ -9,6 +9,7 @@
     <script src="News/news.js" defer></script>
     <script src="JS/footer.js" defer></script>
     <script src="JS/colore_sezione.js" defer></script>
+    <!-- <script src="JS/Cookies.js" defer></script> -->
     <link
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet"
@@ -28,19 +29,31 @@
           <li>
             <a href="#Progetti" class="nav-link">I nostri progetti</a>
           </li>
-          <li><a href="#news" class="nav-link">Le nostre novità</a></li>
+          <li ><a href="#Riconoscimenti" class="nav-link">I nostri Riconoscimenti</a></li>
         </ul>
       </nav>
     </header>
 
+    <div id="cookie-banner" class="cookie-banner">
+      <p>
+        Questo sito utilizza i cookie per migliorare l'esperienza utente.
+        Continuando la navigazione, accetti il loro utilizzo.
+        <a href="cookie-policy.html">Leggi di più</a>
+      </p>
+      <div class="cookie-buttons">
+        <button id="accept-cookies" class="cookie-btn">Accetta</button>
+        <button id="decline-cookies" class="cookie-btn decline">Rifiuta</button>
+      </div>
+    </div>
+
     <main class="main-container">
       <section id="Home" class="section">
         <h2>
+          <br>
           Con la nostra passione per il legno, unita alla precisione nella
           progettazione, ogni angolo del tuo ambiente domestico sarà reso unico
           ed esattamente
-          <br />
-          <span class="highlight">come lo desideri tu. </span>
+          <br />come lo desideri tu.
         </h2>
         <p>
           La nostra impresa artigiana, fondata e tutt'ora guidata da Paolo
@@ -78,9 +91,7 @@
         <div id="Progetti-container" class="Progetti-container"></div>
       </section>
 
-      <section id="news" class="section">
-        <h2>Le nostre novità</h2>
-        <div id="news-container" class="news-container"></div>
+      <section id="Riconoscimenti" class="section">
       </section>
     </main>
 

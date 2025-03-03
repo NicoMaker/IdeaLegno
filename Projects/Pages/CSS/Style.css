@@ -1,3 +1,6 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+
 .logo-container {
   flex: 1;
   display: flex;
@@ -81,6 +84,27 @@ h1 {
 }
 
 body {
-  height: 100vh;  /* Imposta l'altezza del body al 100% della finestra */
-  background: linear-gradient(to bottom, rgba(233, 236, 239, 0.7), rgba(139, 90, 43, 0.7));
+  height: 100vh; /* Imposta l'altezza del body al 100% della finestra */
+  background: linear-gradient(
+    to bottom,
+    rgba(233, 236, 239, 0.7),
+    rgba(139, 90, 43, 0.7)
+  );
+}
+
+* {
+  font-family: "Roboto", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: weight;
+  font-style: normal;
+  font-variation-settings: "wdth" 100;
+}
+
+h1 {
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: weight;
+  font-style: normal;
+
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }

@@ -9,7 +9,7 @@
     <script src="News/news.js" defer></script>
     <script src="JS/footer.js" defer></script>
     <script src="JS/colore_sezione.js" defer></script>
-    <!-- <script src="JS/Cookies.js" defer></script> -->
+    <script src="Cookies/Cookies.js" defer></script>
     <link
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet"
@@ -29,7 +29,11 @@
           <li>
             <a href="#Progetti" class="nav-link">I nostri progetti</a>
           </li>
-          <li ><a href="#Riconoscimenti" class="nav-link">I nostri Riconoscimenti</a></li>
+          <li>
+            <a href="#Riconoscimenti" class="nav-link"
+              >I nostri Riconoscimenti</a
+            >
+          </li>
         </ul>
       </nav>
     </header>
@@ -38,18 +42,27 @@
       <p>
         Questo sito utilizza i cookie per migliorare l'esperienza utente.
         Continuando la navigazione, accetti il loro utilizzo.
-        <a href="cookie-policy.html">Leggi di più</a>
+        <a href="Cookies/Cookie.html" target="_blank">Leggi di più</a>
       </p>
       <div class="cookie-buttons">
         <button id="accept-cookies" class="cookie-btn">Accetta</button>
         <button id="decline-cookies" class="cookie-btn decline">Rifiuta</button>
       </div>
     </div>
+    
+    <!-- Pulsante per modificare le preferenze -->
+    <button id="revoke-cookies" class="cookie-btn revoke">
+      Modifica preferenze cookie
+    </button>
+    
+    
+    
+    </div>
 
     <main class="main-container">
       <section id="Home" class="section">
         <h2>
-          <br>
+          <br />
           Con la nostra passione per il legno, unita alla precisione nella
           progettazione, ogni angolo del tuo ambiente domestico sarà reso unico
           ed esattamente
@@ -91,8 +104,7 @@
         <div id="Progetti-container" class="Progetti-container"></div>
       </section>
 
-      <section id="Riconoscimenti" class="section">
-      </section>
+      <section id="Riconoscimenti" class="section"></section>
     </main>
 
     <br />

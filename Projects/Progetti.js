@@ -1,15 +1,9 @@
 document.addEventListener("DOMContentLoaded", () => {
   const container = document.querySelector("#Progetti-container"),
-    filterButtons = document.querySelectorAll(".filter-button"),
-    prevButton = document.createElement("button"),
-    nextButton = document.createElement("button"),
-    pageInfo = document.createElement("span");
+    filterButtons = document.querySelectorAll(".filter-button");
 
-  pageInfo.id = "page-info";
   let progettiData = [],
     filteredProjects = [],
-    currentPage = 1,
-    itemsPerPage = 3, // Always 3 items per page
     currentCategory = "all";
 
   function updateLayout() {
@@ -18,24 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
     else if (width <= 900)
       container.className = "progetti-container tablet-view";
     else container.className = "progetti-container pc-view";
-    updatePage();
-  }
-
-  function createNavigationButtons() {
-    prevButton.innerHTML =
-      "<span class='material-icons arrow_back'>arrow_back</span>";
-    nextButton.innerHTML =
-      "<span class='material-icons arrow_forward'>arrow_forward</span>";
-
-    prevButton.classList.add("nav-button", "prev");
-    nextButton.classList.add("nav-button", "next");
-
-    const pageInfoContainer = document.createElement("div");
-    pageInfoContainer.classList.add("page-info-container");
-    pageInfoContainer.appendChild(prevButton);
-    pageInfoContainer.appendChild(pageInfo);
-    pageInfoContainer.appendChild(nextButton);
-    container.parentElement.appendChild(pageInfoContainer);
+    updateDate();
   }
 
   function fetchData() {
@@ -53,7 +30,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function updateFilter(category) {
     currentCategory = category;
-    currentPage = 1;
 
     filteredProjects =
       category === "all"
@@ -62,7 +38,7 @@ document.addEventListener("DOMContentLoaded", () => {
             progetto.categorie.includes(category)
           );
 
-    updatePage();
+    updateDate();
     updateFilterStyle();
   }
 
@@ -75,29 +51,22 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  function updatePage() {
+  function updateDate() {
     container.innerHTML = "";
 
-    const start = (currentPage - 1) * itemsPerPage,
-      end = start + itemsPerPage,
-      paginatedItems = filteredProjects.slice(start, end);
-
-    paginatedItems.forEach((project) => {
-      container.appendChild(createCard(project));
-    });
-
-    if (paginatedItems.length === 0) {
+    if (filteredProjects.length === 0) 
       container.innerHTML = "<p>Nessun progetto trovato.</p>";
+    else {
+      filteredProjects.forEach((project) => {
+        container.appendChild(createCard(project));
+      });
     }
-
-    updateButtons();
-    updatePageInfo();
   }
 
   function createCard(progetto) {
     const card = document.createElement("div");
     card.className = "Progetti-card";
-    card.innerHTML = `
+    card.innerHTML = `  
       <div class="container-immagine">
         <a href="${progetto.link}">
           <img class="immagine" src="${progetto.immagine}" alt="${
@@ -117,33 +86,7 @@ document.addEventListener("DOMContentLoaded", () => {
     return card;
   }
 
-  function updateButtons() {
-    const totalPages = Math.ceil(filteredProjects.length / itemsPerPage);
-    prevButton.style.visibility = totalPages > 1 ? "visible" : "hidden";
-    nextButton.style.visibility = totalPages > 1 ? "visible" : "hidden";
-  }
-
-  function updatePageInfo() {
-    const totalPages = Math.ceil(filteredProjects.length / itemsPerPage);
-    pageInfo.textContent = `  Pagina ${currentPage} di ${totalPages}  `;
-  }
-
-  function prevPage() {
-    const totalPages = Math.ceil(filteredProjects.length / itemsPerPage);
-    currentPage = currentPage > 1 ? currentPage - 1 : totalPages;
-    updatePage();
-  }
-
-  function nextPage() {
-    const totalPages = Math.ceil(filteredProjects.length / itemsPerPage);
-    currentPage = currentPage < totalPages ? currentPage + 1 : 1;
-    updatePage();
-  }
-
   function addEventListeners() {
-    prevButton.addEventListener("click", prevPage);
-    nextButton.addEventListener("click", nextPage);
-
     filterButtons.forEach((button) => {
       button.addEventListener("click", () => {
         updateFilter(button.dataset.category);
@@ -152,7 +95,6 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function init() {
-    createNavigationButtons();
     fetchData();
     addEventListeners();
     updateLayout();

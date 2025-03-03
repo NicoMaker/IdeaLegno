@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
     nextButton = createNavButton("arrow_forward", "next"),
     pageInfo = document.createElement("span");
 
-  pageInfo.id = "page-info"; // Aggiunto id per riferimento in CSS e JS
+  pageInfo.id = "page-info";
   let newsData = [],
     currentPage = 1,
     itemsPerPage = 3;
@@ -52,8 +52,8 @@ document.addEventListener("DOMContentLoaded", () => {
     clearNewsContainer();
     const paginatedItems = getPaginatedItems();
     paginatedItems.forEach(createNewsCard);
-    updateButtonsVisibility();
     updatePageInfo();
+    // Rimuovo updateButtonsVisibility perché ora i pulsanti sono sempre visibili per la navigazione circolare
   }
 
   const clearNewsContainer = () => (newsContainer.innerHTML = "");
@@ -107,36 +107,48 @@ document.addEventListener("DOMContentLoaded", () => {
     newsContainer.appendChild(newsCard);
   }
 
-  function updateButtonsVisibility() {
-    prevButton.style.visibility = currentPage > 1 ? "visible" : "hidden";
-    nextButton.style.visibility =
-      currentPage * itemsPerPage < newsData.length ? "visible" : "hidden";
-  }
-
   function updatePageInfo() {
     const totalPages = Math.ceil(newsData.length / itemsPerPage);
     pageInfo.textContent = `  Pagina ${currentPage} di ${totalPages}  `;
   }
 
+  // Modificato per navigazione circolare: dalla prima all'ultima pagina
   function prevPage() {
+    const totalPages = Math.ceil(newsData.length / itemsPerPage);
     if (currentPage > 1) {
       currentPage--;
-      updatePage();
+    } else {
+      // Se siamo alla prima pagina, vai all'ultima
+      currentPage = totalPages;
     }
+    updatePage();
   }
 
+  // Modificato per navigazione circolare: dall'ultima alla prima pagina
   function nextPage() {
-    if (currentPage * itemsPerPage < newsData.length) {
+    const totalPages = Math.ceil(newsData.length / itemsPerPage);
+    if (currentPage < totalPages) {
       currentPage++;
-      updatePage();
+    } else {
+      // Se siamo all'ultima pagina, torna alla prima
+      currentPage = 1;
     }
+    updatePage();
   }
 
   function adjustItemsPerPage() {
-    if (window.innerWidth >= 1024) itemsPerPage = 3;
-    else if (window.innerWidth >= 768) itemsPerPage = 2;
-    else itemsPerPage = 1;
+    // Manteniamo sempre 3 elementi per pagina come richiesto
+    itemsPerPage = 3;
+
+    // Aggiorniamo la pagina per applicare le modifiche
     updatePage();
+
+    // Aggiungiamo classi CSS per il layout responsive
+    if (window.innerWidth >= 1024)
+      newsContainer.className = "news-container pc-view";
+    else if (window.innerWidth >= 768)
+      newsContainer.className = "news-container tablet-view";
+    else newsContainer.className = "news-container mobile-view";
   }
 
   function addEventListeners() {
@@ -149,6 +161,8 @@ document.addEventListener("DOMContentLoaded", () => {
     createPageInfoContainer();
     loadNewsData();
     addEventListeners();
+    // Chiamiamo adjustItemsPerPage all'inizializzazione per impostare il layout corretto
+    adjustItemsPerPage();
   }
 
   init();

@@ -4,21 +4,20 @@ document.addEventListener("DOMContentLoaded", () => {
     prevButton = document.createElement("button"),
     nextButton = document.createElement("button"),
     pageInfo = document.createElement("span");
-    
 
   pageInfo.id = "page-info";
   let progettiData = [],
     filteredProjects = [],
     currentPage = 1,
-    itemsPerPage = 3,
+    itemsPerPage = 3, // Always 3 items per page
     currentCategory = "all";
 
-  function updateItemsPerPage() {
+  function updateLayout() {
     const width = window.innerWidth;
-    if (width <= 600) itemsPerPage = 1; // Mobile: 1 per riga
-    else if (width <= 900) itemsPerPage = 2; // Tablet: 2 per riga
-    else itemsPerPage = 3; // PC: 3 per riga
-
+    if (width <= 600) container.className = "progetti-container mobile-view";
+    else if (width <= 900)
+      container.className = "progetti-container tablet-view";
+    else container.className = "progetti-container pc-view";
     updatePage();
   }
 
@@ -64,6 +63,16 @@ document.addEventListener("DOMContentLoaded", () => {
           );
 
     updatePage();
+    updateFilterStyle();
+  }
+
+  function updateFilterStyle() {
+    filterButtons.forEach((button) => {
+      button.classList.toggle(
+        "active",
+        button.dataset.category === currentCategory
+      );
+    });
   }
 
   function updatePage() {
@@ -73,42 +82,45 @@ document.addEventListener("DOMContentLoaded", () => {
       end = start + itemsPerPage,
       paginatedItems = filteredProjects.slice(start, end);
 
-    container.innerHTML =
-      paginatedItems.length === 0
-        ? "<p>Nessun progetto trovato.</p>"
-        : paginatedItems.map(createCard).join("");
+    paginatedItems.forEach((project) => {
+      container.appendChild(createCard(project));
+    });
+
+    if (paginatedItems.length === 0) {
+      container.innerHTML = "<p>Nessun progetto trovato.</p>";
+    }
 
     updateButtons();
     updatePageInfo();
   }
 
   function createCard(progetto) {
-    return `
-      <div class="Progetti-card">
-        <div class="container-immagine">
-          <a href="${progetto.link}">
-            <img class="immagine" src="${progetto.immagine}" alt="${
+    const card = document.createElement("div");
+    card.className = "Progetti-card";
+    card.innerHTML = `
+      <div class="container-immagine">
+        <a href="${progetto.link}">
+          <img class="immagine" src="${progetto.immagine}" alt="${
       progetto.nome
     }">
-          </a>
-        </div>
-        <h3>${progetto.nome}</h3>
-        ${
-          currentCategory === "all" && progetto.categorie.length > 0
-            ? `<p class="categoria">${
-                progetto.categorie.length > 1 ? "Categorie" : "Categoria"
-              }: ${progetto.categorie.join(", ")}</p>`
-            : ""
-        }
-      </div>`;
+        </a>
+      </div>
+      <h3>${progetto.nome}</h3>
+      ${
+        currentCategory === "all" && progetto.categorie.length > 0
+          ? `<p class="categoria">${
+              progetto.categorie.length > 1 ? "Categorie" : "Categoria"
+            }: ${progetto.categorie.join(", ")}</p>`
+          : ""
+      }
+    `;
+    return card;
   }
 
   function updateButtons() {
-    prevButton.style.visibility = currentPage > 1 ? "visible" : "hidden";
-    nextButton.style.visibility =
-      currentPage < Math.ceil(filteredProjects.length / itemsPerPage)
-        ? "visible"
-        : "hidden";
+    const totalPages = Math.ceil(filteredProjects.length / itemsPerPage);
+    prevButton.style.visibility = totalPages > 1 ? "visible" : "hidden";
+    nextButton.style.visibility = totalPages > 1 ? "visible" : "hidden";
   }
 
   function updatePageInfo() {
@@ -117,17 +129,15 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function prevPage() {
-    if (currentPage > 1) {
-      currentPage--;
-      updatePage();
-    }
+    const totalPages = Math.ceil(filteredProjects.length / itemsPerPage);
+    currentPage = currentPage > 1 ? currentPage - 1 : totalPages;
+    updatePage();
   }
 
   function nextPage() {
-    if (currentPage < Math.ceil(filteredProjects.length / itemsPerPage)) {
-      currentPage++;
-      updatePage();
-    }
+    const totalPages = Math.ceil(filteredProjects.length / itemsPerPage);
+    currentPage = currentPage < totalPages ? currentPage + 1 : 1;
+    updatePage();
   }
 
   function addEventListeners() {
@@ -136,11 +146,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     filterButtons.forEach((button) => {
       button.addEventListener("click", () => {
-        document.querySelectorAll(".filter-button").forEach((btn) => {
-          btn.classList.remove("active");
-        });
-
-        button.classList.add("active");
         updateFilter(button.dataset.category);
       });
     });
@@ -150,8 +155,8 @@ document.addEventListener("DOMContentLoaded", () => {
     createNavigationButtons();
     fetchData();
     addEventListeners();
-    updateItemsPerPage();
-    window.addEventListener("resize", updateItemsPerPage);
+    updateLayout();
+    window.addEventListener("resize", updateLayout);
   }
 
   init();

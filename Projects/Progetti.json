@@ -4,37 +4,43 @@
       "nome": "Scale",
       "immagine": "Projects/Img/Casa/Scala/Scala/Scala1.jpg",
       "categorie": ["Casa"],
-      "link": "Projects/Pages/HTML/Scala.html"
+      "link": "Projects/Pages/HTML/Scale.html"
     },
     {
       "nome": "Scale con cassetto",
       "immagine": "Projects/Img/Casa/Scala/Scala_Cassetto/Scala1.jpg",
       "categorie": ["Casa"],
-      "link": "Projects/Pages/HTML/Scala_con_casetto.html"
+      "link": "Projects/Pages/HTML/Scale_con_casetto.html"
     },
     {
       "nome": "Scale ellittiche",
       "immagine": "Projects/Img/Casa/Scala/Scala_Ellittica/Scala1.jpg",
       "categorie": ["Casa"],
-      "link": "Projects/Pages/HTML/Scala_ellittica.html"
+      "link": "Projects/Pages/HTML/Scale_ellittiche.html"
     },
     {
       "nome": "Arredamenti Vineria",
       "immagine": "Projects/Img/Commerciale/Vineria.gif",
       "categorie": ["Commerciale"],
-      "link": "Projects/Pages/HTML/Arredamento_Vineria.html"
+      "link": "Projects/Pages/HTML/Arredamenti_Vineria.html"
     },
     {
       "nome": "Pareti",
       "immagine": "Projects/Img/Casa/Parete/Parete1.jpg",
       "categorie": ["Casa"],
-      "link": "Projects/Pages/HTML/Parete.html"
+      "link": "Projects/Pages/HTML/Pareti.html"
+    },
+    {
+      "nome": "Pareti Luminose",
+      "immagine": "Projects/Img/Commerciale/Parete_Luminosa/Parete1.jpg",
+      "categorie": ["Commerciale"],
+      "link": "Projects/Pages/HTML/Pareti_Luminose.html"
     },
     {
       "nome": "Tavoli da Cucina",
       "immagine": "Projects/Img/Casa/Tavolo/Tavolo1.jpg",
       "categorie": ["Casa"],
-      "link": "Projects/Pages/HTML/Tavolo_Cucina.html"
+      "link": "Projects/Pages/HTML/Tavoli_Cucina.html"
     },
     {
       "nome": "Elementi Arredo Bar",
@@ -46,19 +52,13 @@
       "nome": "Camerette",
       "immagine": "Projects/Img/Casa/Cameretta/Cameretta1.jpg",
       "categorie": ["Casa"],
-      "link": "Projects/Pages/HTML/Cameretta.html"
+      "link": "Projects/Pages/HTML/Camerette.html"
     },
     {
       "nome": "Arredamenti Ristorante",
       "immagine": "Projects/Img/Commerciale/Ristorante/Ristorante1.jpg",
       "categorie": ["Commerciale"],
-      "link": "Projects/Pages/HTML/Arredamento_Ristorante.html"
-    },
-    {
-      "nome": "Pareti Luminose",
-      "immagine": "Projects/Img/Commerciale/Parete_Luminosa/Parete1.jpg",
-      "categorie": ["Commerciale"],
-      "link": "Projects/Pages/HTML/Parete_Luminosa.html"
+      "link": "Projects/Pages/HTML/Arredamenti_Ristorante.html"
     },
     {
       "nome": "Arredamenti Bagno",

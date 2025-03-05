@@ -1,88 +1,71 @@
-const createContactItem = (href, imgSrc, altText, text) => `
-  <li>
-    <a href="${href}" target="_blank" rel="noopener noreferrer">
-      <img class="footer-icon" src="${imgSrc}" alt="${altText}" />
-      <span>${text}</span>
-    </a>
-  </li>
-`,
-  createSocialItem = (href, imgSrc, altText, text) => `
-  <li>
-    <a href="${href}" target="_blank" rel="noopener noreferrer">
-      <img class="footer-icon" src="${imgSrc}" alt="${altText}" />
-      <span>${text}</span>
-    </a>
-  </li>
-`,
-  getContactSection = () => `
-  <div class="contact-section">
-    <h3 class="section-title">Contatti</h3>
-    <ul class="contact-list">
-      ${createContactItem(
-        "tel:+393356508231",
-        "Contact/Img/telefono.png",
-        "Telefono",
-        "+39 335 650 8231"
-      )}
-      ${createContactItem(
-        "mailto:paolobomben81@gmail.com",
-        "Contact/Img/Gmail.png",
-        "Email",
-        "paolobomben81@gmail.com"
-      )}
-    </ul>
-  </div>
-`,
-  getSocialSection = () => `
-  <div class="social-section">
-    <h3 class="section-title">Seguici sui Social</h3>
-    <ul class="social-list">
-      ${createSocialItem(
-        "https://wa.me/393356508231",
-        "Contact/Img/Whatsapp.png",
-        "WhatsApp",
-        "WhatsApp"
-      )}
-      ${createSocialItem(
-        "https://www.instagram.com/idealegno81?igsh=MTE2NHllcm85M2xiNA==",
-        "Contact/Img/Instagram.png",
-        "Instagram",
-        "Instagram"
-      )}
-    </ul>
-  </div>
-`,
-  getLocationSection = () => `
-  <div class="location-section">
-    <p>Via Castellana 8, 33080 Castions di Zoppola (PN), Italia</p>
-    <a href="https://www.google.com/maps?q=Via+Castellana+8,+33080+Castions+di+Zoppola+(PN),+Italia" 
-       target="_blank" rel="noopener noreferrer" class="map-link">
-      Visualizza sulla mappa
-    </a>
-  </div>
-  <br>
-`,
-  generateFooter = () => {
-    document.getElementById("footer").innerHTML = `
-    <footer>
-      <div class="footer-container">
-        ${getLocationSection()} <!-- Posizione prima -->
-        <div class="footer-columns">
-          ${getContactSection()} <!-- Contatti dopo -->
-          ${getSocialSection()} <!-- Social dopo i contatti -->
-        </div>
-      </div>
-      <br>
-      <p class="copyright">&copy; ${new Date().getFullYear()} IdeaLegno. Tutti i diritti riservati.</p>
-    </footer>
+// script.js
+const createListItem = (href, imgSrc, altText, text) => {
+    return `
+    <li>
+      <a href="${href}" target="_blank" rel="noopener noreferrer">
+        <img src="${imgSrc}" alt="${altText}">
+        ${text}
+      </a>
+    </li>
   `;
+  },
+  loadFooterData = async () => {
+    try {
+      const response = await fetch("JS/data.json");
+
+      // Verifica che la risposta sia corretta
+      if (!response.ok) throw new Error("Errore nel caricamento del file JSON");
+
+      const data = await response.json();
+      console.log(data); // Verifica che i dati siano stati letti correttamente
+
+      const createListSection = (items) =>
+          items
+            .map((item) =>
+              createListItem(item.href, item.imgSrc, item.altText, item.text)
+            )
+            .join(""),
+        contactList = createListSection(data.contacts),
+        socialList = createListSection(data.socials),
+        locationSection = `
+      <div class="location-section">
+        <p>${data.location.address}</p>
+        <a href="${data.location.mapLink}" target="_blank" rel="noopener noreferrer" class="map-link">
+          Visualizza sulla mappa
+        </a>
+        <br>
+        <br>
+      </div>
+    `;
+
+      // Genera il footer completo
+      document.getElementById("footer").innerHTML = `
+      <footer>
+        <div class="footer-container">
+          ${locationSection}
+          <div class="footer-columns">
+            <div class="contact-section">
+              <h3 class="section-title">Contatti</h3>
+              <ul class="contact-list">${contactList}</ul>
+            </div>
+            <div class="social-section">
+              <h3 class="section-title">Seguici sui Social</h3>
+              <ul class="social-list">${socialList}</ul>
+            </div>
+          </div>
+        </div>
+        <br>
+        <p class="copyright">&copy; ${new Date().getFullYear()} IdeaLegno. Tutti i diritti riservati.</p>
+      </footer>
+    `;
+    } catch (error) {
+      console.error("Errore nel caricare i dati del footer:", error);
+    }
   };
 
-// Initialize footer when DOM is loaded
-document.addEventListener("DOMContentLoaded", generateFooter);
-
-window.addEventListener("scroll", function () {
-  let footer = document.querySelector("footer");
+// Funzione per gestire l'animazione del footer al caricamento della pagina
+const handleFooterAnimation = () => {
+  const footer = document.querySelector("footer");
 
   // Calcola se l'utente è arrivato in fondo alla pagina
   if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 10) {
@@ -92,11 +75,8 @@ window.addEventListener("scroll", function () {
     footer.style.opacity = "0"; // Nasconde il footer
     footer.style.transform = "translateY(100%)"; // Sposta il footer fuori dallo schermo
   }
-});
+};
 
-// ${createSocialItem(
-//   "https://www.facebook.com/ideallegnopavimenti",
-//   "Contact/Img/Facebook.png",
-//   "Facebook",
-//   "Facebook"
-// )}
+// Inizializza il footer quando il DOM è pronto
+document.addEventListener("DOMContentLoaded", loadFooterData);
+window.addEventListener("scroll", handleFooterAnimation);

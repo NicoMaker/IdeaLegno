@@ -1,0 +1,34 @@
+{
+  "contacts": [
+    {
+      "href": "tel:+393356508231",
+      "imgSrc": "Contact/Img/telefono.png",
+      "altText": "Telefono",
+      "text": "+39 335 650 8231"
+    },
+    {
+      "href": "mailto:paolobomben81@gmail.com",
+      "imgSrc": "Contact/Img/Gmail.png",
+      "altText": "Email",
+      "text": "paolobomben81@gmail.com"
+    }
+  ],
+  "socials": [
+    {
+      "href": "https://wa.me/393356508231",
+      "imgSrc": "Contact/Img/Whatsapp.png",
+      "altText": "WhatsApp",
+      "text": "WhatsApp"
+    },
+    {
+      "href": "https://www.instagram.com/idealegno81?igsh=MTE2NHllcm85M2xiNA==",
+      "imgSrc": "Contact/Img/Instagram.png",
+      "altText": "Instagram",
+      "text": "Instagram"
+    }
+  ],
+  "location": {
+    "address": "Via Castellana 8, 33080 Castions di Zoppola (PN), Italia",
+    "mapLink": "https://www.google.com/maps?q=Via+Castellana+8,+33080+Castions+di+Zoppola+(PN),+Italia"
+  }
+}

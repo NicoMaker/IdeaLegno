@@ -1,31 +1,36 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap");
-
 /* Stile per l'header */
 .cookie-header {
   display: flex;
-  justify-content: space-between; /* Testo a sinistra, immagine a destra */
+  justify-content: space-between; /* Posiziona il testo e l'immagine agli estremi */
   align-items: center;
   background-image: url("../Img/Legno.jpg");
   padding: 20px;
+  position: fixed; /* Rende solo la barra dell'header fissa */
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000; /* Mantiene l'header sopra gli altri contenuti */
+  background-color: rgba(
+    0,
+    0,
+    0,
+    0.5
+  ); /* Sfondo semitrasparente per migliorare la visibilità */
 }
 
 .cookie-header h1 {
   color: white;
-}
-
-.cookie-header h1 {
   margin: 0;
   font-size: 28px;
+  text-align: center; /* Centra il testo all'interno di h1 */
+  flex-grow: 1; /* Permette di occupare tutto lo spazio disponibile per centrare il testo */
+  font-family: "Raleway", sans-serif; /* Imposta il font */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Ombra per una maggiore leggibilità */
+  display: block; /* Assicura che l'h1 si comporti come un blocco per poterlo centrare */
 }
 
-.cookie-header a {
-  display: flex;
-  justify-content: flex-end;
-}
-
-.header-img {
+/* Stile per l'immagine del logo */
+.cookie-header .header-img {
   max-width: 250px;
   max-height: 250px;
   object-fit: cover;
@@ -34,14 +39,14 @@
 
 /* Stile per il contenuto */
 .cookie-container {
-  max-width: 800px;
-  margin: 20px auto;
+  max-width: 600px;
+  margin: 100px auto 20px; /* Aggiungi margine superiore per evitare che il contenuto venga nascosto dall'header */
   padding: 20px;
   background: #fff;
   border-radius: 8px;
 }
 
-/* Testo */
+/* Altri stili per il testo */
 h1 {
   font-size: 28px;
   margin-top: 10px;
@@ -61,6 +66,13 @@ p,
 ul {
   font-size: 16px;
   line-height: 1.6;
+}
+
+/* Sezione con scroll solo se il testo è troppo lungo */
+section {
+  min-height: 100vh;
+  padding: 20px;
+  overflow-y: auto; /* Scorrimento solo se il contenuto è più alto della sezione */
 }
 
 /* Responsive */
@@ -98,38 +110,10 @@ body {
     url("images/legno-lavorato.jpg"); /* Immagine di legno lavorato */
 }
 
-section {
-  min-height: 100vh;
-}
-
-/* Stile per il contenuto */
-.cookie-container {
-  max-width: 600px; /* Ridotto da 800px a 600px */
-  margin: 20px auto;
-  padding: 15px; /* Ridotto il padding */
-  background: #fff;
-  border-radius: 8px;
-}
-
 .header-img {
-  height: auto;
-  width: 150px;
-  border-radius: 2px;
-}
-
-* {
-  font-family: "Roboto", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: weight;
-  font-style: normal;
-  font-variation-settings: "wdth" 100;
-}
-
-header h1 {
-  font-family: "Raleway", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: weight;
-  font-style: normal;
-
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  width: 150px; /* Imposta la larghezza a 150px */
+  height: auto; /* L'altezza si adatterà automaticamente per mantenere le proporzioni dell'immagine */
+  border-radius: 2px; /* Angoli arrotondati per l'immagine */
+  object-fit: cover; /* Rende l'immagine proporzionata e taglia le parti eccedenti se necessario */
+  cursor: pointer; /* Imposta il cursore a forma di mano quando si passa sopra */
 }

@@ -2,19 +2,19 @@
   "Progetti": [
     {
       "nome": "Scale",
-      "immagine": "Projects/Img/Casa/Scala/Scala/Scala1.jpg",
+      "immagine": "Projects/Img/Home/Scala/Scala/Scala1.jpg",
       "categorie": ["Casa"],
       "link": "Projects/Pages/HTML/Scale.html"
     },
     {
       "nome": "Scale con cassetto",
-      "immagine": "Projects/Img/Casa/Scala/Scala_Cassetto/Scala1.jpg",
+      "immagine": "Projects/Img/Home/Scala/Scala_Cassetto/Scala1.jpg",
       "categorie": ["Casa"],
       "link": "Projects/Pages/HTML/Scale_con_casetto.html"
     },
     {
       "nome": "Scale ellittiche",
-      "immagine": "Projects/Img/Casa/Scala/Scala_Ellittica/Scala1.jpg",
+      "immagine": "Projects/Img/Home/Scala/Scala_Ellittica/Scala1.jpg",
       "categorie": ["Casa"],
       "link": "Projects/Pages/HTML/Scale_ellittiche.html"
     },
@@ -26,7 +26,7 @@
     },
     {
       "nome": "Pareti",
-      "immagine": "Projects/Img/Casa/Parete/Parete1.jpg",
+      "immagine": "Projects/Img/Home/Parete/Parete1.jpg",
       "categorie": ["Casa"],
       "link": "Projects/Pages/HTML/Pareti.html"
     },
@@ -38,7 +38,7 @@
     },
     {
       "nome": "Tavoli da Cucina",
-      "immagine": "Projects/Img/Casa/Tavolo/Tavolo1.jpg",
+      "immagine": "Projects/Img/Home/Tavolo/Tavolo1.jpg",
       "categorie": ["Casa"],
       "link": "Projects/Pages/HTML/Tavoli_Cucina.html"
     },
@@ -50,7 +50,7 @@
     },
     {
       "nome": "Camerette",
-      "immagine": "Projects/Img/Casa/Cameretta/Cameretta1.jpg",
+      "immagine": "Projects/Img/Home/Cameretta/Cameretta1.jpg",
       "categorie": ["Casa"],
       "link": "Projects/Pages/HTML/Camerette.html"
     },
@@ -62,13 +62,13 @@
     },
     {
       "nome": "Arredamenti Bagno",
-      "immagine": "Projects/Img/Casa/Bagno/Bagno1.jpg",
+      "immagine": "Projects/Img/Home/Bagno/Bagno1.jpg",
       "categorie": ["Casa", "Commerciale"],
       "link": "Projects/Pages/HTML/Bagno.html"
     },
     {
       "nome": "Porta Cameretta Scorrevole",
-      "immagine": "Projects/Img/Casa/Porta_Cameretta_Scorrevole/Porta1.jpg",
+      "immagine": "Projects/Img/Home/Porta_Cameretta_Scorrevole/Porta1.jpg",
       "categorie": ["Casa"],
       "link": "Projects/Pages/HTML/Porta_Cameretta_Scorrevole.html"
     }

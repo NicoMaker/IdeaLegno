@@ -74,7 +74,9 @@ document.addEventListener("DOMContentLoaded", () => {
     }">
         </a>
       </div>
-      <h3>${progetto.nome}</h3>
+      <h3>
+      <br>
+      ${progetto.nome}</h3>
       ${
         currentCategory === "all" && progetto.categorie.length > 0
           ? `<p class="categoria">${

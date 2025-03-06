@@ -65,6 +65,12 @@
       "immagine": "Projects/Img/Casa/Bagno/Bagno1.jpg",
       "categorie": ["Casa", "Commerciale"],
       "link": "Projects/Pages/HTML/Bagno.html"
+    },
+    {
+      "nome": "Porta Cameretta Scorrevole",
+      "immagine": "Projects/Img/Casa/Porta_Cameretta_Scorrevole/Porta1.jpg",
+      "categorie": ["Casa"],
+      "link": "Projects/Pages/HTML/Porta_Cameretta_Scorrevole.html"
     }
   ]
 }

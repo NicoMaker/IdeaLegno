@@ -4,73 +4,73 @@
       "nome": "Scale",
       "immagine": "Projects/Img/Home/Scala/Scala/Scala1.jpg",
       "categorie": ["Casa"],
-      "link": "Projects/Pages/HTML/Scale.html"
+      "link": "Projects/Pages/HTML/Home/Scale.html"
     },
     {
       "nome": "Scale con cassetto",
       "immagine": "Projects/Img/Home/Scala/Scala_Cassetto/Scala1.jpg",
       "categorie": ["Casa"],
-      "link": "Projects/Pages/HTML/Scale_con_casetto.html"
+      "link": "Projects/Pages/HTML/Home/Scale_con_casetto.html"
     },
     {
       "nome": "Scale ellittiche",
       "immagine": "Projects/Img/Home/Scala/Scala_Ellittica/Scala1.jpg",
       "categorie": ["Casa"],
-      "link": "Projects/Pages/HTML/Scale_ellittiche.html"
+      "link": "Projects/Pages/HTML/Home/Scale_ellittiche.html"
     },
     {
       "nome": "Arredamenti Vineria",
       "immagine": "Projects/Img/Commerciale/Vineria.gif",
       "categorie": ["Commerciale"],
-      "link": "Projects/Pages/HTML/Arredamenti_Vineria.html"
+      "link": "Projects/Pages/HTML/Commerciale/Arredamenti_Vineria.html"
     },
     {
       "nome": "Pareti",
       "immagine": "Projects/Img/Home/Parete/Parete1.jpg",
       "categorie": ["Casa"],
-      "link": "Projects/Pages/HTML/Pareti.html"
+      "link": "Projects/Pages/HTML/Home/Pareti.html"
     },
     {
       "nome": "Pareti Luminose",
       "immagine": "Projects/Img/Commerciale/Parete_Luminosa/Parete1.jpg",
       "categorie": ["Commerciale"],
-      "link": "Projects/Pages/HTML/Pareti_Luminose.html"
+      "link": "Projects/Pages/HTML/Commerciale/Pareti_Luminose.html"
     },
     {
       "nome": "Tavoli da Cucina",
       "immagine": "Projects/Img/Home/Tavolo/Tavolo1.jpg",
       "categorie": ["Casa"],
-      "link": "Projects/Pages/HTML/Tavoli_Cucina.html"
+      "link": "Projects/Pages/HTML/Home/Tavoli_Cucina.html"
     },
     {
       "nome": "Elementi Arredo Bar",
       "immagine": "Projects/Img/Commerciale/Bar/Bar.jpg",
       "categorie": ["Commerciale"],
-      "link": "Projects/Pages/HTML/Elementi_Arredo_Bar.html"
+      "link": "Projects/Pages/HTML/Commerciale/Elementi_Arredo_Bar.html"
     },
     {
       "nome": "Camerette",
       "immagine": "Projects/Img/Home/Cameretta/Cameretta1.jpg",
       "categorie": ["Casa"],
-      "link": "Projects/Pages/HTML/Camerette.html"
+      "link": "Projects/Pages/HTML/Home/Camerette.html"
     },
     {
       "nome": "Arredamenti Ristorante",
       "immagine": "Projects/Img/Commerciale/Ristorante/Ristorante1.jpg",
       "categorie": ["Commerciale"],
-      "link": "Projects/Pages/HTML/Arredamenti_Ristorante.html"
+      "link": "Projects/Pages/HTML/Commerciale/Arredamenti_Ristorante.html"
     },
     {
       "nome": "Arredamenti Bagno",
       "immagine": "Projects/Img/Home/Bagno/Bagno1.jpg",
       "categorie": ["Casa", "Commerciale"],
-      "link": "Projects/Pages/HTML/Bagno.html"
+      "link": "Projects/Pages/HTML/Home/Bagno.html"
     },
     {
       "nome": "Porta Cameretta Scorrevole",
       "immagine": "Projects/Img/Home/Porta_Cameretta_Scorrevole/Porta1.jpg",
       "categorie": ["Casa"],
-      "link": "Projects/Pages/HTML/Porta_Cameretta_Scorrevole.html"
+      "link": "Projects/Pages/HTML/Home/Porta_Cameretta_Scorrevole.html"
     }
   ]
 }

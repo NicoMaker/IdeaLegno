@@ -148,3 +148,174 @@ html, body {
   min-height: 80px; /* Evita che si allarghi per contenuto extra */
   overflow: hidden; /* Nasconde eventuale testo che va oltre */
 }
+
+.header h1 {
+  font-size: 24px;
+  white-space: nowrap; /* Impedisce la rottura del testo su più righe */
+  overflow: hidden;
+  text-overflow: ellipsis; /* Mostra "..." se il testo è troppo lungo */
+  max-width: 60%; /* Impedisce che il testo prenda tutto lo spazio */
+}
+
+/* Per schermi più piccoli */
+@media (max-width: 768px) {
+  .header h1 {
+    font-size: 4vw; /* Riduce il font in base alla larghezza dello schermo */
+    max-width: 50%;
+  }
+}
+
+/* Per schermi molto piccoli */
+@media (max-width: 480px) {
+  .header h1 {
+    font-size: 3.5vw;
+    max-width: 45%;
+  }
+}
+
+.header {
+  background: url("../../../../Img/legno.jpg") no-repeat center center/cover;
+  padding: 10px;
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Centra il testo */
+  position: relative;
+  text-align: center;
+  width: 100%;
+  min-height: 100px; /* Imposta un'altezza minima per evitare tagli */
+  flex-direction: column; /* Organizza logo e testo in verticale */
+}
+
+.logo-container {
+  position: absolute;
+  left: 10px; /* Posiziona il logo a sinistra */
+  top: 50%;
+  transform: translateY(-50%);
+  width: 150px; /* Larghezza fissa del logo */
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 24px;
+  max-width: 80%;
+  word-wrap: break-word; /* Permette la rottura della parola */
+  white-space: normal; /* Permette la rottura del testo su più righe */
+  padding-left: 170px; /* Sposta il testo per non sovrapporsi al logo */
+}
+
+/* Adatta il testo su schermi più piccoli */
+@media (max-width: 768px) {
+  .header h1 {
+    font-size: 4vw;
+    padding-left: 140px;
+  }
+}
+
+@media (max-width: 480px) {
+  .header h1 {
+    font-size: 3.5vw;
+    padding-left: 120px;
+  }
+}
+
+.header {
+  background: url("../../../../Img/legno.jpg") no-repeat center center/cover;
+  padding: 10px;
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Centra il contenuto orizzontalmente */
+  position: relative;
+  text-align: center;
+  width: 100%;
+  height: 100px; /* Altezza fissa per evitare spostamenti */
+}
+
+.logo-container {
+  position: absolute;
+  left: 10px; /* Mantiene il logo a sinistra */
+  top: 50%;
+  transform: translateY(-50%);
+  width: 150px; /* Larghezza del logo */
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 24px;
+  max-width: 60%;
+  word-wrap: break-word;
+  white-space: normal;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%); /* Perfetto centramento orizzontale e verticale */
+  text-align: center;
+}
+
+/* Adatta il testo su schermi più piccoli */
+@media (max-width: 768px) {
+  .header h1 {
+    font-size: 4vw;
+    max-width: 70%;
+  }
+}
+
+@media (max-width: 480px) {
+  .header h1 {
+    font-size: 3.5vw;
+    max-width: 80%;
+  }
+}
+
+.header {
+  background: url("../../../../Img/legno.jpg") no-repeat center center/cover;
+  padding: 10px;
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Centra il contenuto orizzontalmente */
+  position: relative;
+  text-align: center;
+  width: 100%;
+  height: 100px; /* Altezza fissa per evitare spostamenti */
+}
+
+.logo-container {
+  position: absolute;
+  left: 10px; /* Mantiene il logo a sinistra */
+  top: 50%;
+  transform: translateY(-50%);
+  width: 150px; /* Larghezza del logo */
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 24px;
+  max-width: 60%;
+  word-wrap: break-word;
+  white-space: normal;
+  text-align: center;
+  flex: 1; /* Occupa lo spazio rimanente per restare centrato */
+}
+
+/* Adatta il testo su schermi più piccoli */
+@media (max-width: 768px) {
+  .header h1 {
+    font-size: 4vw;
+    max-width: 70%;
+  }
+}
+
+@media (max-width: 480px) {
+  .header h1 {
+    font-size: 3.5vw;
+    max-width: 80%;
+  }
+}

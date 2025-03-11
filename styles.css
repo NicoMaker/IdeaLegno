@@ -1885,12 +1885,7 @@ header .menu li a:hover {
   }
 }
 
-#Home {
-  background-image: url("Projects/Img/Home/Scala/Scala/Scala1.jpg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
+
 
 #Home p,
 #Home h2 {
@@ -2070,6 +2065,7 @@ header .menu li a:hover {
   #Riconoscimenti {
     min-height: 35vh;
   }
+
 }
 
 /* Ottimizzazione tablet */
@@ -2086,4 +2082,52 @@ header .menu li a:hover {
 
 .Progetti-card h3{
   border-top: 2px solid black;
+}
+
+/* Fix for mobile view to prevent background showing below body */
+@media (max-width: 768px) {
+  body {
+    min-height: 100vh; /* Ensure body takes full viewport height */
+    margin: 0; /* Remove any default margins */
+    padding: 0; /* Remove any default padding */
+    display: flex;
+    flex-direction: column;
+  }
+
+  .main-container {
+    margin-top: 100px; /* Reduce the space between header and content */
+    flex: 1; /* Allow main container to grow and fill available space */
+  }
+
+  #Home {
+    min-height: auto; /* Let the home section size naturally */
+    padding-top: 20px; /* Add some padding at the top */
+    padding-bottom: 40px; /* Add padding at the bottom */
+  }
+
+  footer {
+    margin-top: auto; /* Push footer to the bottom */
+  }
+}
+
+/* For even smaller screens */
+@media (max-width: 480px) {
+  .main-container {
+    margin-top: 80px; /* Even less space for very small screens */
+  }
+}
+
+@media (max-width: 768px) {
+  .main-container {
+    margin-top: 100px; /* Riduce lo spazio */
+    padding-top: 20px; /* Aggiunge spazio extra */
+    flex: 1;
+  }
+}
+
+@media (max-width: 480px) {
+  .main-container {
+    margin-top: 80px;
+    padding-top: 20px; /* Mantiene lo spazio anche per schermi piccoli */
+  }
 }

@@ -4,19 +4,19 @@
       "nome": "Scale",
       "immagine": "Projects/Img/Home/Scala/Scala/Scala1.jpg",
       "categorie": ["Casa"],
-      "link": "Projects/Pages/HTML/Home/Scale.html"
+      "link": "Projects/Pages/HTML/Home/Scala/Scale.html"
     },
     {
       "nome": "Scale con cassetto",
       "immagine": "Projects/Img/Home/Scala/Scala_Cassetto/Scala1.jpg",
       "categorie": ["Casa"],
-      "link": "Projects/Pages/HTML/Home/Scale_con_casetto.html"
+      "link": "Projects/Pages/HTML/Home/Scala/Scale_con_casetto.html"
     },
     {
       "nome": "Scale ellittiche",
       "immagine": "Projects/Img/Home/Scala/Scala_Ellittica/Scala1.jpg",
       "categorie": ["Casa"],
-      "link": "Projects/Pages/HTML/Home/Scale_ellittiche.html"
+      "link": "Projects/Pages/HTML/Home/Scala/Scale_ellittiche.html"
     },
     {
       "nome": "Arredamenti Vineria",

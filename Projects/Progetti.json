@@ -67,10 +67,10 @@
       "link": "Projects/Pages/HTML/Home/Bagno.html"
     },
     {
-      "nome": "Porta Cameretta Scorrevole",
-      "immagine": "Projects/Img/Home/Porta_Cameretta_Scorrevole/Porta1.jpg",
+      "nome": "Porta Scorrevole",
+      "immagine": "Projects/Img/Home/Porta_Scorrevole/Porta1.jpg",
       "categorie": ["Casa"],
-      "link": "Projects/Pages/HTML/Home/Porta_Cameretta_Scorrevole.html"
+      "link": "Projects/Pages/HTML/Home/Porta_Scorrevole.html"
     }
   ]
 }

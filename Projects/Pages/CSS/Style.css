@@ -16,17 +16,6 @@ body {
   background-color: #f5f5f5;
   text-align: center;
 }
-.header {
-  background: url("Legno.jpg") no-repeat center center/cover;
-  padding: 10px;
-  color: white;
-  font-size: 24px;
-  font-weight: bold;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-}
 
 .logo {
   height: 60px;
@@ -111,7 +100,6 @@ h1 {
 }
 
 .header {
-  background: url("../../../../Img/legno.jpg") no-repeat center center/cover;
   padding: 10px;
   color: white;
   font-size: 24px;
@@ -175,7 +163,7 @@ html, body {
 }
 
 .header {
-  background: url("../../../../Img/legno.jpg") no-repeat center center/cover;
+  background: url("Legno.jpg") no-repeat center center/cover;
   padding: 10px;
   color: white;
   font-size: 24px;

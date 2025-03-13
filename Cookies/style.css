@@ -23,6 +23,7 @@
 }
 
 .cookie-header h1 {
+  display: flex;
   color: white;
   margin: 0;
   font-size: 28px;
@@ -31,6 +32,9 @@
   font-family: "Raleway", sans-serif; /* Imposta il font */
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Ombra per una maggiore leggibilità */
   display: block; /* Assicura che l'h1 si comporti come un blocco per poterlo centrare */
+  justify-content: center;
+  align-items: center;
+  align-items: flex-end;
 }
 
 /* Stile per l'immagine del logo */
@@ -101,6 +105,122 @@ section {
   p,
   ul {
     font-size: 14px;
+  }
+}
+
+/* Sfondo generale */
+body {
+  background: linear-gradient(
+      to bottom,
+      rgba(233, 236, 239, 0.7),
+      rgba(139, 90, 43, 0.7)
+    ),
+    url("images/legno-lavorato.jpg"); /* Immagine di legno lavorato */
+}
+
+.header-img {
+  width: 150px; /* Imposta la larghezza a 150px */
+  height: auto; /* L'altezza si adatterà automaticamente per mantenere le proporzioni dell'immagine */
+  border-radius: 2px; /* Angoli arrotondati per l'immagine */
+  object-fit: cover; /* Rende l'immagine proporzionata e taglia le parti eccedenti se necessario */
+  cursor: pointer; /* Imposta il cursore a forma di mano quando si passa sopra */
+}
+
+/* Stile per l'header */
+.cookie-header {
+  display: flex;
+  justify-content: space-between; /* Posiziona l'immagine e il testo agli estremi */
+  align-items: center;
+  background: linear-gradient(
+    to left,
+    rgba(101, 67, 33, 0.971),
+    rgba(60, 40, 20, 0.849)
+  );
+  padding: 20px;
+  position: fixed; /* Rende solo la barra dell'header fissa */
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000; /* Mantiene l'header sopra gli altri contenuti */
+  background-color: rgba(0, 0, 0, 0.5); /* Sfondo semitrasparente per migliorare la visibilità */
+}
+
+/* Stile per l'immagine del logo */
+.cookie-header .header-img {
+  max-width: 250px;
+  max-height: 250px;
+  object-fit: cover;
+  cursor: pointer;
+}
+
+/* Stile per il contenuto */
+.cookie-container {
+  max-width: 600px;
+  margin: 100px auto 20px; /* Aggiungi margine superiore per evitare che il contenuto venga nascosto dall'header */
+  padding: 20px;
+  background: #fff;
+  border-radius: 8px;
+}
+
+/* Altri stili per il testo */
+h1 {
+  font-size: 28px;
+  margin-top: 10px;
+}
+
+h2 {
+  font-size: 24px;
+  margin-top: 20px;
+}
+
+h3 {
+  font-size: 20px;
+  margin-top: 15px;
+}
+
+p,
+ul {
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+/* Sezione con scroll solo se il testo è troppo lungo */
+section {
+  min-height: 100vh;
+  padding: 20px;
+  overflow-y: auto; /* Scorrimento solo se il contenuto è più alto della sezione */
+}
+
+/* Responsive per dispositivi mobili */
+@media (max-width: 768px) {
+  .cookie-header {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .header-img {
+    max-width: 200px;
+  }
+
+  h1 {
+    font-size: 24px;
+  }
+
+  h2 {
+    font-size: 20px;
+  }
+
+  p,
+  ul {
+    font-size: 14px;
+  }
+}
+
+/* Applicazione solo per schermi più larghi (desktop) */
+@media (min-width: 769px) {
+  .cookie-header h1 {
+    text-align: right; /* Allinea il testo a destra solo per PC */
+    margin-right: 20px; /* Aggiungi margine a destra per un po' di spazio */
   }
 }
 

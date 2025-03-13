@@ -2,7 +2,7 @@
   "contacts": [
     {
       "href": "tel:+393356508231",
-      "imgSrc": "Contact/Img/telefono.png",
+      "imgSrc": "Contact/Img/Telefono.png",
       "altText": "Telefono",
       "text": "+39 335 650 8231"
     },

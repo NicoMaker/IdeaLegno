@@ -126,7 +126,8 @@ h1 {
   text-align: center;
 }
 
-html, body {
+html,
+body {
   height: 100%;
   margin: 0;
   padding: 0;
@@ -162,22 +163,6 @@ html, body {
   }
 }
 
-.header {
-  background: url("Legno.jpg") no-repeat center center/cover;
-  padding: 10px;
-  color: white;
-  font-size: 24px;
-  font-weight: bold;
-  display: flex;
-  align-items: center;
-  justify-content: center; /* Centra il testo */
-  position: relative;
-  text-align: center;
-  width: 100%;
-  min-height: 100px; /* Imposta un'altezza minima per evitare tagli */
-  flex-direction: column; /* Organizza logo e testo in verticale */
-}
-
 .logo-container {
   position: absolute;
   left: 10px; /* Posiziona il logo a sinistra */
@@ -211,7 +196,6 @@ html, body {
 }
 
 .header {
-  background: url("../../../../Img/legno.jpg") no-repeat center center/cover;
   padding: 10px;
   color: white;
   font-size: 24px;
@@ -242,7 +226,10 @@ html, body {
   position: absolute;
   left: 50%;
   top: 50%;
-  transform: translate(-50%, -50%); /* Perfetto centramento orizzontale e verticale */
+  transform: translate(
+    -50%,
+    -50%
+  ); /* Perfetto centramento orizzontale e verticale */
   text-align: center;
 }
 
@@ -308,6 +295,11 @@ html, body {
   }
 }
 
-.header{
-  background: url("Legno.jpg") no-repeat center center/cover;
+.header {
+  /*  sfumato gradinte legno scuro */
+  background: linear-gradient(
+    to left,
+    rgba(101, 67, 33, 0.971),
+    rgba(60, 40, 20, 0.849)
+  );
 }

@@ -3,7 +3,11 @@
   display: flex;
   justify-content: space-between; /* Posiziona il testo e l'immagine agli estremi */
   align-items: center;
-  background-image: url("../Img/Legno.jpg");
+  background: linear-gradient(
+    to left,
+    rgba(101, 67, 33, 0.971),
+    rgba(60, 40, 20, 0.849)
+  );
   padding: 20px;
   position: fixed; /* Rende solo la barra dell'header fissa */
   top: 0;

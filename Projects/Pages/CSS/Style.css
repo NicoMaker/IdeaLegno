@@ -296,10 +296,5 @@ body {
 }
 
 .header {
-  /*  sfumato gradinte legno scuro */
-  background: linear-gradient(
-    to left,
-    rgba(101, 67, 33, 0.971),
-    rgba(60, 40, 20, 0.849)
-  );
+  background: url("../../../Img/Legno.jpg");
 }

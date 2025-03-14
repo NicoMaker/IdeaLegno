@@ -2,10 +2,11 @@
 const createListItem = (href, imgSrc, altText, text) => {
     return `
     <li>
-      <a href="${href}" target="_blank" rel="noopener noreferrer">
-        <img src="${imgSrc}" alt="${altText}">
-        ${text}
-      </a>
+      <button>
+        <a href="${href}" target="_blank" rel="noopener noreferrer">
+          <img src="${imgSrc}" alt="${altText}"> ${text}  &nbsp
+        </a>
+      </button>
     </li>
   `;
   },

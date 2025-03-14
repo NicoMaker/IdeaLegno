@@ -2131,3 +2131,13 @@ header .menu li a:hover {
     padding-top: 20px; /* Mantiene lo spazio anche per schermi piccoli */
   }
 }
+
+footer button{
+  background-color: rgba(0, 0, 0, 0.5);
+  margin-left: 0;
+}
+
+footer li a img {
+  margin-right: 8px; /* Spazio tra immagine e testo */
+  vertical-align: middle; /* Allinea meglio l'immagine con il testo */
+}

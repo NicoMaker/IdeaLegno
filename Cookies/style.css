@@ -242,6 +242,6 @@ body {
   cursor: pointer; /* Imposta il cursore a forma di mano quando si passa sopra */
 }
 
-.header {
+.cookie-header {
   background: url("../Img/Legno.jpg") no-repeat center center fixed;
 }

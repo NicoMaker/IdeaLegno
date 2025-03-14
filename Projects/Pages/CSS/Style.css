@@ -296,5 +296,5 @@ body {
 }
 
 .header {
-  background: url("../../../Img/Legno.jpg");
+  background: url("../../../Img/Legno.jpg") no-repeat center center fixed;
 }

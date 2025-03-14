@@ -25,6 +25,12 @@
       "imgSrc": "Contact/Img/Instagram.png",
       "altText": "Instagram",
       "text": "Instagram"
+    },
+    {
+      "href":"https://www.facebook.com/idealegnodipaolobomben",
+      "imgSrc": "Contact/Img/Facebook.png",
+      "altText": "Facebook",
+      "text": "Facebook"
     }
   ],
   "location": {

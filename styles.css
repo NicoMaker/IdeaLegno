@@ -1885,8 +1885,6 @@ header .menu li a:hover {
   }
 }
 
-
-
 #Home p,
 #Home h2 {
   color: white;
@@ -2065,7 +2063,6 @@ header .menu li a:hover {
   #Riconoscimenti {
     min-height: 35vh;
   }
-
 }
 
 /* Ottimizzazione tablet */
@@ -2079,8 +2076,7 @@ header .menu li a:hover {
   min-height: 55vh;
 }
 
-
-.Progetti-card h3{
+.Progetti-card h3 {
   border-top: 2px solid black;
 }
 
@@ -2132,7 +2128,7 @@ header .menu li a:hover {
   }
 }
 
-footer button{
+footer button {
   background-color: rgba(0, 0, 0, 0.5);
   margin-left: 0;
 }
@@ -2140,4 +2136,26 @@ footer button{
 footer li a img {
   margin-right: 8px; /* Spazio tra immagine e testo */
   vertical-align: middle; /* Allinea meglio l'immagine con il testo */
+}
+
+#Home h2,
+#Home p {
+  /* ombra grigio Chiaro */
+  text-shadow: 2px 2px 4px #5a3a1a;
+}
+
+#Home h2 {
+  position: relative;
+  display: inline-block;
+}
+
+#Home h2::after {
+  content: "";
+  position: absolute;
+  bottom: -5px; /* Regola la distanza tra il testo e la linea */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 10%; /* Imposta la larghezza della linea */
+  height: 3px; /* Imposta lo spessore della linea a 20px */
+  background-color: white; /* Colore della linea */
 }

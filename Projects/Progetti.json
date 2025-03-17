@@ -77,6 +77,12 @@
       "immagine": "Projects/Img/Home/Appartamento_Arredato/Appartamento1.jpg",
       "categorie": ["Casa"],
       "link": "Projects/Pages/HTML/Home/Appartamento_Arredato.html"
+    },
+    {
+      "nome": "Tavolino",
+      "immagine": "Projects/Img/Nautico/Tavolino/Tavolino1.jpg",
+      "categorie": ["Nautico"],
+      "link": "Projects/Pages/HTML/Nautico/Tavolino.html"
     }
   ]
 }

@@ -6,12 +6,17 @@
     <title>Scale ellittiche</title>
     <link rel="icon" href="../../../../../../Img/IDEALEGNO.jpg" />
     <link rel="stylesheet" href="../../../CSS/Style.css" />
+    <script src="../../../JS/Slider.js" defer></script>
   </head>
   <body>
     <div class="header">
       <a href="../../../../../index.html#Progetti">
         <div class="logo-container">
-          <img class="logo" src="../../../../../../Img/IDEALEGNO.jpg" alt="Logo" />
+          <img
+            class="logo"
+            src="../../../../../../Img/IDEALEGNO.jpg"
+            alt="Logo"
+          />
         </div>
       </a>
       <h1>Scale ellittiche</h1>
@@ -19,9 +24,14 @@
       <br />
     </div>
     <div class="slider-container">
+      <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
       <div class="slider" id="slider">
+        <img src="../../../../Img/Home/Scala/Scala_Ellittica/Scala_Disegno.jpg" alt="Scala1" />
         <img src="../../../../Img/Home/Scala/Scala_Ellittica/Scala1.jpg" alt="Scala1" />
+        <img src="../../../../Img/Home/Scala/Scala_Ellittica/Scala2.jpg" alt="Scala1" />
       </div>
+      <button class="next" onclick="moveSlide(1)">&#10095;</button>
+    </div>
     </div>
   </body>
 </html>

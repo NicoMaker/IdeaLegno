@@ -83,6 +83,12 @@
       "immagine": "Projects/Img/Nautico/Tavolino/Tavolino1.jpg",
       "categorie": ["Nautico"],
       "link": "Projects/Pages/HTML/Nautico/Tavolino.html"
+    },
+    {
+      "nome":"Panca",
+      "immagine":"Projects/Img/Home/Panca/Panca_Disegno.jpg",
+      "categorie":["Casa"],
+      "link":"Projects/Pages/HTML/Home/Panca.html"
     }
   ]
 }

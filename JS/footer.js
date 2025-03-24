@@ -12,7 +12,7 @@ const createListItem = (href, imgSrc, altText, text) => {
   },
   loadFooterData = async () => {
     try {
-      const response = await fetch("JS/data.json");
+      const response = await fetch("JS/Footer.json");
 
       // Verifica che la risposta sia corretta
       if (!response.ok) throw new Error("Errore nel caricamento del file JSON");

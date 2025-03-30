@@ -1,82 +1,77 @@
+// Enhanced Progetti.js with clickable cards
 document.addEventListener("DOMContentLoaded", () => {
   const container = document.querySelector("#Progetti-container"),
-    filterButtons = document.querySelectorAll(".filter-button");
+    filterButtons = document.querySelectorAll(".filter-button")
 
   let progettiData = [],
     filteredProjects = [],
-    currentCategory = "all";
+    currentCategory = "all"
 
   function updateLayout() {
-    const width = window.innerWidth;
-    if (width <= 600) container.className = "progetti-container mobile-view";
-    else if (width <= 900)
-      container.className = "progetti-container tablet-view";
-    else container.className = "progetti-container pc-view";
-    updateDate();
+    const width = window.innerWidth
+    if (width <= 600) container.className = "progetti-container mobile-view"
+    else if (width <= 900) container.className = "progetti-container tablet-view"
+    else container.className = "progetti-container pc-view"
+    updateDate()
   }
 
   function fetchData() {
     fetch("Projects/Progetti.json")
       .then((response) => response.json())
       .then((data) => {
-        progettiData = data.Progetti;
-        updateFilter("all");
+        progettiData = data.Progetti
+        updateFilter("all")
       })
       .catch((error) => {
-        console.error("Errore nel caricamento:", error);
-        container.innerHTML = "<p>Errore nel caricamento dei progetti.</p>";
-      });
+        console.error("Errore nel caricamento:", error)
+        container.innerHTML = "<p>Errore nel caricamento dei progetti.</p>"
+      })
   }
 
   function updateFilter(category) {
-    currentCategory = category;
+    currentCategory = category
 
     filteredProjects =
-      category === "all"
-        ? progettiData
-        : progettiData.filter((progetto) =>
-            progetto.categorie.includes(category)
-          );
+      category === "all" ? progettiData : progettiData.filter((progetto) => progetto.categorie.includes(category))
 
-    updateDate();
-    updateFilterStyle();
+    updateDate()
+    updateFilterStyle()
   }
 
   function updateFilterStyle() {
     filterButtons.forEach((button) => {
-      button.classList.toggle(
-        "active",
-        button.dataset.category === currentCategory
-      );
-    });
+      button.classList.toggle("active", button.dataset.category === currentCategory)
+    })
   }
 
   function updateDate() {
-    container.innerHTML = "";
+    container.innerHTML = ""
 
-    if (filteredProjects.length === 0) 
-      container.innerHTML = "<p>Nessun progetto trovato.</p>";
+    if (filteredProjects.length === 0) container.innerHTML = "<p class='no-results'>Nessun progetto trovato.</p>"
     else {
       filteredProjects.forEach((project) => {
-        container.appendChild(createCard(project));
-      });
+        container.appendChild(createCard(project))
+      })
     }
   }
 
   function createCard(progetto) {
-    const card = document.createElement("div");
-    card.className = "Progetti-card";
+    const card = document.createElement("div")
+    card.className = "Progetti-card"
+
+    // Make the entire card clickable
+    card.addEventListener("click", () => {
+      window.location.href = progetto.link
+    })
+
+    // Add cursor style to indicate clickability
+    card.style.cursor = "pointer"
+
     card.innerHTML = `  
       <div class="container-immagine">
-        <a href="${progetto.link}">
-          <img class="immagine" src="${progetto.immagine}" alt="${
-      progetto.nome
-    }">
-        </a>
+        <img class="immagine" src="${progetto.immagine}" alt="${progetto.nome}">
       </div>
-      <h3>
-      <br>
-      ${progetto.nome}</h3>
+      <h3>${progetto.nome}</h3>
       ${
         currentCategory === "all" && progetto.categorie.length > 0
           ? `<p class="categoria">${
@@ -84,24 +79,27 @@ document.addEventListener("DOMContentLoaded", () => {
             }: ${progetto.categorie.join(", ")}</p>`
           : ""
       }
-    `;
-    return card;
+    `
+    return card
   }
 
   function addEventListeners() {
     filterButtons.forEach((button) => {
       button.addEventListener("click", () => {
-        updateFilter(button.dataset.category);
-      });
-    });
+        updateFilter(button.dataset.category)
+      })
+    })
+
+    // Add responsive layout updates on window resize
+    window.addEventListener("resize", updateLayout)
   }
 
   function init() {
-    fetchData();
-    addEventListeners();
-    updateLayout();
-    window.addEventListener("resize", updateLayout);
+    fetchData()
+    addEventListeners()
+    updateLayout()
   }
 
-  init();
-});
+  init()
+})
+

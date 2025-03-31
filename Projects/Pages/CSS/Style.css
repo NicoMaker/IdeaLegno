@@ -298,3 +298,32 @@ body {
 .header {
   background: url("../../../Img/Legno.jpg") no-repeat center center fixed;
 }
+
+.prev,
+.next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: #8b3e2fd6; /* Colore mattone */
+  color: white;
+  border: none;
+  padding: 15px 20px; /* Dimensione aumentata */
+  cursor: pointer;
+  border-radius: 5px; /* Angoli arrotondati */
+  z-index: 10;
+  font-size: 20px; /* Testo più grande */
+  border-radius: 5px; /* Angoli arrotondati */
+}
+
+.prev {
+  left: 15px;
+}
+
+.next {
+  right: 15px;
+}
+
+.prev:hover,
+.next:hover {
+  background-color: #7f3324d2; /* Colore leggermente più scuro al passaggio */
+}

@@ -2182,3 +2182,610 @@ footer li a img {
 .nav-link.active::after {
   width: 100%;
 }
+
+/* Font imports */
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap");
+
+/* Base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  color: #2d2d2d;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: linear-gradient(
+      to bottom,
+      rgba(233, 236, 239, 0.7),
+      rgba(139, 90, 43, 0.7)
+    ),
+    url("images/legno-lavorato.jpg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* Main container */
+.main-container {
+  margin-top: 80px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  flex: 1;
+}
+
+/* Section styles */
+.section {
+  min-height: 55vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.section h2 {
+  font-size: 2em;
+  margin-bottom: 20px;
+  color: #4a2c2a;
+  position: relative;
+  display: inline-block;
+}
+
+.section h2::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background-color: #8b5a2b;
+  border-radius: 3px;
+}
+
+.section p {
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+  line-height: 1.6;
+  color: #4a2c2a;
+  max-width: 800px;
+}
+
+/* Home section */
+#Home {
+  background-image: url("Projects/Img/Home/Scala/Scala/Scala1.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 55vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+  position: relative;
+}
+
+#Home::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(
+    0,
+    0,
+    0,
+    0.4
+  ); /* Dark overlay for better text visibility */
+  z-index: 1;
+}
+
+#Home h2,
+#Home p {
+  color: white;
+  position: relative;
+  z-index: 2;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+#Home h2 {
+  font-family: "Raleway", sans-serif;
+  font-weight: 700;
+  font-size: 2.5em;
+  margin-bottom: 20px;
+  position: relative;
+  display: inline-block;
+}
+
+#Home h2::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  z-index: 2;
+}
+
+#Home p {
+  font-size: 1.3em;
+  max-width: 700px;
+  margin: 20px auto 0;
+}
+
+/* Projects section */
+#Progetti {
+  text-align: center;
+  padding: 40px 5%;
+}
+
+.filter-container {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+}
+
+.filter-button {
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  background: #8b5a2b;
+  color: white;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+
+.filter-button:hover,
+.filter-button.active {
+  background: #5a3a1a;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.progetti-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  justify-items: center;
+  margin-top: 30px;
+}
+
+.Progetti-card {
+  background-color: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  width: 100%;
+  max-width: 350px;
+}
+
+.Progetti-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
+}
+
+.container-immagine {
+  width: 100%;
+  height: 220px;
+  overflow: hidden;
+  position: relative;
+}
+
+.container-immagine img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.5s ease;
+}
+
+.Progetti-card:hover .container-immagine img {
+  transform: scale(1.1);
+}
+
+.Progetti-card h3 {
+  padding: 15px 15px 5px;
+  font-size: 1.3em;
+  color: #333;
+  border-top: 2px solid #8b5a2b;
+  margin-top: 0;
+}
+
+.Progetti-card p {
+  padding: 0 15px 15px;
+  color: #555;
+  font-size: 0.95em;
+  line-height: 1.5;
+}
+
+.Progetti-card a.contact-button {
+  display: inline-block;
+  background-color: #8b5a2b;
+  color: #fff;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  margin: 10px auto 20px;
+  transition: all 0.3s ease;
+}
+
+.Progetti-card a.contact-button:hover {
+  background-color: #5a3a1a;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive styles */
+@media (max-width: 1024px) {
+  .section h2 {
+    font-size: 1.8em;
+  }
+
+  .section p {
+    font-size: 1rem;
+  }
+
+  .progetti-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  #Home h2 {
+    font-size: 1.8em;
+  }
+
+  #Home p {
+    font-size: 1.1em;
+  }
+}
+
+@media (max-width: 768px) {
+  body {
+    font-size: 16px;
+  }
+
+  .main-container {
+    margin-top: 140px;
+    padding-top: 20px;
+  }
+
+  .section h2 {
+    font-size: 1.6em;
+  }
+
+  .section p {
+    font-size: 1rem;
+  }
+
+  .progetti-container {
+    grid-template-columns: 1fr;
+  }
+
+  #Home {
+    min-height: auto;
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+}
+
+@media (max-width: 480px) {
+  .main-container {
+    margin-top: 160px;
+    padding-top: 20px;
+  }
+}
+
+/* Ensure smooth scrolling */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 120px;
+}
+
+/* Progetti Section */
+#Progetti {
+  text-align: center;
+  padding: 40px 5%;
+}
+
+.filter-container {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+}
+
+.filter-button {
+  padding: 12px 25px;
+  border: none;
+  cursor: pointer;
+  background-color: #8b5a2b;
+  color: white;
+  border-radius: 30px;
+  transition: all 0.3s ease;
+  font-weight: 500;
+  font-size: 1.1em;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.filter-button:hover,
+.filter-button.active {
+  background-color: #5a3a1a;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.progetti-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 30px;
+  justify-items: center;
+  margin-top: 30px;
+}
+
+.Progetti-card {
+  background-color: #fff;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  width: 100%;
+  max-width: 350px;
+  cursor: pointer;
+}
+
+.Progetti-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+}
+
+.container-immagine {
+  width: 100%;
+  height: 220px;
+  overflow: hidden;
+  position: relative;
+}
+
+.container-immagine img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.5s ease;
+}
+
+.Progetti-card:hover .container-immagine img {
+  transform: scale(1.1);
+}
+
+.Progetti-card h3 {
+  padding: 20px 20px 5px;
+  font-size: 1.4em;
+  color: #333;
+  border-top: 2px solid #8b5a2b;
+  margin-top: 0;
+  background-color: #f8f8f8;
+  text-transform: capitalize;
+}
+
+.Progetti-card p {
+  padding: 0 20px 20px;
+  color: #555;
+  font-size: 1em;
+  line-height: 1.6;
+  font-family: "Roboto", sans-serif;
+}
+
+.Progetti-card a.contact-button {
+  display: inline-block;
+  background-color: #8b5a2b;
+  color: #fff;
+  padding: 12px 25px;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  margin: 15px auto 20px;
+  transition: all 0.3s ease;
+}
+
+.Progetti-card a.contact-button:hover {
+  background-color: #5a3a1a;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsivo */
+@media (max-width: 1024px) {
+  .filter-button {
+    padding: 10px 18px;
+    font-size: 1em;
+  }
+
+  .progetti-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .progetti-container {
+    grid-template-columns: 1fr;
+  }
+
+  .Progetti-card h3 {
+    font-size: 1.2em;
+  }
+
+  .Progetti-card p {
+    font-size: 0.95em;
+  }
+
+  .filter-button {
+    padding: 8px 15px;
+    font-size: 0.9em;
+  }
+}
+
+#Progetti h3 {
+  color: #8b5a2b;
+}
+
+/* Home section */
+#Home {
+  background-image: url("Projects/Img/Home/Scala/Scala/Scala1.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 55vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 0 20px; /* Removed padding-top and adjusted the padding for better position */
+  position: relative;
+  margin-top: -20px; /* Move the section further up */
+}
+
+#Home::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(
+    0,
+    0,
+    0,
+    0.4
+  ); /* Dark overlay for better text visibility */
+  z-index: 1;
+}
+
+#Home h2,
+#Home p {
+  color: white;
+  position: relative;
+  z-index: 2;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+#Home h2 {
+  font-family: "Raleway", sans-serif;
+  font-weight: 700;
+  font-size: 2.5em;
+  margin-bottom: 20px;
+  position: relative;
+  display: inline-block;
+}
+
+#Home h2::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  z-index: 2;
+}
+
+#Home p {
+  font-size: 1.3em;
+  max-width: 700px;
+  margin: 20px auto 0;
+}
+
+/* Prevent scrolling above the "Home" section */
+body {
+  padding-top: 0; /* Ensure there's no extra padding above */
+  overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+/* Responsive styles for mobile */
+@media (max-width: 768px) {
+  #Home {
+    min-height: 40vh; /* Min height reduced for mobile */
+    padding: 20px;
+    margin-top: -30px; /* Move the section even further up on smaller screens */
+  }
+
+  #Home h2 {
+    font-size: 2em; /* Smaller font size for mobile */
+    margin-bottom: 10px;
+  }
+
+  #Home p {
+    font-size: 1.1em; /* Adjusted paragraph font size */
+    max-width: 90%;
+    margin: 10px auto 0;
+  }
+
+  #Home h2::after {
+    width: 60px; /* Narrower line below title */
+  }
+}
+
+
+
+/* Fixed size for image container */
+.container-immagine {
+  width: 280px; /* Fixed width for image container */
+  height: 180px; /* Fixed height for image container */
+  overflow: hidden;
+  position: relative;
+}
+
+.container-immagine img {
+  width: 100%; /* Ensures image fits the container width */
+  height: 100%; /* Ensures image fits the container height */
+  object-fit: cover; /* Ensures image covers the area without distortion */
+  object-position: center; /* Centers the image */
+  transition: transform 0.5s ease;
+}
+
+
+/* Responsive styles for the cards */
+@media (max-width: 1024px) {
+
+
+  .container-immagine {
+    width: 280px; /* Fixed width for image container */
+    height: 180px; /* Fixed height for image container */
+  }
+}
+
+@media (max-width: 768px) {
+  .container-immagine {
+    width: 280px; /* Fixed width for image container */
+    height: 180px; /* Fixed height for image container */
+  }
+}

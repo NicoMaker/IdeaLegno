@@ -2653,6 +2653,8 @@ html {
 
 #Progetti h3 {
   color: #8b5a2b;
+  text-transform: uppercase;
+  font: optional;
 }
 
 /* Home section */

@@ -31,6 +31,7 @@ const createListItem = (href, imgSrc, altText, text) => {
         locationSection = `
       <div class="location-section">
         <p>${data.location.address}</p>
+        <br>
         <a href="${data.location.mapLink}" target="_blank" rel="noopener noreferrer" class="map-link">
           Visualizza sulla mappa
         </a>

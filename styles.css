@@ -2792,3 +2792,802 @@ body {
   }
 }
 
+
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap");
+
+/* Base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  color: #2d2d2d;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: linear-gradient(to bottom, rgba(196, 164, 132, 0.7), rgba(139, 90, 43, 0.7)),
+    url("images/legno-lavorato.jpg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* Main container */
+.main-container {
+  margin-top: 80px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  flex: 1;
+}
+
+/* Section styles */
+.section {
+  min-height: 55vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 40px 20px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.section h2 {
+  font-size: 2em;
+  margin-bottom: 20px;
+  color: #4a2c2a;
+  position: relative;
+  display: inline-block;
+}
+
+.section h2::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background-color: #8b5a2b;
+  border-radius: 3px;
+}
+
+.section p {
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+  line-height: 1.6;
+  color: #4a2c2a;
+  max-width: 800px;
+}
+
+/* Home section */
+#Home {
+  background-image: url("Projects/Img/Home/Scala/Scala/Scala1.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 55vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+  position: relative;
+}
+
+#Home::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 1;
+}
+
+#Home h2,
+#Home p {
+  color: white;
+  position: relative;
+  z-index: 2;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+#Home h2 {
+  font-family: "Raleway", sans-serif;
+  font-weight: 700;
+  font-size: 2.5em;
+  margin-bottom: 20px;
+  position: relative;
+  display: inline-block;
+}
+
+#Home h2::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  z-index: 2;
+}
+
+#Home p {
+  font-size: 1.3em;
+  max-width: 700px;
+  margin: 20px auto 0;
+}
+
+/* Header and Navigation */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-image: url("Img/Legno.jpg");
+  background-size: cover;
+  background-position: center;
+  color: #edf2f7;
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.logo-container {
+  flex: 0 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 154px;
+  border-radius: 2px;
+  background-color: white;
+  transition: transform 0.3s ease;
+}
+
+.logo-container:hover {
+  transform: scale(1.05);
+}
+
+.logo {
+  width: 150px;
+  height: auto;
+}
+
+header nav ul {
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+}
+
+header nav ul li {
+  margin: 0 15px;
+}
+
+header nav ul li a {
+  color: #edf2f7;
+  text-decoration: none;
+  font-size: 1em;
+  transition: color 0.3s, transform 0.3s;
+  display: inline-block;
+}
+
+header nav ul li a:hover {
+  color: #d2b48c;
+  transform: translateY(-2px);
+}
+
+/* Hamburger Menu */
+.hamburger-menu {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 21px;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+.hamburger-menu span {
+  display: block;
+  height: 3px;
+  width: 100%;
+  background-color: #edf2f7;
+  border-radius: 3px;
+  transition: all 0.3s ease;
+}
+
+.hamburger-menu.active span:nth-child(1) {
+  transform: translateY(9px) rotate(45deg);
+}
+
+.hamburger-menu.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger-menu.active span:nth-child(3) {
+  transform: translateY(-9px) rotate(-45deg);
+}
+
+/* Projects section */
+#Progetti {
+  text-align: center;
+  padding: 40px 5%;
+}
+
+.filter-container {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+}
+
+.filter-button {
+  padding: 12px 25px;
+  border: none;
+  cursor: pointer;
+  background-color: #8b5a2b;
+  color: white;
+  border-radius: 30px;
+  transition: all 0.3s ease;
+  font-weight: 500;
+  font-size: 1.1em;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.filter-button:hover,
+.filter-button.active {
+  background-color: #5a3a1a;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.progetti-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 30px;
+  justify-items: center;
+  margin-top: 30px;
+}
+
+.Progetti-card {
+  background-color: #fff;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  width: 100%;
+  max-width: 350px;
+  cursor: pointer;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.5s forwards;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.Progetti-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+}
+
+.container-immagine {
+  width: 280px;
+  height: 180px;
+  overflow: hidden;
+  position: relative;
+}
+
+.container-immagine img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.5s ease;
+}
+
+.Progetti-card:hover .container-immagine img {
+  transform: scale(1.1);
+}
+
+.Progetti-card h3 {
+  padding: 20px 20px 5px;
+  font-size: 1.4em;
+  color: #8b5a2b;
+  border-top: 2px solid #8b5a2b;
+  margin-top: 0;
+  background-color: #f8f8f8;
+  text-transform: uppercase;
+}
+
+.Progetti-card p {
+  padding: 0 20px 20px;
+  color: #555;
+  font-size: 1em;
+  line-height: 1.6;
+}
+
+/* Cookie Banner */
+.cookie-banner {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #8b5a2b;
+  color: white;
+  text-align: center;
+  padding: 12px;
+  font-size: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  box-shadow: 0px -2px 5px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  transform: translateY(100%);
+  transition: transform 0.5s ease;
+}
+
+.cookie-banner.show {
+  transform: translateY(0);
+}
+
+.cookie-banner p {
+  margin: 0;
+  flex: 1;
+}
+
+.cookie-banner a {
+  color: #ffcc80;
+  text-decoration: underline;
+}
+
+.cookie-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.cookie-btn {
+  background-color: #d2691e;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  font-size: 1rem;
+  border-radius: 5px;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.cookie-btn:hover {
+  background-color: #a0522d;
+  transform: translateY(-2px);
+}
+
+.cookie-btn.decline {
+  background-color: #a52a2a;
+}
+
+.cookie-btn.decline:hover {
+  background-color: #8b0000;
+}
+
+.cookie-btn.revoke {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: rgba(139, 90, 43, 0.8);
+  z-index: 999;
+  display: none;
+  animation: fadeIn 0.5s forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Footer */
+footer {
+  background-image: url("Img/Legno.jpg");
+  background-size: cover;
+  background-position: center;
+  color: #fff;
+  padding: 20px 5%;
+  width: 100%;
+  box-sizing: border-box;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+footer.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-columns {
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+  margin-bottom: 15px;
+}
+
+.contact-section,
+.social-section {
+  flex: 1;
+}
+
+.section-title {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+  position: relative;
+  padding-bottom: 8px;
+}
+
+.section-title:after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #fff;
+}
+
+.contact-list,
+.social-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.contact-list li,
+.social-list li {
+  margin-bottom: 10px;
+}
+
+.contact-list a,
+.social-list a {
+  display: flex;
+  align-items: center;
+  color: #fff;
+  text-decoration: none;
+  transition: opacity 0.2s ease, transform 0.3s ease;
+}
+
+.contact-list a:hover,
+.social-list a:hover {
+  opacity: 0.8;
+  transform: translateX(5px);
+}
+
+.contact-list img,
+.social-list img {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+  object-fit: contain;
+}
+
+/* Map Section */
+.map-section {
+  margin-top: 15px;
+  padding-top: 15px;
+  border-top: 2px solid white;
+  text-align: center;
+}
+
+.map-section p {
+  margin: 0 0 8px 0;
+  font-size: 14px;
+}
+
+#map-container {
+  width: 100%;
+  height: 200px;
+  border-radius: 8px;
+  margin: 15px 0;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.map-link {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14px;
+  display: inline-block;
+  padding: 8px 15px;
+  border: 1px solid #fff;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  margin-top: 10px;
+}
+
+.map-link:hover {
+  background-color: #fff;
+  color: #8b5a2b;
+  transform: translateY(-2px);
+}
+
+.copyright {
+  font-size: 14px;
+  color: white;
+  border-top: 2px solid white;
+  padding-top: 15px;
+  margin-top: 15px;
+  text-align: center;
+}
+
+/* Responsive styles */
+@media (max-width: 1024px) {
+  .section h2 {
+    font-size: 1.8em;
+  }
+
+  .section p {
+    font-size: 1rem;
+  }
+
+  .progetti-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  #Home h2 {
+    font-size: 1.8em;
+  }
+
+  #Home p {
+    font-size: 1.1em;
+  }
+
+  .filter-button {
+    padding: 10px 18px;
+    font-size: 1em;
+  }
+}
+
+@media (max-width: 768px) {
+  body {
+    font-size: 16px;
+  }
+
+  .hamburger-menu {
+    display: flex;
+  }
+
+  header {
+    padding: 15px;
+  }
+
+  header nav.menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 70%;
+    height: 100vh;
+    background-color: rgba(139, 90, 43, 0.95);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: right 0.3s ease;
+    z-index: 1000;
+  }
+
+  header nav.menu.active {
+    right: 0;
+  }
+
+  header nav ul {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+
+  header nav ul li {
+    margin: 15px 0;
+    width: 100%;
+    text-align: center;
+  }
+
+  header nav ul li a {
+    font-size: 1.2em;
+    padding: 10px;
+    display: block;
+  }
+
+  .main-container {
+    margin-top: 100px;
+    padding-top: 20px;
+  }
+
+  .section h2 {
+    font-size: 1.6em;
+  }
+
+  .section p {
+    font-size: 1rem;
+  }
+
+  .progetti-container {
+    grid-template-columns: 1fr;
+  }
+
+  #Home {
+    min-height: 40vh;
+    padding: 20px;
+  }
+
+  #Home h2 {
+    font-size: 1.5em;
+  }
+
+  #Home p {
+    font-size: 1em;
+  }
+
+  .footer-columns {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .cookie-banner {
+    flex-direction: column;
+    text-align: center;
+    padding: 10px;
+  }
+
+  .cookie-buttons {
+    flex-direction: column;
+    width: 100%;
+    gap: 5px;
+  }
+
+  .cookie-btn {
+    width: 100%;
+    padding: 8px 12px;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .main-container {
+    margin-top: 80px;
+    padding-top: 20px;
+  }
+
+  .filter-button {
+    padding: 8px 15px;
+    font-size: 0.9em;
+  }
+
+  .cookie-banner {
+    padding: 8px;
+  }
+
+  .cookie-buttons {
+    gap: 3px;
+  }
+
+  .cookie-btn {
+    padding: 6px 10px;
+  }
+
+  .cookie-btn.revoke {
+    bottom: 10px;
+    right: 10px;
+    padding: 8px 12px;
+  }
+
+  #map-container {
+    height: 150px;
+  }
+}
+
+/* Animation classes */
+.fade-in {
+  animation: fadeIn 0.5s forwards;
+}
+
+.slide-in-right {
+  animation: slideInRight 0.5s forwards;
+}
+
+.slide-in-left {
+  animation: slideInLeft 0.5s forwards;
+}
+
+.bounce-in {
+  animation: bounceIn 0.5s forwards;
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    transform: translateX(-50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes bounceIn {
+  0% {
+    transform: scale(0.3);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.5;
+  }
+  70% {
+    transform: scale(0.9);
+    opacity: 0.7;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+
+.hamburger-menu{
+  background-image: url("Img/Legno.jpg");
+}

@@ -1,247 +1,408 @@
-/* Stile per l'header */
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap");
+
+/* Reset e stili base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+
+html,
+body {
+  height: 100%;
+  overflow-x: hidden;
+  background: linear-gradient(to bottom, rgba(233, 236, 239, 0.7), rgba(139, 90, 43, 0.7)), url("../Img/Legno.jpg");
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  color: #333;
+}
+
+/* Header migliorato */
 .cookie-header {
-  display: flex;
-  justify-content: space-between; /* Posiziona il testo e l'immagine agli estremi */
-  align-items: center;
-  background: linear-gradient(
-    to left,
-    rgba(101, 67, 33, 0.971),
-    rgba(60, 40, 20, 0.849)
-  );
-  padding: 20px;
-  position: fixed; /* Rende solo la barra dell'header fissa */
+  position: fixed;
   top: 0;
   left: 0;
-  right: 0;
-  z-index: 1000; /* Mantiene l'header sopra gli altri contenuti */
-  background-color: rgba(
-    0,
-    0,
-    0,
-    0.5
-  ); /* Sfondo semitrasparente per migliorare la visibilità */
+  width: 100%;
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 40px;
+  background-image: url("../Img/Legno.jpg");
+  background-size: cover;
+  background-position: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+}
+
+
+.cookie-header a {
+  display: block;
+  z-index: 2;
+}
+
+.header-img {
+  width: 150px;
+  height: auto;
+  background-color: white;
+  border-radius: 8px;
+  padding: 4px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.header-img:hover {
+  transform: scale(1.05);
 }
 
 .cookie-header h1 {
-  display: flex;
+  font-family: "Montserrat", sans-serif;
+  font-size: 32px;
+  font-weight: 600;
   color: white;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  position: relative;
+  z-index: 1;
   margin: 0;
-  font-size: 28px;
-  text-align: center; /* Centra il testo all'interno di h1 */
-  flex-grow: 1; /* Permette di occupare tutto lo spazio disponibile per centrare il testo */
-  font-family: "Raleway", sans-serif; /* Imposta il font */
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Ombra per una maggiore leggibilità */
-  display: block; /* Assicura che l'h1 si comporti come un blocco per poterlo centrare */
-  justify-content: center;
-  align-items: center;
-  align-items: flex-end;
+  padding: 0 20px;
 }
 
-/* Stile per l'immagine del logo */
-.cookie-header .header-img {
-  max-width: 250px;
-  max-height: 250px;
-  object-fit: cover;
-  cursor: pointer;
+.cookie-header h1::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background-color: #ffcc80;
+  border-radius: 3px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
 }
 
-/* Stile per il contenuto */
+/* Contenitore principale migliorato */
 .cookie-container {
-  max-width: 600px;
-  margin: 100px auto 20px; /* Aggiungi margine superiore per evitare che il contenuto venga nascosto dall'header */
-  padding: 20px;
-  background: #fff;
-  border-radius: 8px;
+  max-width: 800px;
+  margin: 160px auto 40px;
+  padding: 40px;
+  background-color: rgba(255, 255, 255, 0.95);
+  background-image: url("../Img/Legno.jpg");
+  background-blend-mode: overlay;
+  background-size: cover;
+  border-radius: 15px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  border: 3px solid #8b5a2b;
+  position: relative;
+  overflow: hidden;
+  animation: fadeIn 0.8s ease-out;
 }
 
-/* Altri stili per il testo */
-h1 {
-  font-size: 28px;
-  margin-top: 10px;
-}
-
-h2 {
-  font-size: 24px;
-  margin-top: 20px;
-}
-
-h3 {
-  font-size: 20px;
-  margin-top: 15px;
-}
-
-p,
-ul {
-  font-size: 16px;
-  line-height: 1.6;
-}
-
-/* Sezione con scroll solo se il testo è troppo lungo */
-section {
-  min-height: 100vh;
-  padding: 20px;
-  overflow-y: auto; /* Scorrimento solo se il contenuto è più alto della sezione */
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-  .cookie-header {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .header-img {
-    max-width: 200px;
-  }
-
-  h1 {
-    font-size: 24px;
-  }
-
-  h2 {
-    font-size: 20px;
-  }
-
-  p,
-  ul {
-    font-size: 14px;
-  }
-}
-
-/* Sfondo generale */
-body {
-  background: linear-gradient(
-      to bottom,
-      rgba(233, 236, 239, 0.7),
-      rgba(139, 90, 43, 0.7)
-    ),
-    url("images/legno-lavorato.jpg"); /* Immagine di legno lavorato */
-}
-
-.header-img {
-  width: 150px; /* Imposta la larghezza a 150px */
-  height: auto; /* L'altezza si adatterà automaticamente per mantenere le proporzioni dell'immagine */
-  border-radius: 2px; /* Angoli arrotondati per l'immagine */
-  object-fit: cover; /* Rende l'immagine proporzionata e taglia le parti eccedenti se necessario */
-  cursor: pointer; /* Imposta il cursore a forma di mano quando si passa sopra */
-}
-
-/* Stile per l'header */
-.cookie-header {
-  display: flex;
-  justify-content: space-between; /* Posiziona l'immagine e il testo agli estremi */
-  align-items: center;
-  background: linear-gradient(
-    to left,
-    rgba(101, 67, 33, 0.971),
-    rgba(60, 40, 20, 0.849)
-  );
-  padding: 20px;
-  position: fixed; /* Rende solo la barra dell'header fissa */
+.cookie-container::before {
+  content: "";
+  position: absolute;
   top: 0;
   left: 0;
-  right: 0;
-  z-index: 1000; /* Mantiene l'header sopra gli altri contenuti */
-  background-color: rgba(0, 0, 0, 0.5); /* Sfondo semitrasparente per migliorare la visibilità */
+  width: 100%;
+  height: 8px;
+  background: linear-gradient(to right, #8b5a2b, #ffcc80, #8b5a2b);
 }
 
-/* Stile per l'immagine del logo */
-.cookie-header .header-img {
-  max-width: 250px;
-  max-height: 250px;
-  object-fit: cover;
-  cursor: pointer;
-}
-
-/* Stile per il contenuto */
-.cookie-container {
-  max-width: 600px;
-  margin: 100px auto 20px; /* Aggiungi margine superiore per evitare che il contenuto venga nascosto dall'header */
-  padding: 20px;
-  background: #fff;
-  border-radius: 8px;
-}
-
-/* Altri stili per il testo */
-h1 {
-  font-size: 28px;
-  margin-top: 10px;
+/* Stili per il contenuto */
+section {
+  min-height: auto;
+  padding: 0;
+  overflow-y: visible;
 }
 
 h2 {
-  font-size: 24px;
-  margin-top: 20px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 28px;
+  color: #8b5a2b;
+  margin-bottom: 20px;
+  position: relative;
+  padding-bottom: 10px;
+}
+
+h2::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 60px;
+  height: 3px;
+  background-color: #ffcc80;
+  border-radius: 3px;
 }
 
 h3 {
-  font-size: 20px;
-  margin-top: 15px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 22px;
+  color: #5a3a1a;
+  margin: 30px 0 15px;
 }
 
-p,
-ul {
+p {
   font-size: 16px;
-  line-height: 1.6;
+  line-height: 1.7;
+  color: #444;
+  margin-bottom: 20px;
 }
 
-/* Sezione con scroll solo se il testo è troppo lungo */
-section {
-  min-height: 100vh;
-  padding: 20px;
-  overflow-y: auto; /* Scorrimento solo se il contenuto è più alto della sezione */
+ul {
+  padding-left: 20px;
+  margin-bottom: 25px;
 }
 
-/* Responsive per dispositivi mobili */
+ul li {
+  font-size: 16px;
+  line-height: 1.7;
+  color: #444;
+  margin-bottom: 10px;
+  position: relative;
+  padding-left: 5px;
+}
+
+strong {
+  color: #8b5a2b;
+  font-weight: 600;
+}
+
+/* Elementi decorativi */
+.cookie-icon {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 60px;
+  height: 60px;
+  background-color: rgba(139, 90, 43, 0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cookie-icon svg {
+  width: 35px;
+  height: 35px;
+  fill: #8b5a2b;
+}
+
+/* Animazioni */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive design */
+@media (max-width: 1024px) {
+  .cookie-container {
+    max-width: 90%;
+    padding: 30px;
+  }
+}
+
 @media (max-width: 768px) {
   .cookie-header {
-    flex-direction: column;
-    text-align: center;
+    height: auto;
+    padding: 15px 20px;
+    flex-direction: row;
+    justify-content: space-between;
   }
 
-  .header-img {
-    max-width: 200px;
-  }
-
-  h1 {
+  .cookie-header h1 {
     font-size: 24px;
   }
 
+  .header-img {
+    width: 100px;
+  }
+
+  .cookie-container {
+    margin-top: 120px;
+    padding: 25px;
+  }
+
   h2 {
+    font-size: 24px;
+  }
+
+  h3 {
     font-size: 20px;
   }
 
   p,
-  ul {
+  ul li {
+    font-size: 15px;
+  }
+
+  .cookie-icon {
+    width: 50px;
+    height: 50px;
+    top: 15px;
+    right: 15px;
+  }
+
+  .cookie-icon svg {
+    width: 30px;
+    height: 30px;
+  }
+}
+
+@media (max-width: 480px) {
+  .cookie-header {
+    padding: 10px 15px;
+  }
+
+  .cookie-header h1 {
+    font-size: 20px;
+  }
+
+  .header-img {
+    width: 80px;
+  }
+
+  .cookie-container {
+    margin-top: 100px;
+    padding: 20px;
+  }
+
+  h2 {
+    font-size: 22px;
+  }
+
+  h3 {
+    font-size: 18px;
+  }
+
+  p,
+  ul li {
     font-size: 14px;
   }
-}
 
-/* Applicazione solo per schermi più larghi (desktop) */
-@media (min-width: 769px) {
-  .cookie-header h1 {
-    text-align: right; /* Allinea il testo a destra solo per PC */
-    margin-right: 20px; /* Aggiungi margine a destra per un po' di spazio */
+  .cookie-icon {
+    display: none;
   }
 }
 
-/* Sfondo generale */
-body {
-  background: linear-gradient(
-      to bottom,
-      rgba(233, 236, 239, 0.7),
-      rgba(139, 90, 43, 0.7)
-    ),
-    url("images/legno-lavorato.jpg"); /* Immagine di legno lavorato */
+/* Stili per il banner dei cookie */
+#cookie-banner {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(139, 90, 43, 0.95);
+  background-image: url("../Img/Legno.jpg");
+  background-blend-mode: multiply;
+  background-size: cover;
+  color: white;
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  transform: translateY(100%);
+  transition: transform 0.5s ease;
 }
 
-.header-img {
-  width: 150px; /* Imposta la larghezza a 150px */
-  height: auto; /* L'altezza si adatterà automaticamente per mantenere le proporzioni dell'immagine */
-  border-radius: 2px; /* Angoli arrotondati per l'immagine */
-  object-fit: cover; /* Rende l'immagine proporzionata e taglia le parti eccedenti se necessario */
-  cursor: pointer; /* Imposta il cursore a forma di mano quando si passa sopra */
+#cookie-banner.show {
+  transform: translateY(0);
 }
 
-.cookie-header {
-  background: url("../Img/Legno.jpg") no-repeat center center fixed;
+#cookie-banner p {
+  margin: 0 20px 0 0;
+  color: white;
+}
+
+.cookie-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.cookie-btn {
+  background-color: #ffcc80;
+  color: #5a3a1a;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.cookie-btn:hover {
+  background-color: white;
+  transform: translateY(-2px);
+}
+
+.cookie-btn.decline {
+  background-color: transparent;
+  border: 1px solid white;
+  color: white;
+}
+
+.cookie-btn.decline:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+#revoke-cookies {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: rgba(139, 90, 43, 0.8);
+  background-image: url("../Img/Legno.jpg");
+  background-blend-mode: multiply;
+  background-size: cover;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 600;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  z-index: 999;
+  display: none;
+}
+
+#revoke-cookies:hover {
+  background-color: rgba(139, 90, 43, 1);
+  transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+  #cookie-banner {
+    flex-direction: column;
+    padding: 15px;
+  }
+
+  #cookie-banner p {
+    margin: 0 0 15px 0;
+    text-align: center;
+  }
+
+  .cookie-buttons {
+    width: 100%;
+    justify-content: center;
+  }
+
+  #revoke-cookies {
+    bottom: 15px;
+    right: 15px;
+    padding: 8px 12px;
+    font-size: 14px;
+  }
 }

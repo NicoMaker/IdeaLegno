@@ -1,332 +1,316 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap");
 
-.logo-container {
-  flex: 1;
-  display: flex;
-  justify-content: flex-start; /* Align the logo to the left */
-  align-items: center;
-  width: 154px; /* Adjust the width to fit the logo */
-  border-radius: 2px;
-  background-color: white;
-}
-body {
+/* Reset e stili base */
+* {
   margin: 0;
-  font-family: Arial, sans-serif;
-  background-color: #f5f5f5;
-  text-align: center;
-}
-
-.logo {
-  height: 60px;
-  position: fixed;
-  left: 10px;
-  top: 50%;
-  transform: translateY(-50%);
-}
-h1 {
-  margin: 10px 0;
-  font-size: 24px;
-}
-.slider-container {
-  position: relative;
-  width: 100%;
-  max-width: 800px;
-  height: 80vh;
-  margin: 20px auto;
-  overflow: hidden;
-  border-radius: 10px;
-}
-.slider {
-  display: flex;
-  width: 100%;
-  height: 100%;
-  transition: transform 0.5s ease-in-out;
-}
-.slider img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  flex: 0 0 100%;
-}
-.prev,
-.next {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background-color: rgba(0, 0, 0, 0.5);
-  color: white;
-  border: none;
-  padding: 10px;
-  cursor: pointer;
-  border-radius: 5px;
-  z-index: 10;
-}
-.prev {
-  left: 10px;
-}
-.next {
-  right: 10px;
-}
-.prev:hover,
-.next:hover {
-  background-color: rgba(0, 0, 0, 0.8);
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
 }
 
 body {
-  height: 100vh; /* Imposta l'altezza del body al 100% della finestra */
+  height: 100%;
+  overflow-x: hidden;
   background: linear-gradient(
     to bottom,
     rgba(233, 236, 239, 0.7),
     rgba(139, 90, 43, 0.7)
   );
+  background-attachment: fixed;
+  color: #333;
 }
 
-* {
-  font-family: "Roboto", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: weight;
-  font-style: normal;
-  font-variation-settings: "wdth" 100;
-}
-
-h1 {
-  font-family: "Montserrat", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: weight;
-  font-style: normal;
-
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-}
-
+/* Header migliorato */
 .header {
-  padding: 10px;
-  color: white;
-  font-size: 24px;
-  font-weight: bold;
+  position: relative;
+  width: 100%;
+  height: 120px;
   display: flex;
   align-items: center;
-  justify-content: center; /* Centra il testo */
-  position: relative;
-  text-align: center;
-  width: 100%;
-  height: 80px; /* Assicura un'altezza adeguata */
+  justify-content: center;
+  padding: 0 20px;
+  background-image: url("../../../Img/Legno.jpg");
+  background-size: cover;
+  background-position: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  z-index: 10;
+}
+
+.header a {
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  transition: transform 0.3s ease;
+}
+
+.header a:hover {
+  transform: translateY(-50%) scale(1.05);
 }
 
 .logo-container {
-  position: absolute;
-  left: 10px; /* Posiziona il logo a sinistra */
-  top: 50%;
-  transform: translateY(-50%);
+  width: auto;
+  height: auto;
+  background-color: white;
+  border-radius: 8px;
+  padding: 4px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.logo {
+  width: 150px;
+  height: auto;
+  border-radius: 4px;
+  display: block;
 }
 
 .header h1 {
-  margin: 0;
-  flex: 1;
+  font-family: "Montserrat", sans-serif;
+  font-size: 32px;
+  font-weight: 600;
+  color: white;
   text-align: center;
   text-transform: uppercase;
-  font-weight: bold;
-}
-
-html,
-body {
-  height: 100%;
-  margin: 0;
-  padding: 0;
-  overflow: hidden; /* Previene lo scroll non voluto */
-}
-
-.header {
-  min-height: 80px; /* Evita che si allarghi per contenuto extra */
-  overflow: hidden; /* Nasconde eventuale testo che va oltre */
-}
-
-.header h1 {
-  font-size: 24px;
-  white-space: nowrap; /* Impedisce la rottura del testo su più righe */
-  overflow: hidden;
-  text-overflow: ellipsis; /* Mostra "..." se il testo è troppo lungo */
-  max-width: 60%; /* Impedisce che il testo prenda tutto lo spazio */
-}
-
-/* Per schermi più piccoli */
-@media (max-width: 768px) {
-  .header h1 {
-    font-size: 4vw; /* Riduce il font in base alla larghezza dello schermo */
-    max-width: 50%;
-  }
-}
-
-/* Per schermi molto piccoli */
-@media (max-width: 480px) {
-  .header h1 {
-    font-size: 3.5vw;
-    max-width: 45%;
-  }
-}
-
-.logo-container {
-  position: absolute;
-  left: 10px; /* Posiziona il logo a sinistra */
-  top: 50%;
-  transform: translateY(-50%);
-  width: 150px; /* Larghezza fissa del logo */
-}
-
-.header h1 {
-  margin: 0;
-  font-size: 24px;
-  max-width: 80%;
-  word-wrap: break-word; /* Permette la rottura della parola */
-  white-space: normal; /* Permette la rottura del testo su più righe */
-  padding-left: 170px; /* Sposta il testo per non sovrapporsi al logo */
-  padding: 0px;
-}
-
-/* Adatta il testo su schermi più piccoli */
-@media (max-width: 768px) {
-  .header h1 {
-    font-size: 4vw;
-    padding-left: 85px;
-  }
-}
-
-@media (max-width: 480px) {
-  .header h1 {
-    font-size: 3.5vw;
-    padding-left: 120px;
-  }
-}
-
-.header {
-  padding: 10px;
-  color: white;
-  font-size: 24px;
-  font-weight: bold;
-  display: flex;
-  align-items: center;
-  justify-content: center; /* Centra il contenuto orizzontalmente */
+  letter-spacing: 1px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
   position: relative;
-  text-align: center;
-  width: 100%;
-  height: 100px; /* Altezza fissa per evitare spostamenti */
-}
-
-.logo-container {
-  position: absolute;
-  left: 10px; /* Mantiene il logo a sinistra */
-  top: 50%;
-  transform: translateY(-50%);
-  width: 150px; /* Larghezza del logo */
-}
-
-.header h1 {
-  margin: 0;
-  font-size: 24px;
-  max-width: 60%;
+  z-index: 1;
+  margin: 0 auto;
+  padding: 0 20px 0 180px; /* Spazio a sinistra per il logo */
+  max-width: 100%;
   word-wrap: break-word;
   white-space: normal;
+  line-height: 1.2;
+}
+
+.header h1::after {
+  content: "";
   position: absolute;
+  bottom: -10px;
   left: 50%;
-  top: 50%;
-  transform: translate(
-    -50%,
-    -50%
-  ); /* Perfetto centramento orizzontale e verticale */
-  text-align: center;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background-color: #ffcc80;
+  border-radius: 3px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
 }
 
-/* Adatta il testo su schermi più piccoli */
-@media (max-width: 768px) {
-  .header h1 {
-    font-size: 4vw;
-    max-width: 70%;
-  }
-}
-
-@media (max-width: 480px) {
-  .header h1 {
-    font-size: 3.5vw;
-    max-width: 80%;
-  }
-}
-
-.header {
-  padding: 10px;
-  color: white;
-  font-size: 24px;
-  font-weight: bold;
-  display: flex;
-  align-items: center;
-  justify-content: center; /* Centra il contenuto orizzontalmente */
+/* Slider migliorato */
+.slider-container {
   position: relative;
-  text-align: center;
+  width: 90%;
+  max-width: 1000px;
+  height: calc(100vh - 180px);
+  margin: 30px auto;
+  overflow: hidden;
+  border-radius: 15px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  background-color: #fff;
+  border: 3px solid #8b5a2b;
+}
+
+.slider {
+  display: flex;
   width: 100%;
-  height: 100px; /* Altezza fissa per evitare spostamenti */
+  height: 100%;
+  transition: transform 0.6s cubic-bezier(0.33, 1, 0.68, 1);
 }
 
-.logo-container {
-  position: absolute;
-  left: 10px; /* Mantiene il logo a sinistra */
-  top: 50%;
-  transform: translateY(-50%);
-  width: 150px; /* Larghezza del logo */
+.slider img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  flex: 0 0 100%;
+  padding: 20px;
+  background-color: #fff;
 }
 
-.header h1 {
-  margin: 0;
-  font-size: 24px;
-  max-width: 60%;
-  word-wrap: break-word;
-  white-space: normal;
-  text-align: center;
-  flex: 1; /* Occupa lo spazio rimanente per restare centrato */
-}
-
-/* Adatta il testo su schermi più piccoli */
-@media (max-width: 768px) {
-  .header h1 {
-    font-size: 4vw;
-    max-width: 70%;
-  }
-}
-
-@media (max-width: 480px) {
-  .header h1 {
-    font-size: 3.5vw;
-    max-width: 80%;
-  }
-}
-
-.header {
-  background: url("../../../Img/Legno.jpg") no-repeat center center fixed;
-}
-
+/* Controlli dello slider migliorati */
 .prev,
 .next {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background-color: #8b3e2fd6; /* Colore mattone */
+  width: 50px;
+  height: 50px;
+  background-color: rgba(139, 90, 43, 0.8);
   color: white;
   border: none;
-  padding: 15px 20px; /* Dimensione aumentata */
+  border-radius: 50%;
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
-  border-radius: 5px; /* Angoli arrotondati */
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   z-index: 10;
-  font-size: 20px; /* Testo più grande */
-  border-radius: 10px; /* Angoli arrotondati */
+  opacity: 0.7;
 }
 
 .prev {
-  left: 15px;
+  left: 20px;
 }
 
 .next {
-  right: 15px;
+  right: 20px;
 }
 
 .prev:hover,
 .next:hover {
-  background-color: #7f3324d2; /* Colore leggermente più scuro al passaggio */
+  background-color: rgba(139, 90, 43, 1);
+  transform: translateY(-50%) scale(1.1);
+  opacity: 1;
+}
+
+/* Indicatori di posizione dello slider */
+.slider-indicators {
+  position: absolute;
+  bottom: 15px;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  z-index: 10;
+}
+
+.slider-indicator {
+  width: 12px;
+  height: 12px;
+  background-color: rgba(255, 255, 255, 0.5);
+  border: 2px solid rgba(139, 90, 43, 0.5);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.slider-indicator.active {
+  background-color: #8b5a2b;
+  transform: scale(1.2);
+}
+
+/* Overlay per migliorare la leggibilità */
+.slider-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.1) 0%,
+    rgba(0, 0, 0, 0) 20%,
+    rgba(0, 0, 0, 0) 80%,
+    rgba(0, 0, 0, 0.1) 100%
+  );
+  pointer-events: none;
+  z-index: 5;
+}
+
+/* Animazioni e transizioni */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.slider-container {
+  animation: fadeIn 0.8s ease-out;
+}
+
+/* Responsive design */
+@media (max-width: 1024px) {
+  .slider-container {
+    width: 95%;
+    height: calc(100vh - 160px);
+  }
+}
+
+@media (max-width: 768px) {
+  .header {
+    height: 100px;
+    padding: 0 15px;
+  }
+
+  .header h1 {
+    font-size: 24px;
+    padding-left: 150px;
+  }
+
+  .logo {
+    width: 120px;
+  }
+
+  .header a {
+    left: 15px;
+  }
+
+  .slider-container {
+    height: calc(100vh - 140px);
+  }
+
+  .prev,
+  .next {
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .header {
+    height: 90px;
+    padding: 0 10px;
+  }
+
+  .header a {
+    left: 10px;
+  }
+
+  .logo {
+    width: 90px;
+  }
+
+  .header h1 {
+    font-size: 20px;
+    padding-left: 110px;
+  }
+
+  .header h1::after {
+    width: 60px;
+    bottom: -8px;
+  }
+
+  .slider-container {
+    width: 98%;
+    height: calc(100vh - 130px);
+    margin: 20px auto;
+    border-radius: 10px;
+  }
+
+  .prev,
+  .next {
+    width: 36px;
+    height: 36px;
+    font-size: 18px;
+  }
+
+  .prev {
+    left: 10px;
+  }
+
+  .next {
+    right: 10px;
+  }
+}
+
+.header {
+  background-image: url("../../../Img/Legno.jpg");
 }

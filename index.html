@@ -1,121 +1,140 @@
 <!DOCTYPE html>
 <html lang="it">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>IdeaLegno</title>
-    <link rel="stylesheet" href="styles.css" />
-    <script src="Projects/Progetti.js" defer></script>
-    <script src="News/news.js" defer></script>
-    <script src="JS/footer.js" defer></script>
-    <script src="JS/colore_sezione.js" defer></script>
-    <!-- <script src="Cookies/Cookies.js" defer></script> -->
-    <link
-      href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet"
-    />
-    <meta name="description" content="IdeaLegno: arredamento su misura per Home, attività commerciali e settore navale. Unione tra tradizione e innovazione.">
-    <link rel="icon" href="Img/IDEALEGNO.jpg" />
-  </head>
-  <body>
-    <header>
-      <a href="#Home">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IdeaLegno</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="custom-styles.css" />
+  <script src="Projects/Progetti.js" defer></script>
+  <script src="News/news.js" defer></script>
+  <script src="JS/footer.js" defer></script>
+  <script src="JS/colore_sezione.js" defer></script>
+  <script src="JS/mobile-menu.js" defer></script>
+  <script src="JS/animations.js" defer></script>
+  <script src="JS/cookie-banner.js" defer></script>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+  <meta name="description"
+    content="IdeaLegno: arredamento su misura per Home, attività commerciali e settore navale. Unione tra tradizione e innovazione.">
+  <link rel="icon" href="Img/IDEALEGNO.jpg" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+</head>
+
+<body>
+  <header>
+    <div class="header-content">
+      <a href="#Home" class="logo-link">
         <div class="logo-container">
-          <img class="logo" src="Img/IDEALEGNO.jpg" alt="Logo Azienda" />
+          <img class="logo" src="Img/IDEALEGNO.jpg" alt="Logo IdeaLegno" />
         </div>
       </a>
-      <nav class="menu" id="menu">
-        <ul>
-          <li>
-            <a href="#Progetti" class="nav-link">I nostri progetti</a>
-          </li>
-          <li>
-            <a href="#Riconoscimenti" class="nav-link"
-              >I nostri Riconoscimenti</a
-            >
-          </li>
-        </ul>
-      </nav>
-    </header>
 
-    <!-- <div id="cookie-banner" class="cookie-banner">
-      <p>
-        Questo sito utilizza i cookie per migliorare l'esperienza utente.
-        Continuando la navigazione, accetti il loro utilizzo.
-        <a href="Cookies/Cookie.html">Leggi di più</a>
-      </p>
-      <div class="cookie-buttons">
-        <button id="accept-cookies" class="cookie-btn">Accetta</button>
-        <button id="decline-cookies" class="cookie-btn decline">Rifiuta</button>
+      <!-- Hamburger menu button for mobile -->
+      <div class="hamburger-menu" id="hamburger-menu">
+        <span></span>
+        <span></span>
+        <span></span>
       </div>
-    </div>
-    
-    <!-- Pulsante per modificare le preferenze -->
-    <!-- <button id="revoke-cookies" class="cookie-btn revoke">
-      Modifica preferenze cookie
-    </button> --> -->
-    
-    
-    
-    </div>
 
-    <main class="main-container">
-      <section id="Home" class="section">
-        <h2>
-          <br />
-          <br>
-          Con la nostra passione per il legno, unita alla precisione nella
-          progettazione, ogni angolo del tuo ambiente domestico sarà reso unico
-          ed esattamente
-          <br />come lo desideri tu.
-          <br>
-          <br>
-        </h2>
-        <p>
-          <br>
-          La nostra impresa artigiana, fondata e tutt'ora guidata da Paolo
-          Bomben, è in grado di unire la tradizione del mestiere di falegname
-          all'innovazione delle moderne tecnologie. Attraverso un'attenta e
-          precisa progettazione delle idee, realizziamo arredamento su misura
-          per abitazioni, attività commerciali e settore navale. L'arredo da noi
-          creato è unico e rispecchia appieno la tua personalità e le tue
-          esigenze.
-          <br>
-          <br>
-        </p>
-      </section>
-
-      <section id="Progetti" class="section">
-        <h2>I nostri progetti di arredamento</h2>
-
-        <!-- Filtri categoria -->
-        <div class="filter-container">
-          <button class="filter-button active" data-category="Casa">
-            Casa
-          </button>
-
-          <button class="filter-button active" data-category="Commerciale">
-            Commerciale
-          </button>
-
-          <button class="filter-button active" data-category="Nautico">
-             Nautico
-          </button>
-
-          <button class="filter-button active" data-category="all">
-            Tutti
-          </button>
+      <nav class="menu" id="menu">
+        <div class="mobile-menu-content">
+          <div class="mobile-logo">
+            <img src="Img/IDEALEGNO.jpg" alt="Logo IdeaLegno Mobile" />
+          </div>
+          <ul>
+            <li>
+              <a href="#Progetti" class="nav-link">I nostri progetti</a>
+            </li>
+            <li>
+              <a href="#Riconoscimenti" class="nav-link">I nostri Riconoscimenti</a>
+            </li>
+          </ul>
         </div>
+      </nav>
+    </div>
+  </header>
 
-        <div id="Progetti-container" class="Progetti-container"></div>
-      </section>
+  <div id="cookie-banner" class="cookie-banner">
+    <p>
+      Questo sito utilizza i cookie per migliorare l'esperienza utente.
+      Continuando la navigazione, accetti il loro utilizzo.
+      <a href="Cookies/Cookie.html" class="iubenda-link" target="_blank">Leggi di più</a>
+    </p>
+    <div class="cookie-buttons">
+      <button id="accept-cookies" class="cookie-btn">Accetta</button>
+      <button id="decline-cookies" class="cookie-btn decline">Rifiuta</button>
+    </div>
+  </div>
 
-      <section id="Riconoscimenti" class="section"></section>
-    </main>
+  <!-- Pulsante per modificare le preferenze -->
+  <button id="revoke-cookies" class="cookie-btn revoke">
+    Modifica preferenze cookie
+  </button>
 
-    <br />
-    <br />
+  <main class="main-container">
+    <section id="Home" class="section animate-on-scroll">
+      <h2>
+        <br />
+        <br>
+        Con la nostra passione per il legno, unita alla precisione nella
+        progettazione, ogni angolo del tuo ambiente domestico sarà reso unico
+        ed esattamente
+        <br />come lo desideri tu.
+        <br>
+        <br>
+      </h2>
+      <p>
+        <br>
+        La nostra impresa artigiana, fondata e tutt'ora guidata da Paolo
+        Bomben, è in grado di unire la tradizione del mestiere di falegname
+        all'innovazione delle moderne tecnologie. Attraverso un'attenta e
+        precisa progettazione delle idee, realizziamo arredamento su misura
+        per abitazioni, attività commerciali e settore navale. L'arredo da noi
+        creato è unico e rispecchia appieno la tua personalità e le tue
+        esigenze.
+        <br>
+        <br>
+      </p>
+    </section>
 
-    <div id="footer"></div>
-  </body>
+    <section id="Progetti" class="section animate-on-scroll">
+      <h2>I nostri progetti di arredamento</h2>
+
+      <!-- Filtri categoria -->
+      <div class="filter-container">
+        <button class="filter-button active" data-category="Casa">
+          Casa
+        </button>
+
+        <button class="filter-button active" data-category="Commerciale">
+          Commerciale
+        </button>
+
+        <button class="filter-button active" data-category="Nautico">
+          Nautico
+        </button>
+
+        <button class="filter-button active" data-category="all">
+          Tutti
+        </button>
+      </div>
+
+      <div id="Progetti-container" class="Progetti-container"></div>
+    </section>
+
+    <section id="Riconoscimenti" class="section animate-on-scroll">
+      <div class="riconoscimenti-content">
+        </div>
+      </div>
+    </section>
+    <br>
+  </main>
+
+  <div id="footer">
+    <!-- Footer content will be loaded by footer.js -->
+  </div>
+</body>
+
 </html>

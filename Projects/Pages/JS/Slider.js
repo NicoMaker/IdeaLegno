@@ -1,18 +1,18 @@
-let index = 0;
-let totalSlides = 0;
+let index = 0,
+  totalSlides = 0;
 
 // Inizializza lo slider
 function initSlider() {
-  const slider = document.getElementById("slider");
-  const images = document.querySelectorAll(".slider img");
+  const slider = document.getElementById("slider"),
+    images = document.querySelectorAll(".slider img");
   totalSlides = images.length;
 
   // Crea gli indicatori
   createIndicators(totalSlides);
 
   // Aggiungi overlay
-  const sliderContainer = document.querySelector(".slider-container");
-  const overlay = document.createElement("div");
+  const sliderContainer = document.querySelector(".slider-container"),
+    overlay = document.createElement("div");
   overlay.className = "slider-overlay";
   sliderContainer.appendChild(overlay);
 
@@ -25,8 +25,8 @@ function initSlider() {
 
 // Crea gli indicatori di posizione
 function createIndicators(count) {
-  const container = document.querySelector(".slider-container");
-  const indicators = document.createElement("div");
+  const container = document.querySelector(".slider-container"),
+    indicators = document.createElement("div");
   indicators.className = "slider-indicators";
 
   for (let i = 0; i < count; i++) {
@@ -47,11 +47,8 @@ function createIndicators(count) {
 function updateIndicators() {
   const indicators = document.querySelectorAll(".slider-indicator");
   indicators.forEach((indicator, i) => {
-    if (i === index) {
-      indicator.classList.add("active");
-    } else {
-      indicator.classList.remove("active");
-    }
+    if (i === index) indicator.classList.add("active");
+    else indicator.classList.remove("active");
   });
 }
 
@@ -64,8 +61,8 @@ function updateSlider() {
 
 // Funzione per muovere lo slider
 function moveSlide(step) {
-  const slider = document.getElementById("slider");
-  const images = document.querySelectorAll(".slider img");
+  const slider = document.getElementById("slider"),
+    images = document.querySelectorAll(".slider img");
   index = (index + step + images.length) % images.length;
   updateSlider();
 }
@@ -73,8 +70,8 @@ function moveSlide(step) {
 // Aggiunge supporto per swipe su dispositivi touch
 function addSwipeSupport() {
   const sliderContainer = document.querySelector(".slider-container");
-  let touchStartX = 0;
-  let touchEndX = 0;
+  let touchStartX = 0,
+    touchEndX = 0;
 
   sliderContainer.addEventListener(
     "touchstart",
@@ -108,11 +105,8 @@ function addSwipeSupport() {
 
 // Aggiungi navigazione con tastiera
 document.addEventListener("keydown", (e) => {
-  if (e.key === "ArrowLeft") {
-    moveSlide(-1);
-  } else if (e.key === "ArrowRight") {
-    moveSlide(1);
-  }
+  if (e.key === "ArrowLeft") moveSlide(-1);
+  else if (e.key === "ArrowRight") moveSlide(1);
 });
 
 // Inizializza lo slider quando il documento è pronto
@@ -121,20 +115,9 @@ document.addEventListener("DOMContentLoaded", initSlider);
 // Aggiungi rotazione automatica delle slide
 let autoSlideInterval;
 
-function startAutoSlide() {
-  autoSlideInterval = setInterval(() => {
-    moveSlide(1);
-  }, 60000); // Cambia slide ogni minuto
-}
-
-function stopAutoSlide() {
-  clearInterval(autoSlideInterval);
-}
-
 // Avvia la rotazione automatica e fermala quando l'utente interagisce
 document.addEventListener("DOMContentLoaded", () => {
   initSlider();
-  startAutoSlide();
 
   // Ferma la rotazione quando l'utente interagisce
   const sliderContainer = document.querySelector(".slider-container");

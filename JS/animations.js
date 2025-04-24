@@ -4,12 +4,10 @@ document.addEventListener("DOMContentLoaded", function () {
     const sections = document.querySelectorAll(".animate-on-scroll");
 
     sections.forEach((section) => {
-      const sectionTop = section.getBoundingClientRect().top;
-      const windowHeight = window.innerHeight;
+      const sectionTop = section.getBoundingClientRect().top,
+        windowHeight = window.innerHeight;
 
-      if (sectionTop < windowHeight * 0.75) {
-        section.classList.add("visible");
-      }
+      if (sectionTop < windowHeight * 0.75) section.classList.add("visible");
     });
   };
 
@@ -26,9 +24,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Animate footer when it's in view
   const animateFooter = () => {
-    const footer = document.querySelector("footer");
-    const footerTop = footer ? footer.getBoundingClientRect().top : 0;
-    const windowHeight = window.innerHeight;
+    const footer = document.querySelector("footer"),
+      footerTop = footer ? footer.getBoundingClientRect().top : 0,
+      windowHeight = window.innerHeight;
 
     if (footer && footerTop < windowHeight * 0.9) {
       footer.classList.add("visible");

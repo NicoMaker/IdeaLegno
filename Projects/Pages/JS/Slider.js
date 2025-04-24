@@ -124,7 +124,7 @@ let autoSlideInterval;
 function startAutoSlide() {
   autoSlideInterval = setInterval(() => {
     moveSlide(1);
-  }, 5000); // Cambia slide ogni 5 secondi
+  }, 30000); // Cambia slide ogni 30 secondi
 }
 
 function stopAutoSlide() {

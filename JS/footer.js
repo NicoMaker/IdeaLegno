@@ -48,10 +48,12 @@ const loadFooterData = async () => {
           ${mapSection}
           <div class="footer-columns">
             <div class="contact-section">
+              <br>
               <h3 class="section-title">Contatti</h3>
               <ul class="contact-list">${contactList}</ul>
             </div>
             <div class="social-section">
+              <br>
               <h3 class="section-title">Seguici sui Social</h3>
               <ul class="social-list">${socialList}</ul>
             </div>

@@ -15,7 +15,8 @@
   }
 
   .main-container {
-    margin-top: 120px; /* Più spazio per il menu su tablet */
+    margin-top: 120px;
+    /* Più spazio per il menu su tablet */
   }
 
   .section h2 {
@@ -58,7 +59,8 @@
   }
 
   .main-container {
-    margin-top: 140px; /* Più spazio per il menu su mobile */
+    margin-top: 140px;
+    /* Più spazio per il menu su mobile */
   }
 
   .section h2 {
@@ -85,7 +87,8 @@
   }
 
   .main-container {
-    margin-top: 160px; /* Ulteriore spazio per mobile ultra */
+    margin-top: 160px;
+    /* Ulteriore spazio per mobile ultra */
   }
 
   footer {
@@ -95,7 +98,8 @@
 
 .Progetti-container {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 3 colonne per PC */
+  grid-template-columns: repeat(3, 1fr);
+  /* 3 colonne per PC */
   gap: 30px;
   justify-items: center;
 }
@@ -117,7 +121,8 @@
 }
 
 .Progetti-card:hover {
-  transform: translateY(-10px); /* Effetto hover per le card */
+  transform: translateY(-10px);
+  /* Effetto hover per le card */
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
@@ -126,14 +131,16 @@
 /* Tablet (tra 768px e 1024px) */
 @media (max-width: 1024px) {
   .Progetti-container {
-    grid-template-columns: repeat(2, 1fr); /* 2 colonne per tablet */
+    grid-template-columns: repeat(2, 1fr);
+    /* 2 colonne per tablet */
   }
 }
 
 /* Mobile (fino a 768px) */
 @media (max-width: 768px) {
   .Progetti-container {
-    grid-template-columns: 1fr; /* 1 colonna per mobile */
+    grid-template-columns: 1fr;
+    /* 1 colonna per mobile */
   }
 
   .Progetti-card {
@@ -235,7 +242,8 @@
   font-size: 0.9em;
   color: #555;
   text-align: center;
-  flex-grow: 1; /* Rende tutte le card alte uguali */
+  flex-grow: 1;
+  /* Rende tutte le card alte uguali */
 }
 
 /* Contenitore dei bottoni */
@@ -317,24 +325,29 @@
 /* Contatti */
 .card:hover,
 .news-card:hover {
-  transform: translateY(-10px); /* Effetto hover per le card */
+  transform: translateY(-10px);
+  /* Effetto hover per le card */
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
 /* Bottone Contatti */
 .contact-icons a:hover {
-  color: #63b3ed; /* Azzurro accento come nella sezione Progetti */
-  transform: scale(1.1); /* Leggero ingrandimento al passaggio del mouse */
+  color: #63b3ed;
+  /* Azzurro accento come nella sezione Progetti */
+  transform: scale(1.1);
+  /* Leggero ingrandimento al passaggio del mouse */
 }
 
 /* Stile hover sulle icone contatti */
 .contact-icons img:hover {
-  transform: scale(1.2); /* Effetto hover sulle icone */
+  transform: scale(1.2);
+  /* Effetto hover sulle icone */
 }
 
 /* News */
 .news-card:hover {
-  transform: translateY(-10px); /* Effetto hover per le card */
+  transform: translateY(-10px);
+  /* Effetto hover per le card */
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
@@ -348,7 +361,8 @@
 }
 
 .news-card {
-  width: calc(33.33% - 20px); /* 3 colonne, calcolando lo spazio tra le card */
+  width: calc(33.33% - 20px);
+  /* 3 colonne, calcolando lo spazio tra le card */
 }
 
 /* Sezione news con Flexbox */
@@ -361,20 +375,23 @@
 }
 
 .news-card {
-  width: calc(33.33% - 20px); /* 3 colonne per desktop */
+  width: calc(33.33% - 20px);
+  /* 3 colonne per desktop */
 }
 
 /* Tablet (tra 768px e 1024px) */
 @media (max-width: 1024px) {
   .news-card {
-    width: calc(50% - 20px); /* 2 colonne per tablet */
+    width: calc(50% - 20px);
+    /* 2 colonne per tablet */
   }
 }
 
 /* Mobile (fino a 768px) */
 @media (max-width: 768px) {
   .news-card {
-    width: 100%; /* 1 colonna per mobile */
+    width: 100%;
+    /* 1 colonna per mobile */
   }
 }
 
@@ -518,7 +535,8 @@
 }
 
 .news-card {
-  width: calc(33.33% - 20px); /* 3 colonne per desktop */
+  width: calc(33.33% - 20px);
+  /* 3 colonne per desktop */
 }
 
 /* Media Queries per Tablet e Mobile */
@@ -526,30 +544,39 @@
 /* Tablet (tra 768px e 1024px) */
 @media (max-width: 1024px) {
   .news-card {
-    width: calc(50% - 20px); /* 2 colonne per tablet */
+    width: calc(50% - 20px);
+    /* 2 colonne per tablet */
   }
+
   .card {
-    width: calc(50% - 20px); /* 2 colonne per i contatti */
+    width: calc(50% - 20px);
+    /* 2 colonne per i contatti */
   }
 }
 
 /* Mobile (fino a 768px) */
 @media (max-width: 768px) {
   .news-card {
-    width: 100%; /* 1 colonna per mobile */
+    width: 100%;
+    /* 1 colonna per mobile */
   }
+
   .card {
-    width: 100%; /* 1 colonna per i contatti */
+    width: 100%;
+    /* 1 colonna per i contatti */
   }
 }
 
 /* Mobile Ultra (fino a 480px) */
 @media (max-width: 480px) {
   .news-card {
-    width: 100%; /* 1 colonna per mobile ultra */
+    width: 100%;
+    /* 1 colonna per mobile ultra */
   }
+
   .card {
-    width: 100%; /* 1 colonna per i contatti */
+    width: 100%;
+    /* 1 colonna per i contatti */
   }
 }
 
@@ -643,7 +670,8 @@ header {
   top: 0;
   left: 0;
   width: 100%;
-  background-color: #8b5a2b; /* Tonalità legno scuro */
+  background-color: #8b5a2b;
+  /* Tonalità legno scuro */
   color: #edf2f7;
   padding: 15px 20px;
   display: flex;
@@ -760,7 +788,8 @@ footer {
 }
 
 .Progetti-card {
-  background-color: white; /* Sfondo bianco per le card */
+  background-color: white;
+  /* Sfondo bianco per le card */
   border: 1px solid #e2e8f0;
   border-radius: 8px;
   padding: 20px;
@@ -807,7 +836,8 @@ footer {
 /* Card generiche */
 .card,
 .news-card {
-  background: white; /* Sfondo bianco per le card */
+  background: white;
+  /* Sfondo bianco per le card */
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -849,23 +879,27 @@ footer {
 }
 
 body {
-  background: linear-gradient(
-      to bottom,
+  background: linear-gradient(to bottom,
       rgba(233, 236, 239, 0.7),
-      rgba(139, 90, 43, 0.7)
-    ),
-    url("images/legno-lavorato.jpg"); /* Immagine di legno lavorato */
-  background-size: cover; /* Adatta l'immagine per coprire l'intera pagina */
-  background-position: center; /* Centra l'immagine */
-  background-attachment: fixed; /* Fissa lo sfondo durante lo scorrimento */
+      rgba(139, 90, 43, 0.7)),
+    url("images/legno-lavorato.jpg");
+  /* Immagine di legno lavorato */
+  background-size: cover;
+  /* Adatta l'immagine per coprire l'intera pagina */
+  background-position: center;
+  /* Centra l'immagine */
+  background-attachment: fixed;
+  /* Fissa lo sfondo durante lo scorrimento */
 }
 
 /* Stile generale per il contenitore delle news */
 #news-container {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center; /* Centra gli elementi */
-  gap: 20px; /* Spazio tra gli elementi */
+  justify-content: center;
+  /* Centra gli elementi */
+  gap: 20px;
+  /* Spazio tra gli elementi */
 }
 
 /* Stile per ogni news item */
@@ -880,7 +914,8 @@ body {
 /* Stile per schermi grandi (desktop) */
 @media screen and (min-width: 1025px) {
   .news-item {
-    width: 30%; /* Tre per riga */
+    width: 30%;
+    /* Tre per riga */
     max-width: 350px;
   }
 }
@@ -888,7 +923,8 @@ body {
 /* Stile per Tablet (due elementi centrati per riga) */
 @media screen and (min-width: 768px) and (max-width: 1024px) {
   .news-item {
-    width: 45%; /* Due per riga */
+    width: 45%;
+    /* Due per riga */
     max-width: 400px;
   }
 }
@@ -896,17 +932,20 @@ body {
 /* Stile per Mobile (un elemento centrato per riga) */
 @media screen and (max-width: 767px) {
   .news-item {
-    width: 90%; /* Occupa quasi tutto lo spazio disponibile */
+    width: 90%;
+    /* Occupa quasi tutto lo spazio disponibile */
     max-width: 500px;
   }
 }
 
 .Progetti-card {
-  margin-bottom: 20px; /* Spazio tra le carte e l'icona sotto */
+  margin-bottom: 20px;
+  /* Spazio tra le carte e l'icona sotto */
 }
 
 .page-info {
-  display: inline-block; /* Affianca la pagina alla freccia */
+  display: inline-block;
+  /* Affianca la pagina alla freccia */
   margin-top: 20px;
   text-align: center;
   font-size: 16px;
@@ -914,7 +953,8 @@ body {
 }
 
 .nav-button {
-  display: inline-block; /* Affianca il bottone alla pagina */
+  display: inline-block;
+  /* Affianca il bottone alla pagina */
   margin-top: 20px;
   background: none;
   border: none;
@@ -1033,22 +1073,26 @@ body {
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 120px; /* Cambia il valore in base all'altezza del tuo header */
+  scroll-padding-top: 120px;
+  /* Cambia il valore in base all'altezza del tuo header */
 }
 
 /* Logo container styling */
 .logo-container {
   flex: 1;
   display: flex;
-  justify-content: flex-start; /* Align the logo to the left */
+  justify-content: flex-start;
+  /* Align the logo to the left */
   align-items: center;
-  width: 154px; /* Adjust the width to fit the logo */
+  width: 154px;
+  /* Adjust the width to fit the logo */
   border-radius: 2px;
   background-color: white;
 }
 
 .logo {
-  width: 150px; /* Adjust logo size */
+  width: 150px;
+  /* Adjust logo size */
   height: auto;
 }
 
@@ -1118,28 +1162,35 @@ footer {
   }
 
   .footer-container {
-    flex-direction: column; /* Imposta il layout in colonna per schermi più piccoli */
-    align-items: center; /* Centra gli elementi */
-    max-height: none; /* Rimuove la limitazione dell'altezza */
+    flex-direction: column;
+    /* Imposta il layout in colonna per schermi più piccoli */
+    align-items: center;
+    /* Centra gli elementi */
+    max-height: none;
+    /* Rimuove la limitazione dell'altezza */
   }
 
   .contact-info,
   .location-info {
-    min-width: 100%; /* Imposta la larghezza a 100% per dispositivi mobili */
+    min-width: 100%;
+    /* Imposta la larghezza a 100% per dispositivi mobili */
   }
 
   /* Prima la posizione, poi i contatti */
   .footer-container {
-    flex-direction: column-reverse; /* Cambia l'ordine degli elementi */
+    flex-direction: column-reverse;
+    /* Cambia l'ordine degli elementi */
   }
 
   .contact-info h3,
   .location-info h3 {
-    font-size: 16px; /* Riduci la dimensione del font per dispositivi mobili */
+    font-size: 16px;
+    /* Riduci la dimensione del font per dispositivi mobili */
   }
 
   .copyright {
-    font-size: 16px; /* Riduci la dimensione del font per il copyright */
+    font-size: 16px;
+    /* Riduci la dimensione del font per il copyright */
   }
 }
 
@@ -1151,17 +1202,20 @@ footer {
 
   .contact-info h3,
   .location-info h3 {
-    font-size: 14px; /* Ancora più piccolo per schermi molto piccoli */
+    font-size: 14px;
+    /* Ancora più piccolo per schermi molto piccoli */
   }
 
   .contact-info li img,
   .location-info img {
-    width: 16px; /* Riduci la dimensione delle icone */
+    width: 16px;
+    /* Riduci la dimensione delle icone */
     height: 16px;
   }
 
   .copyright {
-    font-size: 14px; /* Ancora più piccolo per il copyright */
+    font-size: 14px;
+    /* Ancora più piccolo per il copyright */
   }
 }
 
@@ -1207,7 +1261,8 @@ footer {
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 2px; /* Altezza della riga */
+  height: 2px;
+  /* Altezza della riga */
   background-color: #fff;
 }
 
@@ -1336,8 +1391,10 @@ footer {
   padding: 20px 5%;
   box-sizing: border-box;
   text-align: center;
-  opacity: 0; /* Inizialmente nascosto */
-  transform: translateY(100%); /* Spostato fuori dalla schermata */
+  opacity: 0;
+  /* Inizialmente nascosto */
+  transform: translateY(100%);
+  /* Spostato fuori dalla schermata */
   transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
@@ -1404,13 +1461,15 @@ footer {
 /* Media Query per schermi più piccoli */
 @media (max-width: 768px) {
   #Home {
-    min-height: 75vh; /* La sezione occupa almeno l'intera altezza della finestra */
+    min-height: 75vh;
+    /* La sezione occupa almeno l'intera altezza della finestra */
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
-    margin-top: 20px; /* Distanza tra l'header e la sezione */
+    margin-top: 20px;
+    /* Distanza tra l'header e la sezione */
   }
 }
 
@@ -1460,15 +1519,19 @@ footer {
 .news-footer {
   display: flex;
   align-items: center;
-  gap: 10px; /* Spazio tra data e icona */
+  gap: 10px;
+  /* Spazio tra data e icona */
 }
 
 .news-item {
   display: flex;
   align-items: center;
-  justify-content: center; /* Centra tutti gli elementi nella riga */
-  gap: 10px; /* Spazio tra gli elementi */
-  width: 100%; /* Occupa tutta la larghezza disponibile */
+  justify-content: center;
+  /* Centra tutti gli elementi nella riga */
+  gap: 10px;
+  /* Spazio tra gli elementi */
+  width: 100%;
+  /* Occupa tutta la larghezza disponibile */
   padding: 5px 0;
   text-shadow: none;
   border: 1px solid black;
@@ -1476,10 +1539,13 @@ footer {
 
 .news-date {
   font-size: 14px;
-  font-weight: bold; /* Rende la data più evidente */
-  color: #333; /* Testo ben leggibile */
+  font-weight: bold;
+  /* Rende la data più evidente */
+  color: #333;
+  /* Testo ben leggibile */
   margin: 0;
-  text-align: center; /* Centra il testo */
+  text-align: center;
+  /* Centra il testo */
 }
 
 .download-icon {
@@ -1498,27 +1564,30 @@ footer {
 
 /* Effetto per il footer della notizia (che contiene l'icona di download e la data) */
 .news-item {
-  transition: transform 0.3s ease; /* Aggiungi una transizione per un effetto più fluido */
+  transition: transform 0.3s ease;
+  /* Aggiungi una transizione per un effetto più fluido */
 }
 
 .news-item:hover {
-  transform: scale(
-    1.1
-  ); /* Ingrandisce l'intero footer (data e icona) al passaggio del mouse */
+  transform: scale(1.1);
+  /* Ingrandisce l'intero footer (data e icona) al passaggio del mouse */
 }
 
 /* Effetto per l'icona di download */
 .download-icon {
-  transition: transform 0.3s ease; /* Aggiungi una transizione per l'icona di download */
+  transition: transform 0.3s ease;
+  /* Aggiungi una transizione per l'icona di download */
 }
 
 /* Effetto per la data */
 .news-date {
-  transition: transform 0.3s ease; /* Aggiungi una transizione per la data */
+  transition: transform 0.3s ease;
+  /* Aggiungi una transizione per la data */
 }
 
 .news-date:hover {
-  transform: scale(1.1); /* Ingrandisce la data al passaggio del mouse */
+  transform: scale(1.1);
+  /* Ingrandisce la data al passaggio del mouse */
 }
 
 .material-icons.arrow_back:hover,
@@ -1546,13 +1615,16 @@ header .menu li a:hover {
 
 .copyright {
   font-size: 20px;
-  color: white; /* Oppure #fff */
+  color: white;
+  /* Oppure #fff */
   border-top: 2px solid white;
-  padding-top: 5px; /* Per separare il testo dalla linea */
+  padding-top: 5px;
+  /* Per separare il testo dalla linea */
 }
 
 .nav-link.active {
-  color: orange; /* Colore blu quando sei nella sezione attiva */
+  color: orange;
+  /* Colore blu quando sei nella sezione attiva */
 }
 
 .Progetti-card,
@@ -1561,21 +1633,30 @@ header .menu li a:hover {
 }
 
 .container-immagine {
-  display: flex; /* Abilita Flexbox */
-  justify-content: center; /* Centra orizzontalmente */
-  align-items: center; /* Centra verticalmente */
-  height: 100px; /* Altezza del contenitore (adatta in base alle esigenze) */
+  display: flex;
+  /* Abilita Flexbox */
+  justify-content: center;
+  /* Centra orizzontalmente */
+  align-items: center;
+  /* Centra verticalmente */
+  height: 100px;
+  /* Altezza del contenitore (adatta in base alle esigenze) */
   width: 100px;
   margin: auto;
 }
 
 .immagine {
-  max-width: 80%; /* Limita la larghezza al massimo 80% del contenitore */
-  max-height: 100px; /* Imposta un'altezza massima */
-  width: auto; /* Mantiene le proporzioni */
-  height: auto; /* Mantiene le proporzioni */
+  max-width: 80%;
+  /* Limita la larghezza al massimo 80% del contenitore */
+  max-height: 100px;
+  /* Imposta un'altezza massima */
+  width: auto;
+  /* Mantiene le proporzioni */
+  height: auto;
+  /* Mantiene le proporzioni */
   border-radius: 10px;
-  height: 500px; /* Altezza del contenitore (adatta in base alle esigenze) */
+  height: 500px;
+  /* Altezza del contenitore (adatta in base alle esigenze) */
   width: 500px;
 }
 
@@ -1586,13 +1667,15 @@ header .menu li a:hover {
 
 .Progetti-card img:hover,
 .news-card img:hover {
-  transform: scale(1.1); /* Ingrandisce l'immagine al passaggio del mouse */
+  transform: scale(1.1);
+  /* Ingrandisce l'immagine al passaggio del mouse */
 }
 
 .footer-logo {
   width: 100%;
   height: auto;
-  max-width: 200px; /* Regola la dimensione massima in base al design */
+  max-width: 200px;
+  /* Regola la dimensione massima in base al design */
   display: block;
   margin: 0 auto;
 }
@@ -1662,21 +1745,27 @@ header .menu li a:hover {
   border-radius: 8px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   text-align: center;
-  overflow: hidden; /* Assicura che l'immagine non esca dal bordo */
+  overflow: hidden;
+  /* Assicura che l'immagine non esca dal bordo */
 }
 
 /* Immagine della card: assicuriamo che l'immagine sia completamente dentro */
 .container-immagine {
   width: 100%;
-  height: 200px; /* Impostiamo un'altezza fissa per le immagini */
+  height: 200px;
+  /* Impostiamo un'altezza fissa per le immagini */
   overflow: hidden;
 }
 
 .container-immagine img {
-  width: 100%; /* L'immagine occupa il 100% della larghezza del contenitore */
-  height: 100%; /* L'immagine occupa il 100% dell'altezza del contenitore */
-  object-fit: cover; /* Fa in modo che l'immagine riempia completamente il contenitore senza deformarsi */
-  object-position: center; /* Centra l'immagine all'interno del contenitore */
+  width: 100%;
+  /* L'immagine occupa il 100% della larghezza del contenitore */
+  height: 100%;
+  /* L'immagine occupa il 100% dell'altezza del contenitore */
+  object-fit: cover;
+  /* Fa in modo che l'immagine riempia completamente il contenitore senza deformarsi */
+  object-position: center;
+  /* Centra l'immagine all'interno del contenitore */
 }
 
 /* Layout per desktop (3 progetti per riga) */
@@ -1684,7 +1773,8 @@ header .menu li a:hover {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
-  justify-items: center; /* Centra gli elementi orizzontalmente */
+  justify-items: center;
+  /* Centra gli elementi orizzontalmente */
 }
 
 /* Layout per tablet (2 progetti per riga) */
@@ -1692,7 +1782,8 @@ header .menu li a:hover {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 20px;
-  justify-items: center; /* Centra gli elementi orizzontalmente */
+  justify-items: center;
+  /* Centra gli elementi orizzontalmente */
 }
 
 /* Layout per mobile (1 progetto per riga) */
@@ -1700,7 +1791,8 @@ header .menu li a:hover {
   display: grid;
   grid-template-columns: 1fr;
   gap: 20px;
-  justify-items: center; /* Centra gli elementi orizzontalmente */
+  justify-items: center;
+  /* Centra gli elementi orizzontalmente */
 }
 
 /* Card individuali */
@@ -1710,21 +1802,27 @@ header .menu li a:hover {
   border-radius: 8px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   text-align: center;
-  overflow: hidden; /* Assicura che l'immagine non esca dal bordo */
+  overflow: hidden;
+  /* Assicura che l'immagine non esca dal bordo */
 }
 
 /* Immagine della card: assicuriamo che l'immagine sia completamente dentro */
 .container-immagine {
   width: 100%;
-  height: 200px; /* Impostiamo un'altezza fissa per le immagini */
+  height: 200px;
+  /* Impostiamo un'altezza fissa per le immagini */
   overflow: hidden;
 }
 
 .container-immagine img {
-  width: 100%; /* L'immagine occupa il 100% della larghezza del contenitore */
-  height: 100%; /* L'immagine occupa il 100% dell'altezza del contenitore */
-  object-fit: cover; /* Fa in modo che l'immagine riempia completamente il contenitore senza deformarsi */
-  object-position: center; /* Centra l'immagine all'interno del contenitore */
+  width: 100%;
+  /* L'immagine occupa il 100% della larghezza del contenitore */
+  height: 100%;
+  /* L'immagine occupa il 100% dell'altezza del contenitore */
+  object-fit: cover;
+  /* Fa in modo che l'immagine riempia completamente il contenitore senza deformarsi */
+  object-position: center;
+  /* Centra l'immagine all'interno del contenitore */
 }
 
 * {
@@ -1749,7 +1847,8 @@ header .menu li a:hover {
   bottom: 0;
   left: 0;
   width: 100%;
-  background-color: #8b5a2b; /* Marrone legno */
+  background-color: #8b5a2b;
+  /* Marrone legno */
   color: white;
   text-align: center;
   padding: 15px;
@@ -1804,10 +1903,12 @@ header .menu li a:hover {
     flex-direction: column;
     text-align: center;
   }
+
   .cookie-buttons {
     flex-direction: column;
     width: 100%;
   }
+
   .cookie-btn {
     width: 100%;
   }
@@ -1874,11 +1975,13 @@ header .menu li a:hover {
     text-align: center;
     padding: 8px;
   }
+
   .cookie-buttons {
     flex-direction: column;
     width: 100%;
     gap: 3px;
   }
+
   .cookie-btn {
     width: 100%;
     padding: 5px 10px;
@@ -1920,7 +2023,8 @@ header .menu li a:hover {
   bottom: 0;
   left: 0;
   width: 100%;
-  background-color: #8b5a2b; /* Marrone legno */
+  background-color: #8b5a2b;
+  /* Marrone legno */
   color: white;
   text-align: center;
   padding: 12px;
@@ -1979,11 +2083,13 @@ header .menu li a:hover {
     text-align: center;
     padding: 10px;
   }
+
   .cookie-buttons {
     flex-direction: column;
     width: 100%;
     gap: 5px;
   }
+
   .cookie-btn {
     width: 100%;
     padding: 8px 12px;
@@ -2048,12 +2154,15 @@ header .menu li a:hover {
   .cookie-banner {
     padding: 8px;
   }
+
   .cookie-buttons {
     gap: 3px;
   }
+
   .cookie-btn {
     padding: 6px 10px;
   }
+
   .revoke {
     bottom: 10px;
     right: 10px;
@@ -2083,40 +2192,52 @@ header .menu li a:hover {
 /* Fix for mobile view to prevent background showing below body */
 @media (max-width: 768px) {
   body {
-    min-height: 100vh; /* Ensure body takes full viewport height */
-    margin: 0; /* Remove any default margins */
-    padding: 0; /* Remove any default padding */
+    min-height: 100vh;
+    /* Ensure body takes full viewport height */
+    margin: 0;
+    /* Remove any default margins */
+    padding: 0;
+    /* Remove any default padding */
     display: flex;
     flex-direction: column;
   }
 
   .main-container {
-    margin-top: 100px; /* Reduce the space between header and content */
-    flex: 1; /* Allow main container to grow and fill available space */
+    margin-top: 100px;
+    /* Reduce the space between header and content */
+    flex: 1;
+    /* Allow main container to grow and fill available space */
   }
 
   #Home {
-    min-height: auto; /* Let the home section size naturally */
-    padding-top: 20px; /* Add some padding at the top */
-    padding-bottom: 40px; /* Add padding at the bottom */
+    min-height: auto;
+    /* Let the home section size naturally */
+    padding-top: 20px;
+    /* Add some padding at the top */
+    padding-bottom: 40px;
+    /* Add padding at the bottom */
   }
 
   footer {
-    margin-top: auto; /* Push footer to the bottom */
+    margin-top: auto;
+    /* Push footer to the bottom */
   }
 }
 
 /* For even smaller screens */
 @media (max-width: 480px) {
   .main-container {
-    margin-top: 80px; /* Even less space for very small screens */
+    margin-top: 80px;
+    /* Even less space for very small screens */
   }
 }
 
 @media (max-width: 768px) {
   .main-container {
-    margin-top: 100px; /* Riduce lo spazio */
-    padding-top: 20px; /* Aggiunge spazio extra */
+    margin-top: 100px;
+    /* Riduce lo spazio */
+    padding-top: 20px;
+    /* Aggiunge spazio extra */
     flex: 1;
   }
 }
@@ -2124,7 +2245,8 @@ header .menu li a:hover {
 @media (max-width: 480px) {
   .main-container {
     margin-top: 80px;
-    padding-top: 20px; /* Mantiene lo spazio anche per schermi piccoli */
+    padding-top: 20px;
+    /* Mantiene lo spazio anche per schermi piccoli */
   }
 }
 
@@ -2134,8 +2256,10 @@ footer button {
 }
 
 footer li a img {
-  margin-right: 8px; /* Spazio tra immagine e testo */
-  vertical-align: middle; /* Allinea meglio l'immagine con il testo */
+  margin-right: 8px;
+  /* Spazio tra immagine e testo */
+  vertical-align: middle;
+  /* Allinea meglio l'immagine con il testo */
 }
 
 #Home h2,
@@ -2152,11 +2276,14 @@ footer li a img {
 #Home h2::after {
   content: "";
   position: absolute;
-  bottom: -5px; /* Regola la distanza tra il testo e la linea */
+  bottom: -5px;
+  /* Regola la distanza tra il testo e la linea */
   left: 50%;
   transform: translateX(-50%);
-  width: 20%; /* Imposta la larghezza della linea */
-  height: 3px; /* Imposta lo spessore della linea */
+  width: 20%;
+  /* Imposta la larghezza della linea */
+  height: 3px;
+  /* Imposta lo spessore della linea */
   background-color: whitesmoke;
   border: 2px solid black;
   border-radius: 20px;
@@ -2204,11 +2331,9 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  background: linear-gradient(
-      to bottom,
+  background: linear-gradient(to bottom,
       rgba(196, 164, 132, 0.7),
-      rgba(139, 90, 43, 0.7)
-    ),
+      rgba(139, 90, 43, 0.7)),
     url("images/legno-lavorato.jpg");
   background-size: cover;
   background-position: center;
@@ -2289,12 +2414,11 @@ a {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(
-    0,
-    0,
-    0,
-    0.4
-  ); /* Dark overlay for better text visibility */
+  background-color: rgba(0,
+      0,
+      0,
+      0.4);
+  /* Dark overlay for better text visibility */
   z-index: 1;
 }
 
@@ -2668,9 +2792,11 @@ html {
   justify-content: center;
   align-items: center;
   text-align: center;
-  padding: 0 20px; /* Removed padding-top and adjusted the padding for better position */
+  padding: 0 20px;
+  /* Removed padding-top and adjusted the padding for better position */
   position: relative;
-  margin-top: -20px; /* Move the section further up */
+  margin-top: -20px;
+  /* Move the section further up */
 }
 
 #Home::before {
@@ -2680,12 +2806,11 @@ html {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(
-    0,
-    0,
-    0,
-    0.4
-  ); /* Dark overlay for better text visibility */
+  background-color: rgba(0,
+      0,
+      0,
+      0.4);
+  /* Dark overlay for better text visibility */
   z-index: 1;
 }
 
@@ -2728,31 +2853,38 @@ html {
 
 /* Prevent scrolling above the "Home" section */
 body {
-  padding-top: 0; /* Ensure there's no extra padding above */
-  overflow-x: hidden; /* Prevent horizontal scroll */
+  padding-top: 0;
+  /* Ensure there's no extra padding above */
+  overflow-x: hidden;
+  /* Prevent horizontal scroll */
 }
 
 /* Responsive styles for mobile */
 @media (max-width: 768px) {
   #Home {
-    min-height: 40vh; /* Min height reduced for mobile */
+    min-height: 40vh;
+    /* Min height reduced for mobile */
     padding: 20px;
-    margin-top: -30px; /* Move the section even further up on smaller screens */
+    margin-top: -30px;
+    /* Move the section even further up on smaller screens */
   }
 
   #Home h2 {
-    font-size: 2em; /* Smaller font size for mobile */
+    font-size: 2em;
+    /* Smaller font size for mobile */
     margin-bottom: 10px;
   }
 
   #Home p {
-    font-size: 1.1em; /* Adjusted paragraph font size */
+    font-size: 1.1em;
+    /* Adjusted paragraph font size */
     max-width: 90%;
     margin: 10px auto 0;
   }
 
   #Home h2::after {
-    width: 60px; /* Narrower line below title */
+    width: 60px;
+    /* Narrower line below title */
   }
 }
 
@@ -2760,17 +2892,23 @@ body {
 
 /* Fixed size for image container */
 .container-immagine {
-  width: 280px; /* Fixed width for image container */
-  height: 180px; /* Fixed height for image container */
+  width: 280px;
+  /* Fixed width for image container */
+  height: 180px;
+  /* Fixed height for image container */
   overflow: hidden;
   position: relative;
 }
 
 .container-immagine img {
-  width: 100%; /* Ensures image fits the container width */
-  height: 100%; /* Ensures image fits the container height */
-  object-fit: cover; /* Ensures image covers the area without distortion */
-  object-position: center; /* Centers the image */
+  width: 100%;
+  /* Ensures image fits the container width */
+  height: 100%;
+  /* Ensures image fits the container height */
+  object-fit: cover;
+  /* Ensures image covers the area without distortion */
+  object-position: center;
+  /* Centers the image */
   transition: transform 0.5s ease;
 }
 
@@ -2780,15 +2918,19 @@ body {
 
 
   .container-immagine {
-    width: 280px; /* Fixed width for image container */
-    height: 180px; /* Fixed height for image container */
+    width: 280px;
+    /* Fixed width for image container */
+    height: 180px;
+    /* Fixed height for image container */
   }
 }
 
 @media (max-width: 768px) {
   .container-immagine {
-    width: 280px; /* Fixed width for image container */
-    height: 180px; /* Fixed height for image container */
+    width: 280px;
+    /* Fixed width for image container */
+    height: 180px;
+    /* Fixed height for image container */
   }
 }
 
@@ -3219,6 +3361,7 @@ header nav ul li a:hover {
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
@@ -3551,6 +3694,7 @@ footer.visible {
     transform: translateX(50px);
     opacity: 0;
   }
+
   to {
     transform: translateX(0);
     opacity: 1;
@@ -3562,6 +3706,7 @@ footer.visible {
     transform: translateX(-50px);
     opacity: 0;
   }
+
   to {
     transform: translateX(0);
     opacity: 1;
@@ -3573,14 +3718,17 @@ footer.visible {
     transform: scale(0.3);
     opacity: 0;
   }
+
   50% {
     transform: scale(1.05);
     opacity: 0.5;
   }
+
   70% {
     transform: scale(0.9);
     opacity: 0.7;
   }
+
   100% {
     transform: scale(1);
     opacity: 1;
@@ -3588,6 +3736,6 @@ footer.visible {
 }
 
 
-.hamburger-menu{
+.hamburger-menu {
   background-image: url("Img/Legno.jpg");
 }

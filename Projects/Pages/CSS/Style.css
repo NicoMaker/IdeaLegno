@@ -314,3 +314,52 @@ body {
 .header {
   background-image: url("../../../Img/Legno.jpg");
 }
+
+.header::after {
+  content: "";
+  position: absolute;
+  bottom: 20px; /* Position it near the bottom of the header */
+  left: 0;
+  width: 100%; /* Full width of the header */
+  height: 3px;
+  background-color: #ffcc80;
+  border-radius: 3px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  z-index: 1;
+}
+
+/* Remove the existing line under h1 */
+.header h1::after {
+  display: none;
+}
+
+.header::after {
+  content: "";
+  position: absolute;
+  bottom: 20px; /* Position it near the bottom of the header */
+  left: 180px; /* Same as the left padding of h1 to align with the text */
+  right: 20px; /* Same as the right padding of the header */
+  height: 3px;
+  background-color: #ffcc80;
+  border-radius: 3px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  z-index: 1;
+}
+
+/* Remove the existing line under h1 */
+.header h1::after {
+  display: none;
+}
+
+/* Make sure the line is responsive */
+@media (max-width: 768px) {
+  .header::after {
+    left: 150px; /* Match the responsive padding of h1 */
+  }
+}
+
+@media (max-width: 480px) {
+  .header::after {
+    left: 110px; /* Match the responsive padding of h1 */
+  }
+}

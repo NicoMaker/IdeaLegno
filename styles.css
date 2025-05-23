@@ -879,9 +879,11 @@ footer {
 }
 
 body {
-  background: linear-gradient(to bottom,
+  background: linear-gradient(
+      to bottom,
       rgba(233, 236, 239, 0.7),
-      rgba(139, 90, 43, 0.7)),
+      rgba(139, 90, 43, 0.7)
+    ),
     url("images/legno-lavorato.jpg");
   /* Immagine di legno lavorato */
   background-size: cover;
@@ -2331,9 +2333,11 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  background: linear-gradient(to bottom,
+  background: linear-gradient(
+      to bottom,
       rgba(196, 164, 132, 0.7),
-      rgba(139, 90, 43, 0.7)),
+      rgba(139, 90, 43, 0.7)
+    ),
     url("images/legno-lavorato.jpg");
   background-size: cover;
   background-position: center;
@@ -2414,10 +2418,7 @@ a {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0,
-      0,
-      0,
-      0.4);
+  background-color: rgba(0, 0, 0, 0.4);
   /* Dark overlay for better text visibility */
   z-index: 1;
 }
@@ -2806,10 +2807,7 @@ html {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0,
-      0,
-      0,
-      0.4);
+  background-color: rgba(0, 0, 0, 0.4);
   /* Dark overlay for better text visibility */
   z-index: 1;
 }
@@ -2888,8 +2886,6 @@ body {
   }
 }
 
-
-
 /* Fixed size for image container */
 .container-immagine {
   width: 280px;
@@ -2912,11 +2908,8 @@ body {
   transition: transform 0.5s ease;
 }
 
-
 /* Responsive styles for the cards */
 @media (max-width: 1024px) {
-
-
   .container-immagine {
     width: 280px;
     /* Fixed width for image container */
@@ -2933,7 +2926,6 @@ body {
     /* Fixed height for image container */
   }
 }
-
 
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
@@ -2955,7 +2947,11 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  background: linear-gradient(to bottom, rgba(196, 164, 132, 0.7), rgba(139, 90, 43, 0.7)),
+  background: linear-gradient(
+      to bottom,
+      rgba(196, 164, 132, 0.7),
+      rgba(139, 90, 43, 0.7)
+    ),
     url("images/legno-lavorato.jpg");
   background-size: cover;
   background-position: center;
@@ -3735,7 +3731,386 @@ footer.visible {
   }
 }
 
-
 .hamburger-menu {
   background-image: url("Img/Legno.jpg");
+}
+
+/* Stili per la sezione Home con l'icona in fondo */
+#Home {
+  background-image: url("Projects/Img/Home/Scala/Scala/Scala1.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 55vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 40px 20px;
+  position: relative;
+}
+
+#Home::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 1;
+}
+
+#Home h2,
+#Home p {
+  color: white;
+  position: relative;
+  z-index: 2;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+#Home h2 {
+  font-family: "Raleway", sans-serif;
+  font-weight: 700;
+  font-size: 2.5em;
+  margin-bottom: 20px;
+  position: relative;
+  display: inline-block;
+}
+
+#Home h2::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  z-index: 2;
+}
+
+#Home p {
+  font-size: 1.3em;
+  max-width: 700px;
+  margin: 20px auto 0;
+}
+
+/* Contenitore dell'icona in fondo alla sezione Home */
+.info-toggle-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+  position: relative;
+  z-index: 3;
+}
+
+.v-toggle,
+.up-toggle {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  padding: 15px 25px;
+  background-color: rgba(139, 90, 43, 0.9);
+  color: white;
+  border-radius: 50px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+  transition: all 0.3s ease;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(5px);
+}
+
+.v-toggle:hover,
+.up-toggle:hover {
+  transform: translateY(-5px);
+  background-color: rgba(139, 90, 43, 1);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+.v-toggle .material-icons,
+.up-toggle .material-icons {
+  font-size: 42px;
+  background-color: transparent;
+  color: white;
+  margin-bottom: 5px;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+}
+
+.toggle-text {
+  font-size: 16px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.up-toggle {
+  display: none;
+}
+
+/* Stili per le informazioni generali */
+.general-info {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+/* Contenuto dettagliato DENTRO la sezione Home */
+.detailed-info {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.6s ease, opacity 0.6s ease, padding 0.6s ease;
+  opacity: 0;
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 20px;
+  position: relative;
+  z-index: 2;
+}
+
+.detailed-info.show {
+  max-height: 3000px;
+  opacity: 1;
+  padding: 30px 20px;
+}
+
+.info-section {
+  background-color: black;
+  border-radius: 20px;
+  padding: 30px;
+  margin-bottom: 25px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  text-align: left;
+  border: 1px solid rgba(139, 90, 43, 0.1);
+}
+
+.info-section h3 {
+  color: #8b5a2b;
+  font-size: 2em;
+  margin-bottom: 20px;
+  text-align: center;
+  position: relative;
+  padding-bottom: 15px;
+  font-weight: 700;
+}
+
+.info-section h3::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 4px;
+  background: linear-gradient(90deg, #8b5a2b, #d2b48c, #8b5a2b);
+  border-radius: 5px;
+}
+
+.info-section p {
+  color: #333;
+  font-size: 1.1em;
+  line-height: 1.8;
+  margin-bottom: 15px;
+  text-align: justify;
+}
+
+/* Griglia per i servizi */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+  margin-top: 25px;
+}
+
+.service-item {
+  background-color: black;
+  border-radius: 15px;
+  padding: 25px;
+  text-align: center;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  border: 2px solid rgba(139, 90, 43, 0.1);
+}
+
+.service-item:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  border-color: rgba(139, 90, 43, 0.3);
+}
+
+.service-item .material-icons {
+  font-size: 48px;
+  color: #8b5a2b;
+  margin-bottom: 15px;
+  background-color: transparent;
+}
+
+.service-item h4 {
+  color: #333;
+  font-size: 1.3em;
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+.service-item p {
+  color: #555;
+  font-size: 1em;
+  line-height: 1.6;
+  text-align: center;
+}
+
+/* Stili per la sezione Progetti */
+#Progetti {
+  text-align: center;
+  padding: 40px 5%;
+}
+
+.filter-container {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+}
+
+.filter-button {
+  padding: 12px 25px;
+  border: none;
+  cursor: pointer;
+  background-color: #8b5a2b;
+  color: white;
+  border-radius: 30px;
+  transition: all 0.3s ease;
+  font-weight: 500;
+  font-size: 1.1em;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.filter-button:hover,
+.filter-button.active {
+  background-color: #5a3a1a;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.Progetti-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 30px;
+  justify-items: center;
+  margin-top: 30px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  #Home {
+    min-height: 40vh;
+    padding: 20px;
+  }
+
+  #Home h2 {
+    font-size: 1.8em;
+  }
+
+  #Home p {
+    font-size: 1.1em;
+  }
+
+  .info-toggle-container {
+    margin-top: 30px;
+  }
+
+  .v-toggle,
+  .up-toggle {
+    padding: 12px 20px;
+  }
+
+  .v-toggle .material-icons,
+  .up-toggle .material-icons {
+    font-size: 36px;
+  }
+
+  .toggle-text {
+    font-size: 14px;
+  }
+
+  .services-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .info-section {
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+
+  .info-section h3 {
+    font-size: 1.6em;
+  }
+
+  .info-section p {
+    font-size: 1em;
+  }
+
+  .service-item {
+    padding: 20px;
+  }
+
+  .service-item .material-icons {
+    font-size: 40px;
+  }
+
+  .service-item h4 {
+    font-size: 1.2em;
+  }
+
+  .filter-button {
+    padding: 10px 18px;
+    font-size: 0.9em;
+  }
+
+  .Progetti-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .v-toggle,
+  .up-toggle {
+    padding: 10px 18px;
+  }
+
+  .v-toggle .material-icons,
+  .up-toggle .material-icons {
+    font-size: 32px;
+  }
+
+  .toggle-text {
+    font-size: 12px;
+  }
+
+  .info-section h3 {
+    font-size: 1.4em;
+  }
+
+  .detailed-info.show {
+    padding: 20px 15px;
+  }
+
+  .info-toggle-container {
+    margin-top: 25px;
+  }
+}
+
+.services-grid h4 {
+  color: white;
 }

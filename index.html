@@ -14,6 +14,7 @@
   <script src="JS/mobile-menu.js" defer></script>
   <script src="JS/animations.js" defer></script>
   <script src="JS/cookie-banner.js" defer></script>
+  <script src="JS/v.js" defer></script>
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
   <meta name="description"
     content="IdeaLegno: arredamento su misura per Home, attività commerciali e settore navale. Unione tra tradizione e innovazione.">
@@ -42,7 +43,7 @@
         <div class="mobile-menu-content">
           <div class="mobile-logo">
             <a href="#Home" class="mobile-logo-link">
-            <img src="Img/IDEALEGNO.jpg" alt="Logo IdeaLegno Mobile" />
+              <img src="Img/IDEALEGNO.jpg" alt="Logo IdeaLegno Mobile" />
             </a>
           </div>
           <ul>
@@ -51,6 +52,10 @@
             </li>
             <li>
               <a href="#Riconoscimenti" class="nav-link">I nostri Riconoscimenti</a>
+            </li>
+
+            <li>
+              <a href="#footer" class="nav-link">Contatti</a>
             </li>
           </ul>
         </div>
@@ -77,28 +82,92 @@
 
   <main class="main-container">
     <section id="Home" class="section animate-on-scroll">
-      <h2>
-        <br />
-        <br>
-        Con la nostra passione per il legno, unita alla precisione nella
-        progettazione, ogni angolo del tuo ambiente domestico sarà reso unico
-        ed esattamente
-        <br />come lo desideri tu.
-        <br>
-        <br>
-      </h2>
-      <p>
-        <br>
-        La nostra impresa artigiana, fondata e tutt'ora guidata da Paolo
-        Bomben, è in grado di unire la tradizione del mestiere di falegname
-        all'innovazione delle moderne tecnologie. Attraverso un'attenta e
-        precisa progettazione delle idee, realizziamo arredamento su misura
-        per abitazioni, attività commerciali e settore navale. L'arredo da noi
-        creato è unico e rispecchia appieno la tua personalità e le tue
-        esigenze.
-        <br>
-        <br>
-      </p>
+      <!-- Contenuto generale (sempre visibile) -->
+      <div class="general-info">
+        <h2>
+          <br />
+          Con la nostra passione per il legno, unita alla precisione nella
+          progettazione, ogni angolo del tuo ambiente domestico sarà reso unico
+          ed esattamente
+          <br />come lo desideri tu.
+          <br>
+          <br>
+        </h2>
+        <p>
+          <br>
+          La nostra impresa artigiana, fondata e tutt'ora guidata da Paolo
+          Bomben, è in grado di unire la tradizione del mestiere di falegname
+          all'innovazione delle moderne tecnologie.
+          <br>
+        </p>
+      </div>
+
+      <!-- Contenuto dettagliato (inizialmente nascosto) - DENTRO la sezione Home -->
+      <div class="detailed-info" id="detailed-info">
+        <div class="info-section">
+          <h3>La Nostra Storia</h3>
+          <p>
+            Fondata nel 1985, IdeaLegno ha sempre mantenuto viva la tradizione artigianale italiana,
+            combinandola con le più moderne tecnologie di lavorazione del legno. La nostra esperienza
+            pluridecennale ci permette di affrontare ogni progetto con competenza e creatività.
+          </p>
+        </div>
+
+        <div class="info-section">
+          <h3>I Nostri Servizi</h3>
+          <div class="services-grid">
+            <div class="service-item">
+              <span class="material-icons">home</span>
+              <h4>Arredamento Domestico</h4>
+              <p>Cucine, soggiorni, camere da letto e bagni su misura per la tua casa.</p>
+            </div>
+            <div class="service-item">
+              <span class="material-icons">store</span>
+              <h4>Arredamento Commerciale</h4>
+              <p>Soluzioni personalizzate per negozi, uffici e spazi commerciali.</p>
+            </div>
+            <div class="service-item">
+              <span class="material-icons">sailing</span>
+              <h4>Settore Navale</h4>
+              <p>Arredamenti di lusso per yacht e imbarcazioni di ogni dimensione.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="info-section">
+          <h3>Il Nostro Approccio</h3>
+          <p>
+            Attraverso un'attenta e precisa progettazione delle idee, realizziamo arredamento su misura
+            per abitazioni, attività commerciali e settore navale. L'arredo da noi creato è unico e rispecchia
+            appieno la tua personalità e le tue esigenze. Ogni progetto inizia con un'attenta analisi delle
+            necessità del cliente e si sviluppa attraverso un processo creativo che unisce estetica e funzionalità.
+          </p>
+        </div>
+
+        <div class="info-section">
+          <h3>I Nostri Materiali</h3>
+          <p>
+            Utilizziamo solo legni pregiati e materiali di alta qualità, selezionati con cura per garantire
+            durabilità e bellezza nel tempo. La nostra attenzione per i dettagli si riflette in ogni fase
+            della lavorazione, dalla scelta delle essenze alla finitura finale.
+          </p>
+        </div>
+      </div>
+
+      <!-- Pulsante "Scopri di più"/"Mostra meno" in fondo alla sezione Home -->
+      <div class="info-toggle-container">
+        <!-- Pulsante V cliccabile -->
+        <div class="v-toggle" id="v-toggle">
+          <span class="material-icons">expand_more</span>
+          <span class="toggle-text">Scopri di più</span>
+        </div>
+
+        <!-- Pulsante per tornare su (inizialmente nascosto) -->
+        <div class="up-toggle" id="up-toggle">
+          <span class="material-icons">expand_less</span>
+          <span class="toggle-text">Mostra meno</span>
+        </div>
+      </div>
     </section>
 
     <section id="Progetti" class="section animate-on-scroll">
@@ -128,7 +197,6 @@
 
     <section id="Riconoscimenti" class="section animate-on-scroll">
       <div class="riconoscimenti-content">
-        </div>
       </div>
     </section>
     <br>
@@ -137,6 +205,7 @@
   <div id="footer">
     <!-- Footer content will be loaded by footer.js -->
   </div>
+
 </body>
 
 </html>

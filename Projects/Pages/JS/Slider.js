@@ -43,24 +43,30 @@ class ModernSlider {
 
     if (this.totalSlides === 0) return;
 
-    // Setup slider
-    this.createControls();
-    this.createIndicators();
+    // Setup slider - condizionale per numero di slide
+    if (this.totalSlides > 1) {
+      this.createControls();
+      this.createIndicators();
+    }
+
     this.createProgressBar();
     this.createOverlay();
     this.preloadImages();
     this.setupEventListeners();
     this.updateSlider(false);
 
-    // Non avviare auto-slide (rimane manuale)
-
-    // Aggiungi classe loaded (senza animazioni di sfondo)
+    // Aggiungi classe loaded
     setTimeout(() => {
       this.sliderContainer.classList.add('loaded');
     }, 100);
+
+    console.log(`Slider inizializzato con ${this.totalSlides} immagine/i`);
   }
 
   createControls() {
+    // Solo se ci sono più di 1 slide
+    if (this.totalSlides <= 1) return;
+
     // Rimuovi controlli esistenti se presenti
     const existingControls = this.sliderContainer.querySelectorAll('.prev, .next');
     existingControls.forEach(control => control.remove());
@@ -90,11 +96,13 @@ class ModernSlider {
     this.sliderContainer.appendChild(prevBtn);
     this.sliderContainer.appendChild(nextBtn);
 
-    // Debug: verifica che i controlli siano stati creati
-    console.log('Controlli creati:', { prev: prevBtn, next: nextBtn });
+    console.log('Controlli creati per slider multi-immagine');
   }
 
   createIndicators() {
+    // Solo se ci sono più di 1 slide
+    if (this.totalSlides <= 1) return;
+
     // Rimuovi indicatori esistenti
     const existingIndicators = this.sliderContainer.querySelector('.slider-indicators');
     if (existingIndicators) existingIndicators.remove();
@@ -120,11 +128,14 @@ class ModernSlider {
     }
 
     this.sliderContainer.appendChild(indicatorsContainer);
+    console.log('Indicatori creati per slider multi-immagine');
   }
 
   createProgressBar() {
     const progressBar = document.createElement('div');
     progressBar.className = 'slider-progress';
+    // Nascosta per slider manuale o singola immagine
+    progressBar.style.display = 'none';
     this.sliderContainer.appendChild(progressBar);
     this.progressBar = progressBar;
   }
@@ -153,12 +164,14 @@ class ModernSlider {
     img.classList.add('loaded');
     this.preloadedImages.add(index);
 
-    // Preload prossima immagine
-    const nextIndex = (index + 1) % this.totalSlides;
-    const nextImg = this.images[nextIndex];
-    if (nextImg && !nextImg.classList.contains('loaded')) {
-      const preloadImg = new Image();
-      preloadImg.src = nextImg.src;
+    // Preload prossima immagine solo se ci sono più immagini
+    if (this.totalSlides > 1) {
+      const nextIndex = (index + 1) % this.totalSlides;
+      const nextImg = this.images[nextIndex];
+      if (nextImg && !nextImg.classList.contains('loaded')) {
+        const preloadImg = new Image();
+        preloadImg.src = nextImg.src;
+      }
     }
   }
 
@@ -169,76 +182,85 @@ class ModernSlider {
   }
 
   setupEventListeners() {
-    // Touch events per swipe
-    this.sliderContainer.addEventListener('touchstart', (e) => {
-      this.touchStartX = e.changedTouches[0].screenX;
-    }, { passive: true });
+    // Eventi touch/mouse solo per slider multi-immagine
+    if (this.totalSlides > 1) {
+      // Touch events per swipe
+      this.sliderContainer.addEventListener('touchstart', (e) => {
+        this.touchStartX = e.changedTouches[0].screenX;
+      }, { passive: true });
 
-    this.sliderContainer.addEventListener('touchend', (e) => {
-      this.touchEndX = e.changedTouches[0].screenX;
-      this.handleSwipe();
-    }, { passive: true });
+      this.sliderContainer.addEventListener('touchend', (e) => {
+        this.touchEndX = e.changedTouches[0].screenX;
+        this.handleSwipe();
+      }, { passive: true });
 
-    // Mouse events per desktop
-    let isMouseDown = false;
-    let mouseStartX = 0;
+      // Mouse events per desktop
+      let isMouseDown = false;
+      let mouseStartX = 0;
 
-    this.sliderContainer.addEventListener('mousedown', (e) => {
-      isMouseDown = true;
-      mouseStartX = e.clientX;
-      this.sliderContainer.style.cursor = 'grabbing';
-    });
+      this.sliderContainer.addEventListener('mousedown', (e) => {
+        isMouseDown = true;
+        mouseStartX = e.clientX;
+        this.sliderContainer.style.cursor = 'grabbing';
+      });
 
-    document.addEventListener('mousemove', (e) => {
-      if (!isMouseDown) return;
-      e.preventDefault();
-    });
+      document.addEventListener('mousemove', (e) => {
+        if (!isMouseDown) return;
+        e.preventDefault();
+      });
 
-    document.addEventListener('mouseup', (e) => {
-      if (!isMouseDown) return;
-      isMouseDown = false;
-      this.sliderContainer.style.cursor = '';
+      document.addEventListener('mouseup', (e) => {
+        if (!isMouseDown) return;
+        isMouseDown = false;
+        this.sliderContainer.style.cursor = '';
 
-      const mouseEndX = e.clientX;
-      const diffX = mouseStartX - mouseEndX;
-      const minSwipeDistance = 50;
+        const mouseEndX = e.clientX;
+        const diffX = mouseStartX - mouseEndX;
+        const minSwipeDistance = 50;
 
-      if (Math.abs(diffX) > minSwipeDistance) {
-        if (diffX > 0) {
-          this.moveSlide(1);
-        } else {
-          this.moveSlide(-1);
+        if (Math.abs(diffX) > minSwipeDistance) {
+          if (diffX > 0) {
+            this.moveSlide(1);
+          } else {
+            this.moveSlide(-1);
+          }
         }
-      }
-    });
+      });
 
-    // Keyboard navigation
-    document.addEventListener('keydown', (e) => {
-      if (!this.sliderContainer.matches(':hover') &&
-        document.activeElement !== this.sliderContainer) return;
+      // Keyboard navigation
+      document.addEventListener('keydown', (e) => {
+        if (!this.sliderContainer.matches(':hover') &&
+          document.activeElement !== this.sliderContainer) return;
 
-      switch (e.key) {
-        case 'ArrowLeft':
-          e.preventDefault();
-          this.moveSlide(-1);
-          break;
-        case 'ArrowRight':
-          e.preventDefault();
-          this.moveSlide(1);
-          break;
-        case 'Home':
-          e.preventDefault();
-          this.goToSlide(0);
-          break;
-        case 'End':
-          e.preventDefault();
-          this.goToSlide(this.totalSlides - 1);
-          break;
-      }
-    });
+        switch (e.key) {
+          case 'ArrowLeft':
+            e.preventDefault();
+            this.moveSlide(-1);
+            break;
+          case 'ArrowRight':
+            e.preventDefault();
+            this.moveSlide(1);
+            break;
+          case 'Home':
+            e.preventDefault();
+            this.goToSlide(0);
+            break;
+          case 'End':
+            e.preventDefault();
+            this.goToSlide(this.totalSlides - 1);
+            break;
+        }
+      });
+    } else {
+      // Per singola immagine, rimuovi il cursor grab
+      this.sliderContainer.style.cursor = 'default';
+    }
   }
 
   handleSwipe() {
+    // Solo per slider multi-immagine
+    if (this.totalSlides <= 1) return;
+
     const minSwipeDistance = 50;
     const diffX = this.touchStartX - this.touchEndX;
 
@@ -252,6 +274,9 @@ class ModernSlider {
   }
 
   moveSlide(step) {
+    // Solo per slider multi-immagine
+    if (this.totalSlides <= 1) return;
+
     if (this.isTransitioning) {
       console.log('Transizione in corso, ignoro il comando');
       return;
@@ -266,6 +291,9 @@ class ModernSlider {
   }
 
   goToSlide(newIndex) {
+    // Solo per slider multi-immagine
+    if (this.totalSlides <= 1) return;
+
     if (this.isTransitioning || newIndex === this.index) {
       console.log(`goToSlide bloccato: isTransitioning=${this.isTransitioning}, newIndex=${newIndex}, currentIndex=${this.index}`);
       return;
@@ -290,10 +318,15 @@ class ModernSlider {
       return;
     }
 
-    // Aggiorna transform
-    const translateX = -this.index * 100;
-    console.log(`Aggiornando slider: translateX(${translateX}%)`);
-    this.slider.style.transform = `translateX(${translateX}%)`;
+    // Aggiorna transform solo se ci sono più immagini
+    if (this.totalSlides > 1) {
+      const translateX = -this.index * 100;
+      console.log(`Aggiornando slider: translateX(${translateX}%)`);
+      this.slider.style.transform = `translateX(${translateX}%)`;
+    } else {
+      // Per singola immagine, assicurati che non ci sia transform
+      this.slider.style.transform = 'translateX(0%)';
+    }
 
     // Aggiorna indicatori
     this.updateIndicators();
@@ -305,13 +338,17 @@ class ModernSlider {
     const event = new CustomEvent('slideChanged', {
       detail: {
         currentIndex: this.index,
-        totalSlides: this.totalSlides
+        totalSlides: this.totalSlides,
+        isSingleImage: this.totalSlides === 1
       }
     });
     this.sliderContainer.dispatchEvent(event);
   }
 
   updateIndicators() {
+    // Solo per slider multi-immagine
+    if (this.totalSlides <= 1) return;
+
     this.indicators.forEach((indicator, i) => {
       if (i === this.index) {
         indicator.classList.add('active');
@@ -325,7 +362,7 @@ class ModernSlider {
 
   updateAriaAttributes() {
     this.images.forEach((img, i) => {
-      if (i === this.index) {
+      if (this.totalSlides === 1 || i === this.index) {
         img.setAttribute('aria-hidden', 'false');
       } else {
         img.setAttribute('aria-hidden', 'true');
@@ -375,15 +412,19 @@ class ModernSlider {
 
   // Metodi pubblici per controllo esterno
   next() {
-    this.moveSlide(1);
+    if (this.totalSlides > 1) {
+      this.moveSlide(1);
+    }
   }
 
   prev() {
-    this.moveSlide(-1);
+    if (this.totalSlides > 1) {
+      this.moveSlide(-1);
+    }
   }
 
   goto(index) {
-    if (index >= 0 && index < this.totalSlides) {
+    if (this.totalSlides > 1 && index >= 0 && index < this.totalSlides) {
       this.goToSlide(index);
     }
   }
@@ -396,18 +437,28 @@ class ModernSlider {
     return this.totalSlides;
   }
 
+  isSingleImage() {
+    return this.totalSlides === 1;
+  }
+
   destroy() {
     this.stopAutoSlide();
 
     // Reset stili
-    this.slider.style.transform = '';
-    this.sliderContainer.classList.remove('loaded');
+    if (this.slider) {
+      this.slider.style.transform = '';
+    }
+    if (this.sliderContainer) {
+      this.sliderContainer.classList.remove('loaded');
+    }
 
     // Rimuovi elementi creati dinamicamente
-    const dynamicElements = this.sliderContainer.querySelectorAll(
-      '.slider-indicators, .slider-overlay, .slider-progress, .prev, .next'
-    );
-    dynamicElements.forEach(el => el.remove());
+    if (this.sliderContainer) {
+      const dynamicElements = this.sliderContainer.querySelectorAll(
+        '.slider-indicators, .slider-overlay, .slider-progress, .prev, .next'
+      );
+      dynamicElements.forEach(el => el.remove());
+    }
   }
 }
 
@@ -504,7 +555,7 @@ class SliderPerformance {
   }
 }
 
-// Enhanced Modern Slider con performance monitoring (versione manuale)
+// Enhanced Modern Slider con performance monitoring (versione manuale e adattiva)
 class EnhancedModernSlider extends ModernSlider {
   constructor() {
     super();
@@ -519,6 +570,9 @@ class EnhancedModernSlider extends ModernSlider {
     // Ottimizzazioni specifiche
     this.optimizeForDevice();
     this.setupLazyLoading();
+
+    // Log dello stato finale
+    console.log(`Slider configurato: ${this.totalSlides} immagine/i, modalità: ${this.isSingleImage() ? 'visualizzazione singola' : 'slider interattivo'}`);
   }
 
   optimizeForDevice() {
@@ -530,8 +584,13 @@ class EnhancedModernSlider extends ModernSlider {
       this.animationConfig.duration = 150;
     }
 
-    if (isMobile) {
-      this.sliderContainer.style.cursor = 'grab';
+    // Cursor appropriato basato sul numero di immagini
+    if (this.totalSlides > 1) {
+      if (isMobile) {
+        this.sliderContainer.style.cursor = 'grab';
+      }
+    } else {
+      this.sliderContainer.style.cursor = 'default';
     }
 
     // Adatta la sensibilità del touch per dispositivi diversi
@@ -539,7 +598,9 @@ class EnhancedModernSlider extends ModernSlider {
   }
 
   setupLazyLoading() {
-    // Implementa lazy loading per immagini non visibili
+    // Implementa lazy loading per immagini non visibili (solo per slider multi-immagine)
+    if (this.totalSlides <= 1) return;
+
     if ('IntersectionObserver' in window) {
       const imageObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
@@ -564,15 +625,23 @@ class EnhancedModernSlider extends ModernSlider {
   }
 
   updateSlider(animated = true) {
-    this.performance.startTiming('transition');
+    if (this.totalSlides > 1) {
+      this.performance.startTiming('transition');
+    }
+
     super.updateSlider(animated);
 
-    requestAnimationFrame(() => {
-      this.performance.endTiming('transition');
-    });
+    if (this.totalSlides > 1) {
+      requestAnimationFrame(() => {
+        this.performance.endTiming('transition');
+      });
+    }
   }
 
   handleSwipe() {
+    // Solo per slider multi-immagine
+    if (this.totalSlides <= 1) return;
+
     const minSwipeDistance = this.touchSensitivity || 50;
     const diffX = this.touchStartX - this.touchEndX;
 
@@ -607,7 +676,7 @@ function initializeSlider() {
   // Usa la versione enhanced se disponibile
   try {
     sliderInstance = new EnhancedModernSlider();
-    console.log('Slider manuale inizializzato con successo');
+    console.log('Slider adattivo inizializzato con successo');
   } catch (error) {
     console.error('Errore nell\'inizializzazione dello slider:', error);
     // Fallback a versione semplice
@@ -620,7 +689,11 @@ function initializeSlider() {
   // Event listeners per debugging
   if (sliderInstance && sliderInstance.sliderContainer) {
     sliderInstance.sliderContainer.addEventListener('slideChanged', (e) => {
-      console.log(`Slide cambiata manualmente: ${e.detail.currentIndex + 1}/${e.detail.totalSlides}`);
+      if (e.detail.isSingleImage) {
+        console.log('Visualizzazione singola immagine attiva');
+      } else {
+        console.log(`Slide cambiata: ${e.detail.currentIndex + 1}/${e.detail.totalSlides}`);
+      }
     });
   }
 }

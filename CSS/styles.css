@@ -2120,7 +2120,7 @@ header .menu li a:hover {
 
 /* Sezione Riconoscimenti */
 #Riconoscimenti {
-  background-image: url("News/Img/PREMIAZIONI_2024.jpg");
+  background-image: url("../News/Img/PREMIAZIONI_2024.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -3087,7 +3087,7 @@ header {
   top: 0;
   left: 0;
   width: 100%;
-  background-image: url("Img/Legno.jpg");
+  background-image: url("../Img/Legno.jpg");
   background-size: cover;
   background-position: center;
   color: #edf2f7;
@@ -3365,7 +3365,7 @@ header nav ul li a:hover {
 
 /* Footer */
 footer {
-  background-image: url("Img/Legno.jpg");
+  background-image: url("../Img/Legno.jpg");
   background-size: cover;
   background-position: center;
   color: #fff;
@@ -3732,12 +3732,12 @@ footer.visible {
 }
 
 .hamburger-menu {
-  background-image: url("Img/Legno.jpg");
+  background-image: url("../Img/Legno.jpg");
 }
 
 /* Stili per la sezione Home con l'icona in fondo */
 #Home {
-  background-image: url("Projects/Img/Home/Scala/Scala/Scala1.jpg");
+  background-image: url("../Projects/Img/Home/Scala/Scala/Scala1.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

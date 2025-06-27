@@ -151,5 +151,62 @@ function initializeMap(location) {
   }
 }
 
+const defaultLat = 45.9718974;
+const defaultLng = 12.7988965;
+
+// Initialize OpenStreetMap
+function initializeMap(location) {
+  if (typeof L !== "undefined") {
+    // ✅ Coordinate aggiornate
+    const defaultLat = 45.9718974;
+    const defaultLng = 12.7988965;
+
+    const map = L.map("map-container").setView([defaultLat, defaultLng], 15);
+
+    L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+      attribution:
+        '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+    }).addTo(map);
+
+    const customIcon = L.icon({
+      iconUrl:
+        "https://th.bing.com/th/id/R.1d252dd04867c63c8d587285edfadc8f?rik=EQUSnR3e1idlhA&pid=ImgRaw&r=0",
+      iconSize: [32, 32],
+      iconAnchor: [16, 32],
+      popupAnchor: [0, -32],
+    });
+
+    const marker = L.marker([defaultLat, defaultLng], {
+      icon: customIcon,
+    }).addTo(map);
+
+    marker.bindPopup(`
+      <div class="map-popup">
+        <strong>IdeaLegno</strong><br>
+        ${location.address}<br>
+        <a href="${location.mapLink}" target="_blank">Indicazioni</a>
+      </div>
+    `).openPopup();
+
+    map.on("click", () => {
+      window.open(location.mapLink, "_blank");
+    });
+
+    document.getElementById("map-container").classList.add("fade-in");
+  } else {
+    console.error("Leaflet library is not loaded. Please include it in your HTML.");
+
+    const mapContainer = document.getElementById("map-container");
+    if (mapContainer) {
+      mapContainer.innerHTML = `
+        <div style="width:100%;height:100%;display:flex;justify-content:center;align-items:center;background:#f0f0f0;color:#333;text-align:center;padding:20px;">
+          <p>Mappa non disponibile. <a href="${location.mapLink}" target="_blank" style="color:#8b5a2b;font-weight:bold;">Visualizza su Google Maps</a></p>
+        </div>
+      `;
+    }
+  }
+}
+
+
 // Inizializza il footer quando il DOM è pronto
 document.addEventListener("DOMContentLoaded", loadFooterData);

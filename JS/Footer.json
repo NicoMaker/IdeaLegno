@@ -11,8 +11,9 @@
       "imgSrc": "Contact/Img/Gmail.png",
       "altText": "Email",
       "text": "paolobomben81@gmail.com"
-    },{
-      "text":"IT: 02072400694",
+    },
+    {
+      "text": "01840490930",
       "imgSrc": "https://th.bing.com/th/id/OIP.6rF6i0dkaJSQe4CsP-eAWwHaHa?rs=1&pid=ImgDetMain"
     }
   ],
@@ -30,7 +31,7 @@
       "text": "Instagram"
     },
     {
-      "href":"https://www.facebook.com/idealegnodipaolobomben",
+      "href": "https://www.facebook.com/idealegnodipaolobomben",
       "imgSrc": "Contact/Img/Facebook.png",
       "altText": "Facebook",
       "text": "Facebook"

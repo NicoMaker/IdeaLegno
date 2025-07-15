@@ -55,10 +55,21 @@ document.addEventListener("DOMContentLoaded", () => {
       });
   }
 
-  function updateFilter(category) {
+  function updateFilter(category, shouldScroll = true) {
     currentCategory = category;
+    // Salva la categoria selezionata in localStorage
+    try {
+      localStorage.setItem('selectedCategory', category);
+    } catch (e) {}
     filterProjects();
     updateFilterStyle();
+    // Scroll automatico alla sezione Progetti se richiesto
+    if (shouldScroll && category !== 'all') {
+      const progettiSection = document.getElementById('Progetti');
+      if (progettiSection) {
+        progettiSection.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
   }
 
   function filterProjects() {
@@ -139,7 +150,7 @@ document.addEventListener("DOMContentLoaded", () => {
   function addEventListeners() {
     filterButtons.forEach((button) => {
       button.addEventListener("click", () => {
-        updateFilter(button.dataset.category);
+        updateFilter(button.dataset.category, true);
       });
     });
 
@@ -148,6 +159,39 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function init() {
+    // Recupera la categoria selezionata da localStorage, se presente
+    let savedCategory = 'all';
+    try {
+      const stored = localStorage.getItem('selectedCategory');
+      if (stored && ['Casa', 'Commerciale', 'Nautico', 'all'].includes(stored)) {
+        savedCategory = stored;
+      }
+    } catch (e) {}
+    fetchData = (function (originalFetchData) {
+      return function () {
+        fetch("Projects/Progetti.json")
+          .then((response) => response.json())
+          .then((data) => {
+            progettiData = data.Progetti;
+            createSearchInput();
+            // Applica il filtro salvato senza scroll (lo scroll lo facciamo dopo l'init)
+            updateFilter(savedCategory, false);
+            // Dopo il rendering, se necessario, scrolla alla sezione Progetti
+            if (savedCategory !== 'all') {
+              setTimeout(() => {
+                const progettiSection = document.getElementById('Progetti');
+                if (progettiSection) {
+                  progettiSection.scrollIntoView({ behavior: 'smooth' });
+                }
+              }, 300);
+            }
+          })
+          .catch((error) => {
+            console.error("Errore nel caricamento:", error);
+            container.innerHTML = "<p>Errore nel caricamento dei progetti.</p>";
+          });
+      };
+    })(fetchData);
     fetchData();
     addEventListeners();
     updateLayout();

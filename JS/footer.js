@@ -1,5 +1,4 @@
-const createListItem = (href, imgSrc, altText, text) => {
-  return `
+const createListItem = (href, imgSrc, altText, text) => `
     <li>
       <button>
         <a href="${href}" target="_blank" rel="noopener noreferrer">
@@ -8,7 +7,7 @@ const createListItem = (href, imgSrc, altText, text) => {
       </button>
     </li>
   `;
-};
+;
 
 const loadFooterData = async () => {
   try {

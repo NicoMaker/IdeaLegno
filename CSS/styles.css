@@ -4114,3 +4114,10 @@ footer.visible {
 .services-grid h4 {
   color: white;
 }
+
+#Home {
+  min-height: 100vh; /* occupa almeno tutta l'altezza del viewport */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}

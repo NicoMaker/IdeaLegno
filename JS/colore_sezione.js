@@ -3,125 +3,126 @@ document.addEventListener("DOMContentLoaded", () => {
   const footer = document.querySelector("#footer");
   const navLinks = document.querySelectorAll(".nav-link");
 
-  // Aspetta che tutto sia caricato, incluso il footer
+  // Crea dinamicamente il box per il nome della sezione in alto
+  const sezioneAttivaBox = document.createElement("div");
+  sezioneAttivaBox.id = "sezione-attiva";
+  sezioneAttivaBox.style.position = "fixed";
+  sezioneAttivaBox.style.top = "0";
+  sezioneAttivaBox.style.left = "0";
+  sezioneAttivaBox.style.padding = "6px 12px";
+  sezioneAttivaBox.style.fontWeight = "bold";
+  sezioneAttivaBox.style.fontSize = "14px";
+  sezioneAttivaBox.style.backgroundColor = "rgba(255, 255, 255, 0.95)";
+  sezioneAttivaBox.style.zIndex = "10000";
+  sezioneAttivaBox.style.boxShadow = "0 2px 4px rgba(0, 0, 0, 0.1)";
+  sezioneAttivaBox.style.borderRadius = "0 0 8px 0";
+  sezioneAttivaBox.textContent = "lik/Home";
+  document.body.appendChild(sezioneAttivaBox);
+
   setTimeout(() => {
     initializeScrollDetection();
   }, 300);
 
-  function initializeScrollDetection() {
-    function getScrollPosition() {
-      return window.scrollY + 150; // Offset per determinare quale sezione è attiva
+  const getScrollPosition = () => window.scrollY + 150;
+
+  function getActiveSection() {
+    const scrollPos = getScrollPosition();
+    const windowHeight = window.innerHeight;
+    const documentHeight = document.documentElement.scrollHeight;
+
+    if (footer && (window.scrollY + windowHeight >= documentHeight - 150)) {
+      return { element: footer, id: 'footer' };
     }
 
-    function getActiveSection() {
-      const scrollPos = getScrollPosition();
-      const windowHeight = window.innerHeight;
-      const documentHeight = document.documentElement.scrollHeight;
-
-      // Controllo specifico per il footer - se siamo negli ultimi 150px della pagina
-      if (footer && (window.scrollY + windowHeight >= documentHeight - 150)) {
+    if (footer) {
+      const footerTop = footer.offsetTop;
+      const footerHeight = footer.offsetHeight;
+      const footerBottom = footerTop + footerHeight;
+      if (scrollPos >= footerTop && scrollPos <= footerBottom) {
         return { element: footer, id: 'footer' };
       }
-
-      // Controlla se siamo effettivamente dentro al footer
-      if (footer) {
-        const footerTop = footer.offsetTop;
-        const footerHeight = footer.offsetHeight;
-        const footerBottom = footerTop + footerHeight;
-
-        if (scrollPos >= footerTop && scrollPos <= footerBottom) {
-          return { element: footer, id: 'footer' };
-        }
-      }
-
-      // Controlla le sezioni normali dall'ultima alla prima (per priorità)
-      const sectionsArray = Array.from(sections).reverse();
-
-      for (let section of sectionsArray) {
-        const sectionTop = section.offsetTop;
-        const sectionHeight = section.offsetHeight;
-        const sectionBottom = sectionTop + sectionHeight;
-
-        if (scrollPos >= sectionTop && scrollPos < sectionBottom) {
-          return { element: section, id: section.getAttribute("id") };
-        }
-      }
-
-      // Se non troviamo nessuna sezione specifica, usa l'ultima sezione raggiunta
-      for (let section of sectionsArray) {
-        const sectionTop = section.offsetTop;
-        if (scrollPos >= sectionTop) {
-          return { element: section, id: section.getAttribute("id") };
-        }
-      }
-
-      // Default alla prima sezione
-      if (sections.length > 0) {
-        return { element: sections[0], id: sections[0].getAttribute("id") };
-      }
-
-      return null;
     }
 
-    function updateActiveLink() {
-      const activeSection = getActiveSection();
+    const sectionsArray = Array.from(sections).reverse();
 
-      // Rimuovi la classe active da tutti i link
+    for (let section of sectionsArray) {
+      const sectionTop = section.offsetTop;
+      const sectionHeight = section.offsetHeight;
+      const sectionBottom = sectionTop + sectionHeight;
+      if (scrollPos >= sectionTop && scrollPos < sectionBottom) {
+        return { element: section, id: section.getAttribute("id") };
+      }
+    }
+
+    for (let section of sectionsArray) {
+      const sectionTop = section.offsetTop;
+      if (scrollPos >= sectionTop) {
+        return { element: section, id: section.getAttribute("id") };
+      }
+    }
+
+    if (sections.length > 0) {
+      return { element: sections[0], id: sections[0].getAttribute("id") };
+    }
+
+    return null;
+  }
+
+  function updateActiveLink() {
+    const activeSection = getActiveSection();
+    navLinks.forEach((link) => {
+      link.classList.remove("active");
+    });
+
+    if (activeSection) {
       navLinks.forEach((link) => {
-        link.classList.remove("active");
+        const linkHref = link.getAttribute("href");
+        if (linkHref === `#${activeSection.id}`) {
+          link.classList.add("active");
+        }
       });
-
-      // Aggiungi la classe active al link corretto
-      if (activeSection) {
-        navLinks.forEach((link) => {
-          const linkHref = link.getAttribute("href");
-          if (linkHref === `#${activeSection.id}`) {
-            link.classList.add("active");
-          }
-        });
-      }
     }
+  }
 
-    function updateSectionHighlight() {
-      const activeSection = getActiveSection();
+  function updateSectionHighlight() {
+    const activeSection = getActiveSection();
+    sections.forEach((section) => {
+      section.classList.remove("section-highlighted");
+    });
+    if (footer) footer.classList.remove("section-highlighted");
 
-      // Rimuovi evidenziazione da tutte le sezioni
-      sections.forEach((section) => {
-        section.classList.remove("section-highlighted");
-      });
-
-      // Rimuovi evidenziazione dal footer
-      if (footer) {
-        footer.classList.remove("section-highlighted");
-      }
-
-      // Aggiungi evidenziazione alla sezione/footer attivo
-      if (activeSection && activeSection.element) {
-        activeSection.element.classList.add("section-highlighted");
-      }
+    if (activeSection && activeSection.element) {
+      activeSection.element.classList.add("section-highlighted");
     }
+  }
 
-    function handleScroll() {
+  let lastSectionId = null;
+
+  function displaySectionName(id) {
+    const formatted = id.charAt(0).toUpperCase() + id.slice(1);
+    sezioneAttivaBox.textContent = `lik/${formatted}`;
+
+    // Aggiorna URL solo se è cambiata la sezione
+    if (lastSectionId !== id) {
+      history.replaceState(null, "", `#${id}`);
+      lastSectionId = id;
+    }
+  }
+
+  function handleScroll() {
+    const active = getActiveSection();
+    if (active) {
       updateActiveLink();
       updateSectionHighlight();
+      displaySectionName(active.id);
     }
-
-    // Event listener per lo scroll
-    window.addEventListener("scroll", handleScroll);
-
-    // Esegui immediatamente per impostare lo stato iniziale
-    handleScroll();
-
-    // Controlla anche dopo resize della finestra
-    window.addEventListener("resize", () => {
-      setTimeout(handleScroll, 100);
-    });
-
-    // Gestisci anche i click sui link di navigazione
-    navLinks.forEach((link) => {
-      link.addEventListener("click", () => {
-        setTimeout(handleScroll, 500); // Delay per permettere lo scroll
-      });
-    });
   }
+
+  window.addEventListener("scroll", handleScroll);
+  window.addEventListener("resize", () => setTimeout(handleScroll, 100));
+  navLinks.forEach((link) => {
+    link.addEventListener("click", () => setTimeout(handleScroll, 500));
+  });
+
+  handleScroll(); // Iniziale
 });

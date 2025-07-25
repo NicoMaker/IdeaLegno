@@ -1,3 +1,4 @@
+// Enhanced Progetti.js with search functionality and clickable cards
 document.addEventListener("DOMContentLoaded", () => {
   const container = document.querySelector("#Progetti-container"),
     filterButtons = document.querySelectorAll(".filter-button");
@@ -5,15 +6,9 @@ document.addEventListener("DOMContentLoaded", () => {
   let progettiData = [],
     filteredProjects = [],
     currentCategory = "all",
-    searchTerm = "",
-    allowScrollOnLoad = false;
+    searchTerm = "";
 
-  // ✅ Blocco hash automatico (#Progetti)
-  if (window.location.hash === "#Progetti") {
-    history.replaceState(null, "", window.location.pathname);
-    window.scrollTo({ top: 0, behavior: "instant" });
-  }
-
+  // Create and add search input
   function createSearchInput() {
     const searchContainer = document.createElement("div");
     searchContainer.className = "search-container";
@@ -25,9 +20,11 @@ document.addEventListener("DOMContentLoaded", () => {
       </div>
     `;
 
+    // Insert before filter container
     const filterContainer = document.querySelector(".filter-container");
     filterContainer.parentNode.insertBefore(searchContainer, filterContainer);
 
+    // Add event listener for search input
     const searchInput = document.getElementById("search-progetti");
     searchInput.addEventListener("input", (e) => {
       searchTerm = e.target.value.toLowerCase().trim();
@@ -44,17 +41,30 @@ document.addEventListener("DOMContentLoaded", () => {
     updateDisplay();
   }
 
+  function fetchData() {
+    fetch("Projects/Progetti.json")
+      .then((response) => response.json())
+      .then((data) => {
+        progettiData = data.Progetti;
+        createSearchInput(); // Create search input after data is loaded
+        updateFilter("all");
+      })
+      .catch((error) => {
+        console.error("Errore nel caricamento:", error);
+        container.innerHTML = "<p>Errore nel caricamento dei progetti.</p>";
+      });
+  }
+
   function updateFilter(category, shouldScroll = true) {
     currentCategory = category;
+    // Salva la categoria selezionata in localStorage
     try {
       localStorage.setItem('selectedCategory', category);
-    } catch (e) {}
-
+    } catch (e) { }
     filterProjects();
     updateFilterStyle();
-
-    // Scroll solo se è richiesto e permesso
-    if (shouldScroll && category !== 'all' && allowScrollOnLoad) {
+    // Scroll automatico alla sezione Progetti se richiesto
+    if (shouldScroll && category !== 'all') {
       const progettiSection = document.getElementById('Progetti');
       if (progettiSection) {
         progettiSection.scrollIntoView({ behavior: 'smooth' });
@@ -63,13 +73,15 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function filterProjects() {
+    // First filter by category
     let tempFiltered =
       currentCategory === "all"
         ? progettiData
         : progettiData.filter((progetto) =>
-            progetto.categorie.includes(currentCategory)
-          );
+          progetto.categorie.includes(currentCategory)
+        );
 
+    // Then filter by search term if it exists
     if (searchTerm) {
       tempFiltered = tempFiltered.filter((progetto) => {
         return (
@@ -110,22 +122,24 @@ document.addEventListener("DOMContentLoaded", () => {
   function createCard(progetto) {
     const card = document.createElement("div");
     card.className = "Progetti-card";
-    card.style.cursor = "pointer";
+
+    // Make the entire card clickable
     card.addEventListener("click", () => {
       window.location.href = progetto.link;
     });
+
+    // Add cursor style to indicate clickability
+    card.style.cursor = "pointer";
 
     card.innerHTML = `  
       <div class="container-immagine">
         <img class="immagine" src="${progetto.immagine}" alt="${progetto.nome}">
       </div>
       <h3>${progetto.nome}</h3>
-      ${
-        currentCategory === "all" && progetto.categorie.length > 0
-          ? `<p class="categoria">${
-              progetto.categorie.length > 1 ? "Categorie" : "Categoria"
-            }: ${progetto.categorie.join(", ")}</p>`
-          : ""
+      ${currentCategory === "all" && progetto.categorie.length > 0
+        ? `<p class="categoria">${progetto.categorie.length > 1 ? "Categorie" : "Categoria"
+        }: ${progetto.categorie.join(", ")}</p>`
+        : ""
       }
     `;
     return card;
@@ -138,35 +152,93 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     });
 
+    // Add responsive layout updates on window resize
     window.addEventListener("resize", updateLayout);
   }
 
   function init() {
+    // Recupera la categoria selezionata da localStorage, se presente
     let savedCategory = 'all';
     try {
       const stored = localStorage.getItem('selectedCategory');
       if (stored && ['Casa', 'Commerciale', 'Nautico', 'all'].includes(stored)) {
         savedCategory = stored;
       }
-    } catch (e) {}
+    } catch (e) { }
 
-    allowScrollOnLoad = document.referrer.includes("/Projects/");
+    // Controlla se l'utente proviene da una pagina interna sotto /Projects/
+    const cameFromProjects = document.referrer.includes("/Projects/");
 
-    fetch("Projects/Progetti.json")
-      .then((response) => response.json())
-      .then((data) => {
-        progettiData = data.Progetti;
-        createSearchInput();
-        updateFilter(savedCategory, allowScrollOnLoad);
-      })
-      .catch((error) => {
-        console.error("Errore nel caricamento:", error);
-        container.innerHTML = "<p>Errore nel caricamento dei progetti.</p>";
-      });
+    // Ridefinisci fetchData per gestire il comportamento condizionale
+    fetchData = (function (originalFetchData) {
+      return function () {
+        fetch("Projects/Progetti.json")
+          .then((response) => response.json())
+          .then((data) => {
+            progettiData = data.Progetti;
+            createSearchInput();
 
+            // Applica il filtro salvato ma NON scrolla subito
+            updateFilter(savedCategory, false);
+
+            // Scrolla solo se l'utente proviene da /Projects/*
+            if (cameFromProjects && savedCategory !== 'all') {
+              setTimeout(() => {
+                const progettiSection = document.getElementById('Progetti');
+                if (progettiSection) {
+                  progettiSection.scrollIntoView({ behavior: 'smooth' });
+                }
+              }, 500);
+            }
+          })
+          .catch((error) => {
+            console.error("Errore nel caricamento:", error);
+            container.innerHTML = "<p>Errore nel caricamento dei progetti.</p>";
+          });
+      };
+    })(fetchData);
+
+    fetchData();
     addEventListeners();
     updateLayout();
   }
 
+
   init();
 });
+
+function init() {
+  let savedCategory = 'all';
+  try {
+    const stored = localStorage.getItem('selectedCategory');
+    if (stored && ['Casa', 'Commerciale', 'Nautico'].includes(stored)) {
+      savedCategory = stored;
+    }
+  } catch (e) {}
+
+  const cameFromProjects = document.referrer.includes("/Projects/");
+  allowScrollOnLoad = cameFromProjects;
+
+  // Blocca scroll automatico su #Progetti se arrivo da Home
+  if (!cameFromProjects) {
+    history.replaceState(null, "", window.location.pathname); // Rimuove eventuale #Progetti
+    window.scrollTo({ top: 0 }); // Forza lo scroll in cima
+  }
+
+  fetch("Projects/Progetti.json")
+    .then((response) => response.json())
+    .then((data) => {
+      progettiData = data.Progetti;
+      createSearchInput();
+
+      // ✅ Applica sempre il filtro salvato (anche se NON scrolliamo)
+      updateFilter(savedCategory, cameFromProjects); 
+    })
+    .catch((error) => {
+      console.error("Errore nel caricamento:", error);
+      container.innerHTML = "<p>Errore nel caricamento dei progetti.</p>";
+    });
+
+  addEventListeners();
+  updateLayout();
+}

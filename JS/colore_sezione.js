@@ -18,9 +18,8 @@ document.addEventListener("DOMContentLoaded", () => {
   sezioneAttivaBox.textContent = "lik/Home";
   document.body.appendChild(sezioneAttivaBox);
 
-  setTimeout(() => {
-    initializeScrollDetection();
-  }, 300);
+  let lastSectionId = null;
+  let forceHash = window.location.hash;
 
   const getScrollPosition = () => window.scrollY + 150;
 
@@ -75,14 +74,15 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  let lastSectionId = null;
-
   function displaySectionName(id) {
     const formatted = id.charAt(0).toUpperCase() + id.slice(1);
     sezioneAttivaBox.textContent = `lik/${formatted}`;
 
+    // NON sovrascrivere se siamo ancora nel primo scroll iniziale
     if (lastSectionId !== id) {
-      history.replaceState(null, "", `#${id}`);
+      if (!forceHash || forceHash === `#${lastSectionId}`) {
+        history.replaceState(null, "", `#${id}`);
+      }
       lastSectionId = id;
     }
   }
@@ -96,11 +96,29 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
+  // Scroll iniziale forzato all'hash
+  function scrollToInitialHash() {
+    if (forceHash) {
+      const target = document.querySelector(forceHash);
+      if (target) {
+        setTimeout(() => {
+          target.scrollIntoView({ behavior: "auto", block: "start" });
+          lastSectionId = forceHash.replace("#", ""); // blocca il primo replaceState
+          forceHash = null; // usato una volta sola
+        }, 300);
+      }
+    }
+  }
+
   window.addEventListener("scroll", handleScroll);
   window.addEventListener("resize", () => setTimeout(handleScroll, 100));
   navLinks.forEach((link) => {
     link.addEventListener("click", () => setTimeout(handleScroll, 500));
   });
 
-  handleScroll(); // iniziale
+  // Prima lo scroll manuale, poi il rilevamento attivo
+  setTimeout(() => {
+    scrollToInitialHash();
+    handleScroll();
+  }, 300);
 });

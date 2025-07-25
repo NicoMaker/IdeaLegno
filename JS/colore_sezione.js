@@ -3,7 +3,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const footer = document.querySelector("#footer");
   const navLinks = document.querySelectorAll(".nav-link");
 
-  // Crea dinamicamente il box per il nome della sezione in alto
   const sezioneAttivaBox = document.createElement("div");
   sezioneAttivaBox.id = "sezione-attiva";
   sezioneAttivaBox.style.position = "fixed";
@@ -34,29 +33,12 @@ document.addEventListener("DOMContentLoaded", () => {
       return { element: footer, id: 'footer' };
     }
 
-    if (footer) {
-      const footerTop = footer.offsetTop;
-      const footerHeight = footer.offsetHeight;
-      const footerBottom = footerTop + footerHeight;
-      if (scrollPos >= footerTop && scrollPos <= footerBottom) {
-        return { element: footer, id: 'footer' };
-      }
-    }
-
     const sectionsArray = Array.from(sections).reverse();
-
     for (let section of sectionsArray) {
       const sectionTop = section.offsetTop;
       const sectionHeight = section.offsetHeight;
       const sectionBottom = sectionTop + sectionHeight;
       if (scrollPos >= sectionTop && scrollPos < sectionBottom) {
-        return { element: section, id: section.getAttribute("id") };
-      }
-    }
-
-    for (let section of sectionsArray) {
-      const sectionTop = section.offsetTop;
-      if (scrollPos >= sectionTop) {
         return { element: section, id: section.getAttribute("id") };
       }
     }
@@ -72,16 +54,13 @@ document.addEventListener("DOMContentLoaded", () => {
     const activeSection = getActiveSection();
     navLinks.forEach((link) => {
       link.classList.remove("active");
-    });
-
-    if (activeSection) {
-      navLinks.forEach((link) => {
+      if (activeSection) {
         const linkHref = link.getAttribute("href");
         if (linkHref === `#${activeSection.id}`) {
           link.classList.add("active");
         }
-      });
-    }
+      }
+    });
   }
 
   function updateSectionHighlight() {
@@ -102,7 +81,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const formatted = id.charAt(0).toUpperCase() + id.slice(1);
     sezioneAttivaBox.textContent = `lik/${formatted}`;
 
-    // Aggiorna URL solo se è cambiata la sezione
     if (lastSectionId !== id) {
       history.replaceState(null, "", `#${id}`);
       lastSectionId = id;
@@ -124,26 +102,5 @@ document.addEventListener("DOMContentLoaded", () => {
     link.addEventListener("click", () => setTimeout(handleScroll, 500));
   });
 
-  handleScroll(); // Iniziale
-});
-
-document.addEventListener("DOMContentLoaded", () => {
-  const referrer = document.referrer;
-  const isFromProjects = referrer.includes("/Projects/");
-
-  if (isFromProjects) {
-    // Scroll a #Progetti solo se arriva da Projects/*
-    setTimeout(() => {
-      const target = document.querySelector("#Progetti");
-      if (target) {
-        target.scrollIntoView({ behavior: "smooth" });
-      }
-    }, 800);
-  } else {
-    // Altrimenti: rimuove eventuali hash e scrolla in cima
-    if (window.location.hash) {
-      history.replaceState(null, "", window.location.pathname);
-    }
-    window.scrollTo({ top: 0, behavior: "instant" });
-  }
+  handleScroll(); // iniziale
 });

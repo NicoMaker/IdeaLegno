@@ -1,4 +1,3 @@
-// Enhanced Progetti.js with search functionality and clickable cards
 document.addEventListener("DOMContentLoaded", () => {
   const container = document.querySelector("#Progetti-container"),
     filterButtons = document.querySelectorAll(".filter-button");
@@ -6,9 +5,15 @@ document.addEventListener("DOMContentLoaded", () => {
   let progettiData = [],
     filteredProjects = [],
     currentCategory = "all",
-    searchTerm = "";
+    searchTerm = "",
+    allowScrollOnLoad = false;
 
-  // Create and add search input
+  // ✅ Blocco hash automatico (#Progetti)
+  if (window.location.hash === "#Progetti") {
+    history.replaceState(null, "", window.location.pathname);
+    window.scrollTo({ top: 0, behavior: "instant" });
+  }
+
   function createSearchInput() {
     const searchContainer = document.createElement("div");
     searchContainer.className = "search-container";
@@ -20,11 +25,9 @@ document.addEventListener("DOMContentLoaded", () => {
       </div>
     `;
 
-    // Insert before filter container
     const filterContainer = document.querySelector(".filter-container");
     filterContainer.parentNode.insertBefore(searchContainer, filterContainer);
 
-    // Add event listener for search input
     const searchInput = document.getElementById("search-progetti");
     searchInput.addEventListener("input", (e) => {
       searchTerm = e.target.value.toLowerCase().trim();
@@ -41,30 +44,17 @@ document.addEventListener("DOMContentLoaded", () => {
     updateDisplay();
   }
 
-  function fetchData() {
-    fetch("Projects/Progetti.json")
-      .then((response) => response.json())
-      .then((data) => {
-        progettiData = data.Progetti;
-        createSearchInput(); // Create search input after data is loaded
-        updateFilter("all");
-      })
-      .catch((error) => {
-        console.error("Errore nel caricamento:", error);
-        container.innerHTML = "<p>Errore nel caricamento dei progetti.</p>";
-      });
-  }
-
   function updateFilter(category, shouldScroll = true) {
     currentCategory = category;
-    // Salva la categoria selezionata in localStorage
     try {
       localStorage.setItem('selectedCategory', category);
     } catch (e) {}
+
     filterProjects();
     updateFilterStyle();
-    // Scroll automatico alla sezione Progetti se richiesto
-    if (shouldScroll && category !== 'all') {
+
+    // Scroll solo se è richiesto e permesso
+    if (shouldScroll && category !== 'all' && allowScrollOnLoad) {
       const progettiSection = document.getElementById('Progetti');
       if (progettiSection) {
         progettiSection.scrollIntoView({ behavior: 'smooth' });
@@ -73,7 +63,6 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function filterProjects() {
-    // First filter by category
     let tempFiltered =
       currentCategory === "all"
         ? progettiData
@@ -81,7 +70,6 @@ document.addEventListener("DOMContentLoaded", () => {
             progetto.categorie.includes(currentCategory)
           );
 
-    // Then filter by search term if it exists
     if (searchTerm) {
       tempFiltered = tempFiltered.filter((progetto) => {
         return (
@@ -122,14 +110,10 @@ document.addEventListener("DOMContentLoaded", () => {
   function createCard(progetto) {
     const card = document.createElement("div");
     card.className = "Progetti-card";
-
-    // Make the entire card clickable
+    card.style.cursor = "pointer";
     card.addEventListener("click", () => {
       window.location.href = progetto.link;
     });
-
-    // Add cursor style to indicate clickability
-    card.style.cursor = "pointer";
 
     card.innerHTML = `  
       <div class="container-immagine">
@@ -154,12 +138,10 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     });
 
-    // Add responsive layout updates on window resize
     window.addEventListener("resize", updateLayout);
   }
 
   function init() {
-    // Recupera la categoria selezionata da localStorage, se presente
     let savedCategory = 'all';
     try {
       const stored = localStorage.getItem('selectedCategory');
@@ -167,32 +149,21 @@ document.addEventListener("DOMContentLoaded", () => {
         savedCategory = stored;
       }
     } catch (e) {}
-    fetchData = (function (originalFetchData) {
-      return function () {
-        fetch("Projects/Progetti.json")
-          .then((response) => response.json())
-          .then((data) => {
-            progettiData = data.Progetti;
-            createSearchInput();
-            // Applica il filtro salvato senza scroll (lo scroll lo facciamo dopo l'init)
-            updateFilter(savedCategory, false);
-            // Dopo il rendering, se necessario, scrolla alla sezione Progetti
-            if (savedCategory !== 'all') {
-              setTimeout(() => {
-                const progettiSection = document.getElementById('Progetti');
-                if (progettiSection) {
-                  progettiSection.scrollIntoView({ behavior: 'smooth' });
-                }
-              }, 300);
-            }
-          })
-          .catch((error) => {
-            console.error("Errore nel caricamento:", error);
-            container.innerHTML = "<p>Errore nel caricamento dei progetti.</p>";
-          });
-      };
-    })(fetchData);
-    fetchData();
+
+    allowScrollOnLoad = document.referrer.includes("/Projects/");
+
+    fetch("Projects/Progetti.json")
+      .then((response) => response.json())
+      .then((data) => {
+        progettiData = data.Progetti;
+        createSearchInput();
+        updateFilter(savedCategory, allowScrollOnLoad);
+      })
+      .catch((error) => {
+        console.error("Errore nel caricamento:", error);
+        container.innerHTML = "<p>Errore nel caricamento dei progetti.</p>";
+      });
+
     addEventListeners();
     updateLayout();
   }

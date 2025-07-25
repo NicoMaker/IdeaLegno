@@ -126,3 +126,24 @@ document.addEventListener("DOMContentLoaded", () => {
 
   handleScroll(); // Iniziale
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+  const referrer = document.referrer;
+  const isFromProjects = referrer.includes("/Projects/");
+
+  if (isFromProjects) {
+    // Scroll a #Progetti solo se arriva da Projects/*
+    setTimeout(() => {
+      const target = document.querySelector("#Progetti");
+      if (target) {
+        target.scrollIntoView({ behavior: "smooth" });
+      }
+    }, 800);
+  } else {
+    // Altrimenti: rimuove eventuali hash e scrolla in cima
+    if (window.location.hash) {
+      history.replaceState(null, "", window.location.pathname);
+    }
+    window.scrollTo({ top: 0, behavior: "instant" });
+  }
+});

@@ -19,16 +19,10 @@
       "link": "Projects/Pages/HTML/Home/Scala/Scale_ellittiche.html"
     },
     {
-      "nome": "Arredamenti Vineria",
-      "immagine": "Projects/Img/Commerciale/Vineria.gif",
-      "categorie": ["Commerciale"],
-      "link": "Projects/Pages/HTML/Commerciale/Arredamenti_Vineria.html"
-    },
-    {
-      "nome": "Pareti",
-      "immagine": "Projects/Img/Home/Parete/Parete1.jpg",
+      "nome": "Vineria a Partete",
+      "immagine": "Projects/Img/Home/Vineria_Parete/Parete1.jpg",
       "categorie": ["Casa"],
-      "link": "Projects/Pages/HTML/Home/Pareti.html"
+      "link": "Projects/Pages/HTML/Home/Vineria_a_partete.html"
     },
     {
       "nome": "Pareti Luminose",

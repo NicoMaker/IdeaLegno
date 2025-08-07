@@ -59,15 +59,15 @@ document.addEventListener("DOMContentLoaded", () => {
     currentCategory = category;
     // Salva la categoria selezionata in localStorage
     try {
-      localStorage.setItem('selectedCategory', category);
-    } catch (e) { }
+      localStorage.setItem("selectedCategory", category);
+    } catch (e) {}
     filterProjects();
     updateFilterStyle();
     // Scroll automatico alla sezione Progetti se richiesto
-    if (shouldScroll && category !== 'all') {
-      const progettiSection = document.getElementById('Progetti');
+    if (shouldScroll && category !== "all") {
+      const progettiSection = document.getElementById("Progetti");
       if (progettiSection) {
-        progettiSection.scrollIntoView({ behavior: 'smooth' });
+        progettiSection.scrollIntoView({ behavior: "smooth" });
       }
     }
   }
@@ -78,8 +78,8 @@ document.addEventListener("DOMContentLoaded", () => {
       currentCategory === "all"
         ? progettiData
         : progettiData.filter((progetto) =>
-          progetto.categorie.includes(currentCategory)
-        );
+            progetto.categorie.includes(currentCategory),
+          );
 
     // Then filter by search term if it exists
     if (searchTerm) {
@@ -87,7 +87,7 @@ document.addEventListener("DOMContentLoaded", () => {
         return (
           progetto.nome.toLowerCase().includes(searchTerm) ||
           progetto.categorie.some((cat) =>
-            cat.toLowerCase().includes(searchTerm)
+            cat.toLowerCase().includes(searchTerm),
           )
         );
       });
@@ -101,7 +101,7 @@ document.addEventListener("DOMContentLoaded", () => {
     filterButtons.forEach((button) => {
       button.classList.toggle(
         "active",
-        button.dataset.category === currentCategory
+        button.dataset.category === currentCategory,
       );
     });
   }
@@ -136,10 +136,12 @@ document.addEventListener("DOMContentLoaded", () => {
         <img class="immagine" src="${progetto.immagine}" alt="${progetto.nome}">
       </div>
       <h3>${progetto.nome}</h3>
-      ${currentCategory === "all" && progetto.categorie.length > 0
-        ? `<p class="categoria">${progetto.categorie.length > 1 ? "Categorie" : "Categoria"
-        }: ${progetto.categorie.join(", ")}</p>`
-        : ""
+      ${
+        currentCategory === "all" && progetto.categorie.length > 0
+          ? `<p class="categoria">${
+              progetto.categorie.length > 1 ? "Categorie" : "Categoria"
+            }: ${progetto.categorie.join(", ")}</p>`
+          : ""
       }
     `;
     return card;
@@ -158,13 +160,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function init() {
     // Recupera la categoria selezionata da localStorage, se presente
-    let savedCategory = 'all';
+    let savedCategory = "all";
     try {
-      const stored = localStorage.getItem('selectedCategory');
-      if (stored && ['Casa', 'Commerciale', 'Nautico', 'all'].includes(stored)) {
+      const stored = localStorage.getItem("selectedCategory");
+      if (
+        stored &&
+        ["Casa", "Commerciale", "Nautico", "all"].includes(stored)
+      ) {
         savedCategory = stored;
       }
-    } catch (e) { }
+    } catch (e) {}
 
     // Controlla se l'utente proviene da una pagina interna sotto /Projects/
     const cameFromProjects = document.referrer.includes("/Projects/");
@@ -182,11 +187,11 @@ document.addEventListener("DOMContentLoaded", () => {
             updateFilter(savedCategory, false);
 
             // Scrolla solo se l'utente proviene da /Projects/*
-            if (cameFromProjects && savedCategory !== 'all') {
+            if (cameFromProjects && savedCategory !== "all") {
               setTimeout(() => {
-                const progettiSection = document.getElementById('Progetti');
+                const progettiSection = document.getElementById("Progetti");
                 if (progettiSection) {
-                  progettiSection.scrollIntoView({ behavior: 'smooth' });
+                  progettiSection.scrollIntoView({ behavior: "smooth" });
                 }
               }, 500);
             }
@@ -203,15 +208,14 @@ document.addEventListener("DOMContentLoaded", () => {
     updateLayout();
   }
 
-
   init();
 });
 
 function init() {
-  let savedCategory = 'all';
+  let savedCategory = "all";
   try {
-    const stored = localStorage.getItem('selectedCategory');
-    if (stored && ['Casa', 'Commerciale', 'Nautico'].includes(stored)) {
+    const stored = localStorage.getItem("selectedCategory");
+    if (stored && ["Casa", "Commerciale", "Nautico"].includes(stored)) {
       savedCategory = stored;
     }
   } catch (e) {}
@@ -232,7 +236,7 @@ function init() {
       createSearchInput();
 
       // ✅ Applica sempre il filtro salvato (anche se NON scrolliamo)
-      updateFilter(savedCategory, cameFromProjects); 
+      updateFilter(savedCategory, cameFromProjects);
     })
     .catch((error) => {
       console.error("Errore nel caricamento:", error);

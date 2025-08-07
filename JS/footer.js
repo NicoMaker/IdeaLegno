@@ -1,13 +1,12 @@
 const createListItem = (href, imgSrc, altText, text) => `
   <li>
     <button>
-      ${href ? `<a href="${href}" target="_blank" rel="noopener noreferrer">` : ''}
+      ${href ? `<a href="${href}" target="_blank" rel="noopener noreferrer">` : ""}
         <img src="${imgSrc}" alt="${altText}"> ${text}
-      ${href ? '</a>' : ''}
+      ${href ? "</a>" : ""}
     </button>
   </li>
 `;
-
 
 const loadFooterData = async () => {
   try {
@@ -21,7 +20,7 @@ const loadFooterData = async () => {
     const createListSection = (items) =>
       items
         .map((item) =>
-          createListItem(item.href, item.imgSrc, item.altText, item.text)
+          createListItem(item.href, item.imgSrc, item.altText, item.text),
         )
         .join("");
 
@@ -121,7 +120,7 @@ function initializeMap(location) {
         ${location.address}<br>
         <a href="${location.mapLink}" target="_blank">Indicazioni</a>
       </div>
-    `
+    `,
       )
       .openPopup();
 
@@ -135,7 +134,7 @@ function initializeMap(location) {
     mapContainer.classList.add("fade-in");
   } else {
     console.error(
-      "Leaflet library is not loaded. Please include it in your HTML."
+      "Leaflet library is not loaded. Please include it in your HTML.",
     );
 
     // Fallback for when Leaflet is not available
@@ -179,13 +178,17 @@ function initializeMap(location) {
       icon: customIcon,
     }).addTo(map);
 
-    marker.bindPopup(`
+    marker
+      .bindPopup(
+        `
       <div class="map-popup">
         <strong>IdeaLegno</strong><br>
         ${location.address}<br>
         <a href="${location.mapLink}" target="_blank">Indicazioni</a>
       </div>
-    `).openPopup();
+    `,
+      )
+      .openPopup();
 
     map.on("click", () => {
       window.open(location.mapLink, "_blank");
@@ -193,7 +196,9 @@ function initializeMap(location) {
 
     document.getElementById("map-container").classList.add("fade-in");
   } else {
-    console.error("Leaflet library is not loaded. Please include it in your HTML.");
+    console.error(
+      "Leaflet library is not loaded. Please include it in your HTML.",
+    );
 
     const mapContainer = document.getElementById("map-container");
     if (mapContainer) {
@@ -205,7 +210,6 @@ function initializeMap(location) {
     }
   }
 }
-
 
 // Inizializza il footer quando il DOM è pronto
 document.addEventListener("DOMContentLoaded", loadFooterData);

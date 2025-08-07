@@ -20,25 +20,25 @@ class ModernSlider {
     // Configurazione animazioni
     this.animationConfig = {
       duration: 600,
-      easing: 'cubic-bezier(0.4, 0, 0.2, 1)',
-      fastDuration: 150
+      easing: "cubic-bezier(0.4, 0, 0.2, 1)",
+      fastDuration: 150,
     };
 
     this.init();
   }
 
   init() {
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', () => this.initSlider());
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", () => this.initSlider());
     } else {
       this.initSlider();
     }
   }
 
   initSlider() {
-    this.slider = document.getElementById('slider');
-    this.sliderContainer = document.querySelector('.slider-container');
-    this.images = Array.from(document.querySelectorAll('.slider img'));
+    this.slider = document.getElementById("slider");
+    this.sliderContainer = document.querySelector(".slider-container");
+    this.images = Array.from(document.querySelectorAll(".slider img"));
     this.totalSlides = this.images.length;
 
     if (this.totalSlides === 0) return;
@@ -57,7 +57,7 @@ class ModernSlider {
 
     // Aggiungi classe loaded
     setTimeout(() => {
-      this.sliderContainer.classList.add('loaded');
+      this.sliderContainer.classList.add("loaded");
     }, 100);
 
     console.log(`Slider inizializzato con ${this.totalSlides} immagine/i`);
@@ -68,26 +68,27 @@ class ModernSlider {
     if (this.totalSlides <= 1) return;
 
     // Rimuovi controlli esistenti se presenti
-    const existingControls = this.sliderContainer.querySelectorAll('.prev, .next');
-    existingControls.forEach(control => control.remove());
+    const existingControls =
+      this.sliderContainer.querySelectorAll(".prev, .next");
+    existingControls.forEach((control) => control.remove());
 
     // Crea controllo precedente
-    const prevBtn = document.createElement('button');
-    prevBtn.className = 'prev';
-    prevBtn.setAttribute('aria-label', 'Immagine precedente');
-    prevBtn.innerHTML = '‹';
-    prevBtn.addEventListener('click', (e) => {
+    const prevBtn = document.createElement("button");
+    prevBtn.className = "prev";
+    prevBtn.setAttribute("aria-label", "Immagine precedente");
+    prevBtn.innerHTML = "‹";
+    prevBtn.addEventListener("click", (e) => {
       e.preventDefault();
       e.stopPropagation();
       this.moveSlide(-1);
     });
 
     // Crea controllo successivo
-    const nextBtn = document.createElement('button');
-    nextBtn.className = 'next';
-    nextBtn.setAttribute('aria-label', 'Immagine successiva');
-    nextBtn.innerHTML = '›';
-    nextBtn.addEventListener('click', (e) => {
+    const nextBtn = document.createElement("button");
+    nextBtn.className = "next";
+    nextBtn.setAttribute("aria-label", "Immagine successiva");
+    nextBtn.innerHTML = "›";
+    nextBtn.addEventListener("click", (e) => {
       e.preventDefault();
       e.stopPropagation();
       this.moveSlide(1);
@@ -96,7 +97,7 @@ class ModernSlider {
     this.sliderContainer.appendChild(prevBtn);
     this.sliderContainer.appendChild(nextBtn);
 
-    console.log('Controlli creati per slider multi-immagine');
+    console.log("Controlli creati per slider multi-immagine");
   }
 
   createIndicators() {
@@ -104,21 +105,22 @@ class ModernSlider {
     if (this.totalSlides <= 1) return;
 
     // Rimuovi indicatori esistenti
-    const existingIndicators = this.sliderContainer.querySelector('.slider-indicators');
+    const existingIndicators =
+      this.sliderContainer.querySelector(".slider-indicators");
     if (existingIndicators) existingIndicators.remove();
 
-    const indicatorsContainer = document.createElement('div');
-    indicatorsContainer.className = 'slider-indicators';
-    indicatorsContainer.setAttribute('role', 'tablist');
+    const indicatorsContainer = document.createElement("div");
+    indicatorsContainer.className = "slider-indicators";
+    indicatorsContainer.setAttribute("role", "tablist");
 
     for (let i = 0; i < this.totalSlides; i++) {
-      const indicator = document.createElement('button');
-      indicator.className = 'slider-indicator';
-      indicator.setAttribute('role', 'tab');
-      indicator.setAttribute('aria-label', `Vai all'immagine ${i + 1}`);
+      const indicator = document.createElement("button");
+      indicator.className = "slider-indicator";
+      indicator.setAttribute("role", "tab");
+      indicator.setAttribute("aria-label", `Vai all'immagine ${i + 1}`);
       indicator.dataset.index = i;
 
-      indicator.addEventListener('click', (e) => {
+      indicator.addEventListener("click", (e) => {
         const newIndex = parseInt(e.target.dataset.index);
         this.goToSlide(newIndex);
       });
@@ -128,24 +130,25 @@ class ModernSlider {
     }
 
     this.sliderContainer.appendChild(indicatorsContainer);
-    console.log('Indicatori creati per slider multi-immagine');
+    console.log("Indicatori creati per slider multi-immagine");
   }
 
   createProgressBar() {
-    const progressBar = document.createElement('div');
-    progressBar.className = 'slider-progress';
+    const progressBar = document.createElement("div");
+    progressBar.className = "slider-progress";
     // Nascosta per slider manuale o singola immagine
-    progressBar.style.display = 'none';
+    progressBar.style.display = "none";
     this.sliderContainer.appendChild(progressBar);
     this.progressBar = progressBar;
   }
 
   createOverlay() {
-    const existingOverlay = this.sliderContainer.querySelector('.slider-overlay');
+    const existingOverlay =
+      this.sliderContainer.querySelector(".slider-overlay");
     if (existingOverlay) return;
 
-    const overlay = document.createElement('div');
-    overlay.className = 'slider-overlay';
+    const overlay = document.createElement("div");
+    overlay.className = "slider-overlay";
     this.sliderContainer.appendChild(overlay);
   }
 
@@ -154,21 +157,21 @@ class ModernSlider {
       if (img.complete) {
         this.handleImageLoad(img, index);
       } else {
-        img.addEventListener('load', () => this.handleImageLoad(img, index));
-        img.addEventListener('error', () => this.handleImageError(img, index));
+        img.addEventListener("load", () => this.handleImageLoad(img, index));
+        img.addEventListener("error", () => this.handleImageError(img, index));
       }
     });
   }
 
   handleImageLoad(img, index) {
-    img.classList.add('loaded');
+    img.classList.add("loaded");
     this.preloadedImages.add(index);
 
     // Preload prossima immagine solo se ci sono più immagini
     if (this.totalSlides > 1) {
       const nextIndex = (index + 1) % this.totalSlides;
       const nextImg = this.images[nextIndex];
-      if (nextImg && !nextImg.classList.contains('loaded')) {
+      if (nextImg && !nextImg.classList.contains("loaded")) {
         const preloadImg = new Image();
         preloadImg.src = nextImg.src;
       }
@@ -177,42 +180,50 @@ class ModernSlider {
 
   handleImageError(img, index) {
     console.warn(`Errore nel caricamento dell'immagine ${index + 1}`);
-    img.style.backgroundColor = '#f0f0f0';
-    img.alt = 'Immagine non disponibile';
+    img.style.backgroundColor = "#f0f0f0";
+    img.alt = "Immagine non disponibile";
   }
 
   setupEventListeners() {
     // Eventi touch/mouse solo per slider multi-immagine
     if (this.totalSlides > 1) {
       // Touch events per swipe
-      this.sliderContainer.addEventListener('touchstart', (e) => {
-        this.touchStartX = e.changedTouches[0].screenX;
-      }, { passive: true });
+      this.sliderContainer.addEventListener(
+        "touchstart",
+        (e) => {
+          this.touchStartX = e.changedTouches[0].screenX;
+        },
+        { passive: true },
+      );
 
-      this.sliderContainer.addEventListener('touchend', (e) => {
-        this.touchEndX = e.changedTouches[0].screenX;
-        this.handleSwipe();
-      }, { passive: true });
+      this.sliderContainer.addEventListener(
+        "touchend",
+        (e) => {
+          this.touchEndX = e.changedTouches[0].screenX;
+          this.handleSwipe();
+        },
+        { passive: true },
+      );
 
       // Mouse events per desktop
       let isMouseDown = false;
       let mouseStartX = 0;
 
-      this.sliderContainer.addEventListener('mousedown', (e) => {
+      this.sliderContainer.addEventListener("mousedown", (e) => {
         isMouseDown = true;
         mouseStartX = e.clientX;
-        this.sliderContainer.style.cursor = 'grabbing';
+        this.sliderContainer.style.cursor = "grabbing";
       });
 
-      document.addEventListener('mousemove', (e) => {
+      document.addEventListener("mousemove", (e) => {
         if (!isMouseDown) return;
         e.preventDefault();
       });
 
-      document.addEventListener('mouseup', (e) => {
+      document.addEventListener("mouseup", (e) => {
         if (!isMouseDown) return;
         isMouseDown = false;
-        this.sliderContainer.style.cursor = '';
+        this.sliderContainer.style.cursor = "";
 
         const mouseEndX = e.clientX;
         const diffX = mouseStartX - mouseEndX;
@@ -228,24 +239,27 @@ class ModernSlider {
       });
 
       // Keyboard navigation
-      document.addEventListener('keydown', (e) => {
-        if (!this.sliderContainer.matches(':hover') &&
-          document.activeElement !== this.sliderContainer) return;
+      document.addEventListener("keydown", (e) => {
+        if (
+          !this.sliderContainer.matches(":hover") &&
+          document.activeElement !== this.sliderContainer
+        )
+          return;
 
         switch (e.key) {
-          case 'ArrowLeft':
+          case "ArrowLeft":
             e.preventDefault();
             this.moveSlide(-1);
             break;
-          case 'ArrowRight':
+          case "ArrowRight":
             e.preventDefault();
             this.moveSlide(1);
             break;
-          case 'Home':
+          case "Home":
             e.preventDefault();
             this.goToSlide(0);
             break;
-          case 'End':
+          case "End":
             e.preventDefault();
             this.goToSlide(this.totalSlides - 1);
             break;
@@ -253,7 +267,7 @@ class ModernSlider {
       });
     } else {
       // Per singola immagine, rimuovi il cursor grab
-      this.sliderContainer.style.cursor = 'default';
+      this.sliderContainer.style.cursor = "default";
     }
   }
 
@@ -278,11 +292,13 @@ class ModernSlider {
     if (this.totalSlides <= 1) return;
 
     if (this.isTransitioning) {
-      console.log('Transizione in corso, ignoro il comando');
+      console.log("Transizione in corso, ignoro il comando");
       return;
     }
 
-    console.log(`moveSlide chiamato con step: ${step}, index corrente: ${this.index}`);
+    console.log(
+      `moveSlide chiamato con step: ${step}, index corrente: ${this.index}`,
+    );
 
     const newIndex = (this.index + step + this.totalSlides) % this.totalSlides;
     console.log(`Nuovo index calcolato: ${newIndex}`);
@@ -295,7 +311,9 @@ class ModernSlider {
     if (this.totalSlides <= 1) return;
 
     if (this.isTransitioning || newIndex === this.index) {
-      console.log(`goToSlide bloccato: isTransitioning=${this.isTransitioning}, newIndex=${newIndex}, currentIndex=${this.index}`);
+      console.log(
+        `goToSlide bloccato: isTransitioning=${this.isTransitioning}, newIndex=${newIndex}, currentIndex=${this.index}`,
+      );
       return;
     }
 
@@ -308,13 +326,13 @@ class ModernSlider {
     // Reset del flag di transizione
     setTimeout(() => {
       this.isTransitioning = false;
-      console.log('Transizione completata');
+      console.log("Transizione completata");
     }, this.animationConfig.duration);
   }
 
   updateSlider(animated = true) {
     if (!this.slider) {
-      console.log('Slider element non trovato!');
+      console.log("Slider element non trovato!");
       return;
     }
 
@@ -325,7 +343,7 @@ class ModernSlider {
       this.slider.style.transform = `translateX(${translateX}%)`;
     } else {
       // Per singola immagine, assicurati che non ci sia transform
-      this.slider.style.transform = 'translateX(0%)';
+      this.slider.style.transform = "translateX(0%)";
     }
 
     // Aggiorna indicatori
@@ -335,12 +353,12 @@ class ModernSlider {
     this.updateAriaAttributes();
 
     // Trigger custom event
-    const event = new CustomEvent('slideChanged', {
+    const event = new CustomEvent("slideChanged", {
       detail: {
         currentIndex: this.index,
         totalSlides: this.totalSlides,
-        isSingleImage: this.totalSlides === 1
-      }
+        isSingleImage: this.totalSlides === 1,
+      },
     });
     this.sliderContainer.dispatchEvent(event);
   }
@@ -351,11 +369,11 @@ class ModernSlider {
 
     this.indicators.forEach((indicator, i) => {
       if (i === this.index) {
-        indicator.classList.add('active');
-        indicator.setAttribute('aria-selected', 'true');
+        indicator.classList.add("active");
+        indicator.setAttribute("aria-selected", "true");
       } else {
-        indicator.classList.remove('active');
-        indicator.setAttribute('aria-selected', 'false');
+        indicator.classList.remove("active");
+        indicator.setAttribute("aria-selected", "false");
       }
     });
   }
@@ -363,9 +381,9 @@ class ModernSlider {
   updateAriaAttributes() {
     this.images.forEach((img, i) => {
       if (this.totalSlides === 1 || i === this.index) {
-        img.setAttribute('aria-hidden', 'false');
+        img.setAttribute("aria-hidden", "false");
       } else {
-        img.setAttribute('aria-hidden', 'true');
+        img.setAttribute("aria-hidden", "true");
       }
     });
   }
@@ -402,12 +420,12 @@ class ModernSlider {
   updateProgressBar() {
     // Nasconde la progress bar per slider manuale
     if (!this.progressBar) return;
-    this.progressBar.style.display = 'none';
+    this.progressBar.style.display = "none";
   }
 
   resetProgressBar() {
     if (!this.progressBar) return;
-    this.progressBar.style.display = 'none';
+    this.progressBar.style.display = "none";
   }
 
   // Metodi pubblici per controllo esterno
@@ -446,18 +464,18 @@ class ModernSlider {
 
     // Reset stili
     if (this.slider) {
-      this.slider.style.transform = '';
+      this.slider.style.transform = "";
     }
     if (this.sliderContainer) {
-      this.sliderContainer.classList.remove('loaded');
+      this.sliderContainer.classList.remove("loaded");
     }
 
     // Rimuovi elementi creati dinamicamente
     if (this.sliderContainer) {
       const dynamicElements = this.sliderContainer.querySelectorAll(
-        '.slider-indicators, .slider-overlay, .slider-progress, .prev, .next'
+        ".slider-indicators, .slider-overlay, .slider-progress, .prev, .next",
       );
-      dynamicElements.forEach(el => el.remove());
+      dynamicElements.forEach((el) => el.remove());
     }
   }
 }
@@ -484,9 +502,9 @@ class SliderUtils {
       if (!inThrottle) {
         func.apply(context, args);
         inThrottle = true;
-        setTimeout(() => inThrottle = false, limit);
+        setTimeout(() => (inThrottle = false), limit);
       }
-    }
+    };
   }
 
   static preloadImage(src) {
@@ -500,21 +518,29 @@ class SliderUtils {
 
   static getViewportSize() {
     return {
-      width: Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0),
-      height: Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0)
+      width: Math.max(
+        document.documentElement.clientWidth || 0,
+        window.innerWidth || 0,
+      ),
+      height: Math.max(
+        document.documentElement.clientHeight || 0,
+        window.innerHeight || 0,
+      ),
     };
   }
 
   static isMobile() {
-    return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+      navigator.userAgent,
+    );
   }
 
   static supportsTouch() {
-    return 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+    return "ontouchstart" in window || navigator.maxTouchPoints > 0;
   }
 
   static prefersReducedMotion() {
-    return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   }
 }
 
@@ -524,7 +550,7 @@ class SliderPerformance {
     this.metrics = {
       initTime: 0,
       transitionTimes: [],
-      memoryUsage: 0
+      memoryUsage: 0,
     };
   }
 
@@ -534,7 +560,7 @@ class SliderPerformance {
 
   endTiming(name) {
     const duration = performance.now() - this[`${name}Start`];
-    if (name === 'transition') {
+    if (name === "transition") {
       this.metrics.transitionTimes.push(duration);
       if (this.metrics.transitionTimes.length > 10) {
         this.metrics.transitionTimes.shift();
@@ -547,11 +573,14 @@ class SliderPerformance {
 
   getAverageTransitionTime() {
     if (this.metrics.transitionTimes.length === 0) return 0;
-    return this.metrics.transitionTimes.reduce((a, b) => a + b, 0) / this.metrics.transitionTimes.length;
+    return (
+      this.metrics.transitionTimes.reduce((a, b) => a + b, 0) /
+      this.metrics.transitionTimes.length
+    );
   }
 
   logMetrics() {
-    console.log('Slider Performance Metrics:', this.metrics);
+    console.log("Slider Performance Metrics:", this.metrics);
   }
 }
 
@@ -560,19 +589,21 @@ class EnhancedModernSlider extends ModernSlider {
   constructor() {
     super();
     this.performance = new SliderPerformance();
-    this.performance.startTiming('init');
+    this.performance.startTiming("init");
   }
 
   initSlider() {
     super.initSlider();
-    this.performance.endTiming('init');
+    this.performance.endTiming("init");
 
     // Ottimizzazioni specifiche
     this.optimizeForDevice();
     this.setupLazyLoading();
 
     // Log dello stato finale
-    console.log(`Slider configurato: ${this.totalSlides} immagine/i, modalità: ${this.isSingleImage() ? 'visualizzazione singola' : 'slider interattivo'}`);
+    console.log(
+      `Slider configurato: ${this.totalSlides} immagine/i, modalità: ${this.isSingleImage() ? "visualizzazione singola" : "slider interattivo"}`,
+    );
   }
 
   optimizeForDevice() {
@@ -587,10 +618,10 @@ class EnhancedModernSlider extends ModernSlider {
     // Cursor appropriato basato sul numero di immagini
     if (this.totalSlides > 1) {
       if (isMobile) {
-        this.sliderContainer.style.cursor = 'grab';
+        this.sliderContainer.style.cursor = "grab";
       }
     } else {
-      this.sliderContainer.style.cursor = 'default';
+      this.sliderContainer.style.cursor = "default";
     }
 
     // Adatta la sensibilità del touch per dispositivi diversi
@@ -601,14 +632,14 @@ class EnhancedModernSlider extends ModernSlider {
     // Implementa lazy loading per immagini non visibili (solo per slider multi-immagine)
     if (this.totalSlides <= 1) return;
 
-    if ('IntersectionObserver' in window) {
+    if ("IntersectionObserver" in window) {
       const imageObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
+        entries.forEach((entry) => {
           if (entry.isIntersecting) {
             const img = entry.target;
             if (img.dataset.src) {
               img.src = img.dataset.src;
-              img.removeAttribute('data-src');
+              img.removeAttribute("data-src");
               imageObserver.unobserve(img);
             }
           }
@@ -616,7 +647,7 @@ class EnhancedModernSlider extends ModernSlider {
       });
 
       // Osserva immagini con data-src
-      this.images.forEach(img => {
+      this.images.forEach((img) => {
         if (img.dataset.src) {
           imageObserver.observe(img);
         }
@@ -626,14 +657,14 @@ class EnhancedModernSlider extends ModernSlider {
 
   updateSlider(animated = true) {
     if (this.totalSlides > 1) {
-      this.performance.startTiming('transition');
+      this.performance.startTiming("transition");
     }
 
     super.updateSlider(animated);
 
     if (this.totalSlides > 1) {
       requestAnimationFrame(() => {
-        this.performance.endTiming('transition');
+        this.performance.endTiming("transition");
       });
     }
   }
@@ -664,11 +695,11 @@ function initializeSlider() {
   }
 
   // Verifica che gli elementi esistano
-  const slider = document.getElementById('slider');
-  const sliderContainer = document.querySelector('.slider-container');
+  const slider = document.getElementById("slider");
+  const sliderContainer = document.querySelector(".slider-container");
 
   if (!slider || !sliderContainer) {
-    console.error('Elementi slider non trovati, riprovo tra 500ms...');
+    console.error("Elementi slider non trovati, riprovo tra 500ms...");
     setTimeout(initializeSlider, 500);
     return;
   }
@@ -676,9 +707,9 @@ function initializeSlider() {
   // Usa la versione enhanced se disponibile
   try {
     sliderInstance = new EnhancedModernSlider();
-    console.log('Slider adattivo inizializzato con successo');
+    console.log("Slider adattivo inizializzato con successo");
   } catch (error) {
-    console.error('Errore nell\'inizializzazione dello slider:', error);
+    console.error("Errore nell'inizializzazione dello slider:", error);
     // Fallback a versione semplice
     sliderInstance = new ModernSlider();
   }
@@ -688,39 +719,44 @@ function initializeSlider() {
 
   // Event listeners per debugging
   if (sliderInstance && sliderInstance.sliderContainer) {
-    sliderInstance.sliderContainer.addEventListener('slideChanged', (e) => {
+    sliderInstance.sliderContainer.addEventListener("slideChanged", (e) => {
       if (e.detail.isSingleImage) {
-        console.log('Visualizzazione singola immagine attiva');
+        console.log("Visualizzazione singola immagine attiva");
       } else {
-        console.log(`Slide cambiata: ${e.detail.currentIndex + 1}/${e.detail.totalSlides}`);
+        console.log(
+          `Slide cambiata: ${e.detail.currentIndex + 1}/${e.detail.totalSlides}`,
+        );
       }
     });
   }
 }
 
 // Auto-init quando il DOM è pronto
-if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', initializeSlider);
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", initializeSlider);
 } else {
   initializeSlider();
 }
 
 // Re-init su resize per responsive
 let resizeTimeout;
-window.addEventListener('resize', SliderUtils.debounce(() => {
-  if (sliderInstance) {
-    sliderInstance.updateSlider(false);
-  }
-}, 250));
+window.addEventListener(
+  "resize",
+  SliderUtils.debounce(() => {
+    if (sliderInstance) {
+      sliderInstance.updateSlider(false);
+    }
+  }, 250),
+);
 
 // Cleanup su unload
-window.addEventListener('beforeunload', () => {
+window.addEventListener("beforeunload", () => {
   if (sliderInstance) {
     sliderInstance.destroy();
   }
 });
 
 // Export per moduli ES6 (opzionale)
-if (typeof module !== 'undefined' && module.exports) {
+if (typeof module !== "undefined" && module.exports) {
   module.exports = { ModernSlider, EnhancedModernSlider, SliderUtils };
 }

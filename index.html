@@ -1,254 +1,291 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>IdeaLegno | Arredamento su Misura per Casa, Negozi e Yacht</title>
+    <meta
+      name="description"
+      content="Scopri IdeaLegno: arredamenti artigianali su misura per la casa, negozi e imbarcazioni. Design italiano, qualità artigianale e innovazione."
+    />
+    <meta
+      name="keywords"
+      content="arredamento su misura, falegnameria artigianale, mobili personalizzati, design interni, arredamento yacht, negozi arredati, mobili legno, IdeaLegno"
+    />
+    <link rel="canonical" href="https://www.idealegnofvg.com" />
+    <meta name="robots" content="index, follow" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>IdeaLegno | Arredamento su Misura per Casa, Negozi e Yacht</title>
-  <meta name="description"
-    content="Scopri IdeaLegno: arredamenti artigianali su misura per la casa, negozi e imbarcazioni. Design italiano, qualità artigianale e innovazione." />
-  <meta name="keywords"
-    content="arredamento su misura, falegnameria artigianale, mobili personalizzati, design interni, arredamento yacht, negozi arredati, mobili legno, IdeaLegno" />
-  <link rel="canonical" href="https://www.idealegnofvg.com" />
-  <meta name="robots" content="index, follow" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- Open Graph per Facebook -->
+    <meta property="og:title" content="IdeaLegno | Arredamenti su Misura" />
+    <meta
+      property="og:description"
+      content="Progetti unici di arredamento per case, negozi e settore nautico. Qualità artigianale e design italiano."
+    />
+    <meta
+      property="og:image"
+      content="https://www.tuosito.it/Img/IDEALEGNO.jpg"
+    />
+    <meta property="og:url" content="https://www.tuosito.it" />
+    <meta property="og:type" content="website" />
 
-  <!-- Open Graph per Facebook -->
-  <meta property="og:title" content="IdeaLegno | Arredamenti su Misura" />
-  <meta property="og:description"
-    content="Progetti unici di arredamento per case, negozi e settore nautico. Qualità artigianale e design italiano." />
-  <meta property="og:image" content="https://www.tuosito.it/Img/IDEALEGNO.jpg" />
-  <meta property="og:url" content="https://www.tuosito.it" />
-  <meta property="og:type" content="website" />
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="IdeaLegno | Arredamento su Misura" />
+    <meta
+      name="twitter:description"
+      content="Scopri le soluzioni artigianali di arredamento su misura per ogni ambiente."
+    />
+    <meta
+      name="twitter:image"
+      content="https://www.tuosito.it/Img/IDEALEGNO.jpg"
+    />
 
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="IdeaLegno | Arredamento su Misura" />
-  <meta name="twitter:description"
-    content="Scopri le soluzioni artigianali di arredamento su misura per ogni ambiente." />
-  <meta name="twitter:image" content="https://www.tuosito.it/Img/IDEALEGNO.jpg" />
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="Img/IDEALEGNO.jpg" />
 
-  <!-- Favicon -->
-  <link rel="icon" type="image/png" sizes="32x32" href="Img/IDEALEGNO.jpg" />
+    <!-- Font e CSS -->
+    <link rel="stylesheet" href="CSS/styles.css" />
+    <link rel="stylesheet" href="CSS/custom-styles.css" />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+    />
 
-  <!-- Font e CSS -->
-  <link rel="stylesheet" href="CSS/styles.css" />
-  <link rel="stylesheet" href="CSS/custom-styles.css" />
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <!-- JavaScript -->
+    <script src="Projects/Progetti.js" defer></script>
+    <script src="JS/footer.js" defer></script>
+    <script src="JS/colore_sezione.js" defer></script>
+    <script src="JS/mobile-menu.js" defer></script>
+    <script src="JS/animations-footer.js" defer></script>
+    <script src="JS/cookie-banner.js" defer></script>
+    <script src="JS/more_info_home.js" defer></script>
+    <script
+      src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+      defer
+    ></script>
 
-  <!-- JavaScript -->
-  <script src="Projects/Progetti.js" defer></script>
-  <script src="JS/footer.js" defer></script>
-  <script src="JS/colore_sezione.js" defer></script>
-  <script src="JS/mobile-menu.js" defer></script>
-  <script src="JS/animations-footer.js" defer></script>
-  <script src="JS/cookie-banner.js" defer></script>
-  <script src="JS/more_info_home.js" defer></script>
-  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" defer></script>
+    <!-- Structured Data JSON-LD -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "IdeaLegno",
+        "url": "https://idealegnofvg.com/",
+        "logo": "https://www.tuosito.it/Img/IDEALEGNO.jpg",
+        "description": "Arredamento su misura per case, negozi e settore navale.",
+        "address": {
+          "@type": "PostalAddress",
+          "addressCountry": "IT"
+        }
+      }
+    </script>
+  </head>
 
-  <!-- Structured Data JSON-LD -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "IdeaLegno",
-    "url": "https://idealegnofvg.com/",
-    "logo": "https://www.tuosito.it/Img/IDEALEGNO.jpg",
-    "description": "Arredamento su misura per case, negozi e settore navale.",
-    "address": {
-      "@type": "PostalAddress",
-      "addressCountry": "IT"
-    }
-  }
-  </script>
-</head>
-
-
-<body>
-  <header>
-    <div class="header-content">
-      <a href="#Home" class="logo-link">
-        <div class="logo-container">
-          <img class="logo" src="Img/IDEALEGNO.jpg" alt="Logo IdeaLegno" />
-        </div>
-      </a>
-
-      <!-- Hamburger menu button for mobile -->
-      <div class="hamburger-menu" id="hamburger-menu">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-
-      <nav class="menu" id="menu">
-        <div class="mobile-menu-content">
-          <div class="mobile-logo">
-            <a href="#Home" class="mobile-logo-link">
-              <img src="Img/IDEALEGNO.jpg" alt="Logo IdeaLegno Mobile" />
-            </a>
+  <body>
+    <header>
+      <div class="header-content">
+        <a href="#Home" class="logo-link">
+          <div class="logo-container">
+            <img class="logo" src="Img/IDEALEGNO.jpg" alt="Logo IdeaLegno" />
           </div>
-          <ul>
-            <li>
-              <a href="#Progetti" class="nav-link">I nostri progetti</a>
-            </li>
-            <li>
-              <a href="#Riconoscimenti" class="nav-link">I nostri Riconoscimenti</a>
-            </li>
+        </a>
 
-            <li>
-              <a href="#footer" class="nav-link"> I nostri Contatti</a>
-            </li>
-          </ul>
+        <!-- Hamburger menu button for mobile -->
+        <div class="hamburger-menu" id="hamburger-menu">
+          <span></span>
+          <span></span>
+          <span></span>
         </div>
-      </nav>
-    </div>
-  </header>
 
-  <div id="cookie-banner" class="cookie-banner">
-    <p>
-      Questo sito utilizza i cookie per migliorare l'esperienza utente.
-      Continuando la navigazione, accetti il loro utilizzo.
-      <a href="Cookies/Cookie.html" class="iubenda-link" target="_blank">Leggi di più</a>
-    </p>
-    <div class="cookie-buttons">
-      <button id="accept-cookies" class="cookie-btn">Accetta</button>
-      <button id="decline-cookies" class="cookie-btn decline">Rifiuta</button>
-    </div>
-  </div>
+        <nav class="menu" id="menu">
+          <div class="mobile-menu-content">
+            <div class="mobile-logo">
+              <a href="#Home" class="mobile-logo-link">
+                <img src="Img/IDEALEGNO.jpg" alt="Logo IdeaLegno Mobile" />
+              </a>
+            </div>
+            <ul>
+              <li>
+                <a href="#Progetti" class="nav-link">I nostri progetti</a>
+              </li>
+              <li>
+                <a href="#Riconoscimenti" class="nav-link"
+                  >I nostri Riconoscimenti</a
+                >
+              </li>
 
-  <!-- Pulsante per modificare le preferenze -->
-  <button id="revoke-cookies" class="cookie-btn revoke">
-    Modifica preferenze cookie
-  </button>
-
-  <main class="main-container">
-    <section id="Home" class="section animate-on-scroll">
-      <!-- Contenuto generale (sempre visibile) -->
-      <div class="general-info">
-        <h2>
-          <br />
-          <br />
-          Con la nostra passione per il legno, unita alla precisione nella
-          progettazione, ogni angolo del tuo ambiente domestico sarà reso unico
-          ed esattamente
-          <br />come lo desideri tu.
-          <br>
-          <br>
-        </h2>
-        <p>
-          <br>
-          La nostra impresa artigiana, fondata e tutt'ora guidata da Paolo
-          Bomben, è in grado di unire la tradizione del mestiere di falegname
-          all'innovazione delle moderne tecnologie.
-          <br>
-        </p>
+              <li>
+                <a href="#footer" class="nav-link"> I nostri Contatti</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
       </div>
+    </header>
 
-      <!-- Contenuto dettagliato (inizialmente nascosto) - DENTRO la sezione Home -->
-      <div class="detailed-info" id="detailed-info">
-        <div class="info-section">
-          <h3>La Nostra Storia</h3>
+    <div id="cookie-banner" class="cookie-banner">
+      <p>
+        Questo sito utilizza i cookie per migliorare l'esperienza utente.
+        Continuando la navigazione, accetti il loro utilizzo.
+        <a href="Cookies/Cookie.html" class="iubenda-link" target="_blank"
+          >Leggi di più</a
+        >
+      </p>
+      <div class="cookie-buttons">
+        <button id="accept-cookies" class="cookie-btn">Accetta</button>
+        <button id="decline-cookies" class="cookie-btn decline">Rifiuta</button>
+      </div>
+    </div>
+
+    <!-- Pulsante per modificare le preferenze -->
+    <button id="revoke-cookies" class="cookie-btn revoke">
+      Modifica preferenze cookie
+    </button>
+
+    <main class="main-container">
+      <section id="Home" class="section animate-on-scroll">
+        <!-- Contenuto generale (sempre visibile) -->
+        <div class="general-info">
+          <h2>
+            <br />
+            <br />
+            Con la nostra passione per il legno, unita alla precisione nella
+            progettazione, ogni angolo del tuo ambiente domestico sarà reso
+            unico ed esattamente
+            <br />come lo desideri tu.
+            <br />
+            <br />
+          </h2>
           <p>
-            Fondata nel 2018, IdeaLegno ha sempre mantenuto viva la tradizione artigianale italiana,
-            combinandola con le più moderne tecnologie di lavorazione del legno. La nostra esperienza
-            pluridecennale ci permette di affrontare ogni progetto con competenza e creatività.
+            <br />
+            La nostra impresa artigiana, fondata e tutt'ora guidata da Paolo
+            Bomben, è in grado di unire la tradizione del mestiere di falegname
+            all'innovazione delle moderne tecnologie.
+            <br />
           </p>
         </div>
 
-        <div class="info-section">
-          <h3>I Nostri Servizi</h3>
-          <div class="services-grid">
-            <div class="service-item">
-              <span class="material-icons">home</span>
-              <h4>Arredamento Domestico</h4>
-              <p>Cucine, soggiorni, camere da letto e bagni su misura per la tua casa.</p>
+        <!-- Contenuto dettagliato (inizialmente nascosto) - DENTRO la sezione Home -->
+        <div class="detailed-info" id="detailed-info">
+          <div class="info-section">
+            <h3>La Nostra Storia</h3>
+            <p>
+              Fondata nel 2018, IdeaLegno ha sempre mantenuto viva la tradizione
+              artigianale italiana, combinandola con le più moderne tecnologie
+              di lavorazione del legno. La nostra esperienza pluridecennale ci
+              permette di affrontare ogni progetto con competenza e creatività.
+            </p>
+          </div>
+
+          <div class="info-section">
+            <h3>I Nostri Servizi</h3>
+            <div class="services-grid">
+              <div class="service-item">
+                <span class="material-icons">home</span>
+                <h4>Arredamento Domestico</h4>
+                <p>
+                  Cucine, soggiorni, camere da letto e bagni su misura per la
+                  tua casa.
+                </p>
+              </div>
+              <div class="service-item">
+                <span class="material-icons">store</span>
+                <h4>Arredamento Commerciale</h4>
+                <p>
+                  Soluzioni personalizzate per negozi, uffici e spazi
+                  commerciali.
+                </p>
+              </div>
+              <div class="service-item">
+                <span class="material-icons">sailing</span>
+                <h4>Settore Navale</h4>
+                <p>
+                  Arredamenti di lusso per yacht e imbarcazioni di ogni
+                  dimensione.
+                </p>
+              </div>
             </div>
-            <div class="service-item">
-              <span class="material-icons">store</span>
-              <h4>Arredamento Commerciale</h4>
-              <p>Soluzioni personalizzate per negozi, uffici e spazi commerciali.</p>
-            </div>
-            <div class="service-item">
-              <span class="material-icons">sailing</span>
-              <h4>Settore Navale</h4>
-              <p>Arredamenti di lusso per yacht e imbarcazioni di ogni dimensione.</p>
-            </div>
+          </div>
+
+          <div class="info-section">
+            <h3>Il Nostro Approccio</h3>
+            <p>
+              Attraverso un'attenta e precisa progettazione delle idee,
+              realizziamo arredamento su misura per abitazioni, attività
+              commerciali e settore navale. L'arredo da noi creato è unico e
+              rispecchia appieno la tua personalità e le tue esigenze. Ogni
+              progetto inizia con un'attenta analisi delle necessità del cliente
+              e si sviluppa attraverso un processo creativo che unisce estetica
+              e funzionalità.
+            </p>
+          </div>
+
+          <div class="info-section">
+            <h3>I Nostri Materiali</h3>
+            <p>
+              Utilizziamo solo legni pregiati e materiali di alta qualità,
+              selezionati con cura per garantire durabilità e bellezza nel
+              tempo. La nostra attenzione per i dettagli si riflette in ogni
+              fase della lavorazione, dalla scelta delle essenze alla finitura
+              finale.
+            </p>
           </div>
         </div>
 
-        <div class="info-section">
-          <h3>Il Nostro Approccio</h3>
-          <p>
-            Attraverso un'attenta e precisa progettazione delle idee, realizziamo arredamento su misura
-            per abitazioni, attività commerciali e settore navale. L'arredo da noi creato è unico e rispecchia
-            appieno la tua personalità e le tue esigenze. Ogni progetto inizia con un'attenta analisi delle
-            necessità del cliente e si sviluppa attraverso un processo creativo che unisce estetica e funzionalità.
-          </p>
+        <!-- Pulsante "Scopri di più"/"Mostra meno" in fondo alla sezione Home -->
+        <div class="info-toggle-container">
+          <!-- Pulsante V cliccabile -->
+          <div class="v-toggle" id="v-toggle">
+            <span class="material-icons">expand_more</span>
+            <span class="toggle-text">Scopri di più</span>
+          </div>
+
+          <!-- Pulsante per tornare su (inizialmente nascosto) -->
+          <div class="up-toggle" id="up-toggle">
+            <span class="material-icons">expand_less</span>
+            <span class="toggle-text">Mostra meno</span>
+          </div>
+        </div>
+      </section>
+
+      <section id="Progetti" class="section animate-on-scroll">
+        <h2>I nostri progetti di arredamento</h2>
+
+        <!-- Filtri categoria -->
+        <div class="filter-container">
+          <button class="filter-button active" data-category="Casa">
+            Casa
+          </button>
+
+          <button class="filter-button active" data-category="Commerciale">
+            Commerciale
+          </button>
+
+          <button class="filter-button active" data-category="Nautico">
+            Nautico
+          </button>
+
+          <button class="filter-button active" data-category="all">
+            Tutti
+          </button>
         </div>
 
-        <div class="info-section">
-          <h3>I Nostri Materiali</h3>
-          <p>
-            Utilizziamo solo legni pregiati e materiali di alta qualità, selezionati con cura per garantire
-            durabilità e bellezza nel tempo. La nostra attenzione per i dettagli si riflette in ogni fase
-            della lavorazione, dalla scelta delle essenze alla finitura finale.
-          </p>
-        </div>
-      </div>
+        <div id="Progetti-container" class="Progetti-container"></div>
+      </section>
 
-      <!-- Pulsante "Scopri di più"/"Mostra meno" in fondo alla sezione Home -->
-      <div class="info-toggle-container">
-        <!-- Pulsante V cliccabile -->
-        <div class="v-toggle" id="v-toggle">
-          <span class="material-icons">expand_more</span>
-          <span class="toggle-text">Scopri di più</span>
-        </div>
+      <section id="Riconoscimenti" class="section animate-on-scroll">
+        <div class="riconoscimenti-content"></div>
+      </section>
+      <br />
+    </main>
 
-        <!-- Pulsante per tornare su (inizialmente nascosto) -->
-        <div class="up-toggle" id="up-toggle">
-          <span class="material-icons">expand_less</span>
-          <span class="toggle-text">Mostra meno</span>
-        </div>
-      </div>
-    </section>
-
-    <section id="Progetti" class="section animate-on-scroll">
-      <h2>I nostri progetti di arredamento</h2>
-
-      <!-- Filtri categoria -->
-      <div class="filter-container">
-        <button class="filter-button active" data-category="Casa">
-          Casa
-        </button>
-
-        <button class="filter-button active" data-category="Commerciale">
-          Commerciale
-        </button>
-
-        <button class="filter-button active" data-category="Nautico">
-          Nautico
-        </button>
-
-        <button class="filter-button active" data-category="all">
-          Tutti
-        </button>
-      </div>
-
-      <div id="Progetti-container" class="Progetti-container"></div>
-    </section>
-
-    <section id="Riconoscimenti" class="section animate-on-scroll">
-      <div class="riconoscimenti-content">
-      </div>
-    </section>
-    <br>
-  </main>
-
-  <div id="footer">
-    <!-- Footer content will be loaded by footer.js -->
-  </div>
-
-</body>
-
+    <div id="footer">
+      <!-- Footer content will be loaded by footer.js -->
+    </div>
+  </body>
 </html>

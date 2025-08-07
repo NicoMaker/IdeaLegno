@@ -13,7 +13,8 @@ html,
 body {
   height: 100%;
   overflow-x: hidden;
-  background: linear-gradient(
+  background:
+    linear-gradient(
       to bottom,
       rgba(233, 236, 239, 0.7),
       rgba(139, 90, 43, 0.7)

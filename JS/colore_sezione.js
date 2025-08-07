@@ -28,8 +28,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const windowHeight = window.innerHeight;
     const documentHeight = document.documentElement.scrollHeight;
 
-    if (footer && (window.scrollY + windowHeight >= documentHeight - 150)) {
-      return { element: footer, id: 'footer' };
+    if (footer && window.scrollY + windowHeight >= documentHeight - 150) {
+      return { element: footer, id: "footer" };
     }
 
     const sectionsArray = Array.from(sections).reverse();

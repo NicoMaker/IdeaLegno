@@ -1,13 +1,13 @@
 const createListItem = (href, imgSrc, altText, text) => `
-    <li>
-      <button>
-        <a href="${href}" target="_blank" rel="noopener noreferrer">
-          <img src="${imgSrc}" alt="${altText}"> ${text}
-        </a>
-      </button>
-    </li>
-  `;
-;
+  <li>
+    <button>
+      ${href ? `<a href="${href}" target="_blank" rel="noopener noreferrer">` : ''}
+        <img src="${imgSrc}" alt="${altText}"> ${text}
+      ${href ? '</a>' : ''}
+    </button>
+  </li>
+`;
+
 
 const loadFooterData = async () => {
   try {

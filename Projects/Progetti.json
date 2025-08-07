@@ -43,12 +43,6 @@
       "link": "Projects/Pages/HTML/Home/Tavoli_cucina.html"
     },
     {
-      "nome": "Elementi Arredo Bar",
-      "immagine": "Projects/Img/Commerciale/Bar/Bar.jpg",
-      "categorie": ["Commerciale"],
-      "link": "Projects/Pages/HTML/Commerciale/Elementi_Arredo_Bar.html"
-    },
-    {
       "nome": "Camerette",
       "immagine": "Projects/Img/Home/Cameretta/Cameretta1.jpg",
       "categorie": ["Casa"],

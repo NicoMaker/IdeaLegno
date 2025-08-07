@@ -85,10 +85,10 @@
       "link": "Projects/Pages/HTML/Home/Armadio_Nichia.html"
     },
     {
-      "nome":"deposito attrezzi con cuccia cane",
-      "immagine":"Projects/Img/Home/Deposito_Attrezzi_con_cucina_cane/Deposito1.jpg",
-      "categorie":["Casa"],
-      "link":"Projects/Pages/HTML/Home/Deposito_Attrezzi_con_cucina_cane.html"
+      "nome": "deposito attrezzi con cuccia cane",
+      "immagine": "Projects/Img/Home/Deposito_Attrezzi_con_cucina_cane/Deposito1.jpg",
+      "categorie": ["Casa"],
+      "link": "Projects/Pages/HTML/Home/Deposito_Attrezzi_con_cucina_cane.html"
     }
   ]
 }

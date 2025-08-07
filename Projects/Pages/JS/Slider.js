@@ -762,68 +762,68 @@ if (typeof module !== "undefined" && module.exports) {
 }
 
 class Slider {
-    constructor(totalSlides) {
-        this.totalSlides = totalSlides;
-        this.index = 0; // Indice corrente dello slider
-        this.isTransitioning = false; // Flag per controllare la transizione
-        this.animationConfig = {
-            duration: 150, // Durata della transizione a 150ms
-            easing: "ease-out", // Tipo di easing per la transizione
-        };
-    }
+  constructor(totalSlides) {
+    this.totalSlides = totalSlides;
+    this.index = 0; // Indice corrente dello slider
+    this.isTransitioning = false; // Flag per controllare la transizione
+    this.animationConfig = {
+      duration: 150, // Durata della transizione a 150ms
+      easing: "ease-out", // Tipo di easing per la transizione
+    };
+  }
 
-    // Funzione per spostarsi di un passo avanti o indietro
-    moveSlide(step) {
-        if (this.totalSlides <= 1) return; // Non fare nulla se c'è solo un'immagine
+  // Funzione per spostarsi di un passo avanti o indietro
+  moveSlide(step) {
+    if (this.totalSlides <= 1) return; // Non fare nulla se c'è solo un'immagine
 
-        // Calcola il nuovo indice in base al passo (step)
-        const newIndex = (this.index + step + this.totalSlides) % this.totalSlides;
-        this.goToSlide(newIndex);
-    }
+    // Calcola il nuovo indice in base al passo (step)
+    const newIndex = (this.index + step + this.totalSlides) % this.totalSlides;
+    this.goToSlide(newIndex);
+  }
 
-    // Funzione per andare alla slide specificata
-    goToSlide(newIndex) {
-        if (this.totalSlides <= 1) return; // Non fare nulla se c'è solo un'immagine
+  // Funzione per andare alla slide specificata
+  goToSlide(newIndex) {
+    if (this.totalSlides <= 1) return; // Non fare nulla se c'è solo un'immagine
 
-        // Se l'indice è lo stesso, non fare nulla
-        if (newIndex === this.index) return;
+    // Se l'indice è lo stesso, non fare nulla
+    if (newIndex === this.index) return;
 
-        // Segna che la transizione è in corso
-        this.isTransitioning = true;
-        this.index = newIndex; // Imposta il nuovo indice
-        this.updateSlider(); // Aggiorna il contenuto dello slider
+    // Segna che la transizione è in corso
+    this.isTransitioning = true;
+    this.index = newIndex; // Imposta il nuovo indice
+    this.updateSlider(); // Aggiorna il contenuto dello slider
 
-        // Rimuovi la transizione dopo che è stata completata
-        setTimeout(() => {
-            this.isTransitioning = false; // Ripristina lo stato di transizione
-        }, this.animationConfig.duration); // Usa la durata della transizione
-    }
+    // Rimuovi la transizione dopo che è stata completata
+    setTimeout(() => {
+      this.isTransitioning = false; // Ripristina lo stato di transizione
+    }, this.animationConfig.duration); // Usa la durata della transizione
+  }
 
-    // Funzione per aggiornare lo slider (questa dipende dal tuo HTML e come vuoi mostrare le immagini)
-    updateSlider() {
-        // Esegui il codice per aggiornare la visualizzazione dello slider
-        console.log(`Vai alla slide numero ${this.index + 1}`); // Qui puoi aggiornare il contenuto visibile, ad esempio cambiando le immagini
-    }
+  // Funzione per aggiornare lo slider (questa dipende dal tuo HTML e come vuoi mostrare le immagini)
+  updateSlider() {
+    // Esegui il codice per aggiornare la visualizzazione dello slider
+    console.log(`Vai alla slide numero ${this.index + 1}`); // Qui puoi aggiornare il contenuto visibile, ad esempio cambiando le immagini
+  }
 
-    // Aggiungi un listener per i bottoni (se hai dei bottoni per avanzare e indietro)
-    addEventListeners() {
-        const prevButton = document.querySelector('.prev');
-        const nextButton = document.querySelector('.next');
+  // Aggiungi un listener per i bottoni (se hai dei bottoni per avanzare e indietro)
+  addEventListeners() {
+    const prevButton = document.querySelector(".prev");
+    const nextButton = document.querySelector(".next");
 
-        // Aggiungi il click per il bottone precedente
-        prevButton.addEventListener('click', () => {
-            if (!this.isTransitioning) {
-                this.moveSlide(-1); // Vai alla slide precedente
-            }
-        });
+    // Aggiungi il click per il bottone precedente
+    prevButton.addEventListener("click", () => {
+      if (!this.isTransitioning) {
+        this.moveSlide(-1); // Vai alla slide precedente
+      }
+    });
 
-        // Aggiungi il click per il bottone successivo
-        nextButton.addEventListener('click', () => {
-            if (!this.isTransitioning) {
-                this.moveSlide(1); // Vai alla slide successiva
-            }
-        });
-    }
+    // Aggiungi il click per il bottone successivo
+    nextButton.addEventListener("click", () => {
+      if (!this.isTransitioning) {
+        this.moveSlide(1); // Vai alla slide successiva
+      }
+    });
+  }
 }
 
 // Inizializza lo slider con 5 immagini (o il numero che preferisci)

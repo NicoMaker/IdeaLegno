@@ -621,3 +621,53 @@ body {
   content: "›";
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
 }
+
+
+.slider-container {
+  width: 100%;
+  overflow: hidden; /* Nasconde le immagini che non rientrano nel contenitore */
+  position: relative; /* Importante per posizionare le frecce di navigazione */
+}
+
+.slider {
+  display: flex; /* Mette le immagini in linea */
+  transition: transform 0.5s ease-in-out; /* Animazione per lo scorrimento */
+}
+
+.slider img {
+  width: 100%;
+  flex-shrink: 0; /* Impedisce alle immagini di rimpicciolirsi */
+  object-fit: cover; /* Assicura che l'immagine copra l'intero spazio senza distorcersi */
+  height: auto; /* Mantiene le proporzioni dell'immagine */
+}
+
+.slider img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  flex: 0 0 100%;
+  filter: brightness(0.95) contrast(1.05);
+  transition: var(--transition-smooth);
+  /* Aggiungi questa linea per il rendering su iOS */
+  display: block;
+}
+
+
+.slider-container {
+  position: relative;
+  width: 90%;
+  max-width: 1000px;
+  /* Rimuovi l'altezza fissa */
+  /* height: calc(100vh - 140px); */
+  /* Usa max-height per evitare che diventi troppo grande */
+  max-height: 80vh;
+  /* Usa aspect-ratio per mantenere le proporzioni */
+  aspect-ratio: 16/9; /* Imposta le proporzioni 16:9, puoi modificarle */
+  margin: 2rem auto;
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  box-shadow: 0 20px 60px var(--shadow-heavy);
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: var(--backdrop-blur);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}

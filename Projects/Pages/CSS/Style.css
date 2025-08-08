@@ -96,6 +96,7 @@ body::before {
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 100%;
   min-height: 100px;
   z-index: 10;
   box-shadow: 0 8px 32px var(--shadow-light);
@@ -161,13 +162,13 @@ body::before {
   text-transform: uppercase;
 }
 
-/* Container slider moderno (Corretto per iPad) */
+/* Container slider moderno (Corretto per iPad e centrato) */
 .slider-container {
   position: relative;
   width: 90%;
   max-width: 1000px;
-  max-height: 80vh; /* Imposta un'altezza massima flessibile */
-  aspect-ratio: 16/9; /* Mantiene le proporzioni 16:9 per evitare il taglio */
+  max-height: 80vh;
+  aspect-ratio: 16/9;
   margin: 2rem auto;
   border-radius: var(--border-radius);
   overflow: hidden;
@@ -175,7 +176,7 @@ body::before {
   background: rgba(255, 255, 255, 0.05);
   backdrop-filter: var(--backdrop-blur);
   border: 1px solid rgba(255, 255, 255, 0.1);
-  min-height: 400px; /* Assicura un'altezza minima per i dispositivi più piccoli */
+  min-height: 400px;
 }
 
 .slider-container::before {
@@ -215,7 +216,7 @@ body::before {
   flex: 0 0 100%;
   filter: brightness(0.95) contrast(1.05);
   transition: var(--transition-smooth);
-  display: block; /* Essenziale per risolvere problemi di rendering su iOS */
+  display: block;
 }
 
 /* Controlli slider tema legno (Unificato e corretto) */
@@ -401,7 +402,6 @@ body::before {
 
   .slider-container {
     width: 95%;
-    /* Rimosso height: calc(100vh - 120px) per evitare conflitti */
     margin: 1rem auto;
   }
 }
@@ -469,7 +469,6 @@ body::before {
 
   .slider-container {
     width: 98%;
-    /* Rimosso height: calc(100vh - 80px) per evitare conflitti */
     margin: 0.5rem auto;
     border-radius: var(--border-radius-small);
   }

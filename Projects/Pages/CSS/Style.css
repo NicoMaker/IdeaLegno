@@ -60,6 +60,7 @@ body {
   background-size: 400% 400%;
   animation: gradientShift 15s ease infinite;
   position: relative;
+  background-image: url("../../../Img/Legno.jpg");
 }
 
 body::before {
@@ -98,6 +99,7 @@ body::before {
   min-height: 100px;
   z-index: 10;
   box-shadow: 0 8px 32px var(--shadow-light);
+  background-image: url("../../../Img/Legno.jpg");
 }
 
 .header::before {
@@ -156,14 +158,16 @@ body::before {
   max-width: calc(100% - 160px);
   word-wrap: break-word;
   line-height: 1.2;
+  text-transform: uppercase;
 }
 
-/* Container slider moderno */
+/* Container slider moderno (Corretto per iPad) */
 .slider-container {
   position: relative;
   width: 90%;
   max-width: 1000px;
-  height: calc(100vh - 140px);
+  max-height: 80vh; /* Imposta un'altezza massima flessibile */
+  aspect-ratio: 16/9; /* Mantiene le proporzioni 16:9 per evitare il taglio */
   margin: 2rem auto;
   border-radius: var(--border-radius);
   overflow: hidden;
@@ -171,6 +175,7 @@ body::before {
   background: rgba(255, 255, 255, 0.05);
   backdrop-filter: var(--backdrop-blur);
   border: 1px solid rgba(255, 255, 255, 0.1);
+  min-height: 400px; /* Assicura un'altezza minima per i dispositivi più piccoli */
 }
 
 .slider-container::before {
@@ -190,14 +195,19 @@ body::before {
   z-index: 1;
 }
 
+/* Slider (Corretto per iPad) */
 .slider {
   display: flex;
   width: 100%;
   height: 100%;
   transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  will-change: transform;
 }
 
+/* Immagini nello slider (Corrette per iPad) */
 .slider img {
   width: 100%;
   height: 100%;
@@ -205,9 +215,10 @@ body::before {
   flex: 0 0 100%;
   filter: brightness(0.95) contrast(1.05);
   transition: var(--transition-smooth);
+  display: block; /* Essenziale per risolvere problemi di rendering su iOS */
 }
 
-/* Controlli slider moderni */
+/* Controlli slider tema legno (Unificato e corretto) */
 .prev,
 .next {
   position: absolute;
@@ -215,21 +226,25 @@ body::before {
   transform: translateY(-50%);
   width: 60px;
   height: 60px;
-  background: rgba(255, 255, 255, 0.9);
+  background: linear-gradient(145deg, #a0522d, #8b5a3c);
   backdrop-filter: var(--backdrop-blur);
-  color: var(--wood-color);
-  border: none;
+  color: #f4e4bc;
+  border: 2px solid rgba(244, 228, 188, 0.3);
   border-radius: 50%;
   cursor: pointer;
   z-index: 20;
   font-size: 20px;
-  font-weight: 600;
+  font-weight: 700;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 8px 25px var(--shadow-medium);
+  box-shadow:
+    0 8px 25px rgba(139, 90, 60, 0.4),
+    inset 0 2px 5px rgba(255, 255, 255, 0.1),
+    inset 0 -2px 5px rgba(0, 0, 0, 0.2);
   transition: var(--transition-smooth);
-  opacity: 0.8;
+  opacity: 0.9;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
 }
 
 .prev {
@@ -243,29 +258,38 @@ body::before {
 .prev:hover,
 .next:hover {
   opacity: 1;
-  transform: translateY(-50%) scale(1.1);
-  background: rgba(255, 255, 255, 1);
-  box-shadow: 0 12px 35px var(--shadow-heavy);
-  color: var(--wood-dark);
+  transform: translateY(-50%) scale(1.08);
+  background: linear-gradient(145deg, #b8641f, #9d5e35);
+  box-shadow:
+    0 12px 35px rgba(139, 90, 60, 0.6),
+    inset 0 3px 8px rgba(255, 255, 255, 0.15),
+    inset 0 -3px 8px rgba(0, 0, 0, 0.25);
+  color: #fff8e7;
+  border-color: rgba(255, 248, 231, 0.5);
 }
 
 .prev:active,
 .next:active {
   transform: translateY(-50%) scale(0.95);
+  box-shadow:
+    0 4px 15px rgba(139, 90, 60, 0.5),
+    inset 0 2px 10px rgba(0, 0, 0, 0.3);
 }
 
 .prev::before {
   content: "‹";
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
 }
 
 .next::before {
   content: "›";
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
 }
 
 /* Indicatori moderni */
 .slider-indicators {
   position: absolute;
-  bottom: 30px;
+  bottom: 20px;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
@@ -377,7 +401,7 @@ body::before {
 
   .slider-container {
     width: 95%;
-    height: calc(100vh - 120px);
+    /* Rimosso height: calc(100vh - 120px) per evitare conflitti */
     margin: 1rem auto;
   }
 }
@@ -445,7 +469,7 @@ body::before {
 
   .slider-container {
     width: 98%;
-    height: calc(100vh - 80px);
+    /* Rimosso height: calc(100vh - 80px) per evitare conflitti */
     margin: 0.5rem auto;
     border-radius: var(--border-radius-small);
   }
@@ -543,131 +567,4 @@ body::before {
     --shadow-medium: rgba(0, 0, 0, 0.4);
     --shadow-heavy: rgba(0, 0, 0, 0.6);
   }
-}
-
-h1 {
-  text-transform: uppercase;
-}
-
-.header,
-body {
-  background-image: url("../../../Img/Legno.jpg");
-}
-
-/* Controlli slider tema legno */
-.prev,
-.next {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 60px;
-  height: 60px;
-  background: linear-gradient(145deg, #a0522d, #8b5a3c);
-  backdrop-filter: var(--backdrop-blur);
-  color: #f4e4bc;
-  border: 2px solid rgba(244, 228, 188, 0.3);
-  border-radius: 50%;
-  cursor: pointer;
-  z-index: 20;
-  font-size: 20px;
-  font-weight: 700;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow:
-    0 8px 25px rgba(139, 90, 60, 0.4),
-    inset 0 2px 5px rgba(255, 255, 255, 0.1),
-    inset 0 -2px 5px rgba(0, 0, 0, 0.2);
-  transition: var(--transition-smooth);
-  opacity: 0.9;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
-}
-
-.prev {
-  left: 20px;
-}
-
-.next {
-  right: 20px;
-}
-
-.prev:hover,
-.next:hover {
-  opacity: 1;
-  transform: translateY(-50%) scale(1.08);
-  background: linear-gradient(145deg, #b8641f, #9d5e35);
-  box-shadow:
-    0 12px 35px rgba(139, 90, 60, 0.6),
-    inset 0 3px 8px rgba(255, 255, 255, 0.15),
-    inset 0 -3px 8px rgba(0, 0, 0, 0.25);
-  color: #fff8e7;
-  border-color: rgba(255, 248, 231, 0.5);
-}
-
-.prev:active,
-.next:active {
-  transform: translateY(-50%) scale(0.95);
-  box-shadow:
-    0 4px 15px rgba(139, 90, 60, 0.5),
-    inset 0 2px 10px rgba(0, 0, 0, 0.3);
-}
-
-.prev::before {
-  content: "‹";
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
-}
-
-.next::before {
-  content: "›";
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
-}
-
-
-.slider-container {
-  width: 100%;
-  overflow: hidden; /* Nasconde le immagini che non rientrano nel contenitore */
-  position: relative; /* Importante per posizionare le frecce di navigazione */
-}
-
-.slider {
-  display: flex; /* Mette le immagini in linea */
-  transition: transform 0.5s ease-in-out; /* Animazione per lo scorrimento */
-}
-
-.slider img {
-  width: 100%;
-  flex-shrink: 0; /* Impedisce alle immagini di rimpicciolirsi */
-  object-fit: cover; /* Assicura che l'immagine copra l'intero spazio senza distorcersi */
-  height: auto; /* Mantiene le proporzioni dell'immagine */
-}
-
-.slider img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  flex: 0 0 100%;
-  filter: brightness(0.95) contrast(1.05);
-  transition: var(--transition-smooth);
-  /* Aggiungi questa linea per il rendering su iOS */
-  display: block;
-}
-
-
-.slider-container {
-  position: relative;
-  width: 90%;
-  max-width: 1000px;
-  /* Rimuovi l'altezza fissa */
-  /* height: calc(100vh - 140px); */
-  /* Usa max-height per evitare che diventi troppo grande */
-  max-height: 80vh;
-  /* Usa aspect-ratio per mantenere le proporzioni */
-  aspect-ratio: 16/9; /* Imposta le proporzioni 16:9, puoi modificarle */
-  margin: 2rem auto;
-  border-radius: var(--border-radius);
-  overflow: hidden;
-  box-shadow: 0 20px 60px var(--shadow-heavy);
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: var(--backdrop-blur);
-  border: 1px solid rgba(255, 255, 255, 0.1);
 }

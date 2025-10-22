@@ -1611,7 +1611,7 @@ footer {
   background-image: url("Img/Legno.jpg");
   background-size: cover;
   background-position: center;
-  background-attachment: fixed;
+  /* background-attachment: fixed; */ /* Rimosso per compatibilità iOS */
   background-repeat: no-repeat;
 }
 
@@ -1936,6 +1936,7 @@ header .menu li a:hover {
   padding: 10px;
   font-size: 0.875rem;
   display: flex;
+  z-index: 1001;
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
@@ -3305,6 +3306,7 @@ header nav ul li a:hover {
   padding: 12px;
   font-size: 1rem;
   display: flex;
+  z-index: 1001;
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;

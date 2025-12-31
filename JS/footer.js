@@ -8,6 +8,33 @@ const createListItem = (href, imgSrc, altText, text) => `
   </li>
 `;
 
+// funzione che programma l'aggiornamento dell'anno a mezzanotte
+function scheduleYearUpdate() {
+  const now = new Date();
+  const nextMidnight = new Date(
+    now.getFullYear(),
+    now.getMonth(),
+    now.getDate() + 1,
+    0, 0, 0, 0
+  );
+  const msToMidnight = nextMidnight - now;
+
+  setTimeout(() => {
+    // aggiorna solo il testo dell'anno nel footer
+    const copyrightEl = document.querySelector(".copyright");
+    if (copyrightEl) {
+      const currentYear = new Date().getFullYear();
+      // sostituisco solo l'anno all'inizio dopo &copy;
+      copyrightEl.innerHTML = copyrightEl.innerHTML.replace(
+        /&copy; \d{4}/,
+        `&copy; ${currentYear}`
+      );
+    }
+    // riprogramma per la mezzanotte successiva
+    scheduleYearUpdate();
+  }, msToMidnight);
+}
+
 const loadFooterData = async () => {
   try {
     const response = await fetch("JS/Footer.json");
@@ -39,7 +66,7 @@ const loadFooterData = async () => {
       </div>
     `;
 
-    // Genera il footer completo
+    // Genera il footer completo (anno iniziale corretto)
     document.getElementById("footer").innerHTML = `
       <footer>
         <div class="footer-container">
@@ -61,6 +88,9 @@ const loadFooterData = async () => {
       </footer>
     `;
 
+    // avvia il timer che aggiorna l'anno a mezzanotte
+    scheduleYearUpdate();
+
     // Initialize the map after the footer is loaded
     initializeMap(data.location);
 
@@ -81,6 +111,7 @@ const loadFooterData = async () => {
     console.error("Errore nel caricare i dati del footer:", error);
   }
 };
+
 
 // Initialize OpenStreetMap
 function initializeMap(location) {
@@ -149,8 +180,10 @@ function initializeMap(location) {
   }
 }
 
+
 const defaultLat = 45.9718974;
 const defaultLng = 12.7988965;
+
 
 // Initialize OpenStreetMap
 function initializeMap(location) {
@@ -210,6 +243,7 @@ function initializeMap(location) {
     }
   }
 }
+
 
 // Inizializza il footer quando il DOM è pronto
 document.addEventListener("DOMContentLoaded", loadFooterData);

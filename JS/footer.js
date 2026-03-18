@@ -15,7 +15,10 @@ function scheduleYearUpdate() {
     now.getFullYear(),
     now.getMonth(),
     now.getDate() + 1,
-    0, 0, 0, 0
+    0,
+    0,
+    0,
+    0,
   );
   const msToMidnight = nextMidnight - now;
 
@@ -27,7 +30,7 @@ function scheduleYearUpdate() {
       // sostituisco solo l'anno all'inizio dopo &copy;
       copyrightEl.innerHTML = copyrightEl.innerHTML.replace(
         /&copy; \d{4}/,
-        `&copy; ${currentYear}`
+        `&copy; ${currentYear}`,
       );
     }
     // riprogramma per la mezzanotte successiva
@@ -112,7 +115,6 @@ const loadFooterData = async () => {
   }
 };
 
-
 // Initialize OpenStreetMap
 function initializeMap(location) {
   // Check if Leaflet is already loaded
@@ -180,10 +182,8 @@ function initializeMap(location) {
   }
 }
 
-
 const defaultLat = 45.9718974;
 const defaultLng = 12.7988965;
-
 
 // Initialize OpenStreetMap
 function initializeMap(location) {
@@ -243,7 +243,6 @@ function initializeMap(location) {
     }
   }
 }
-
 
 // Inizializza il footer quando il DOM è pronto
 document.addEventListener("DOMContentLoaded", loadFooterData);

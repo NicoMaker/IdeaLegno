@@ -124,7 +124,7 @@ class ModernSlider {
       (e) => {
         this.handleTouchStart(e);
       },
-      { passive: false }
+      { passive: false },
     );
 
     this.sliderContainer.addEventListener(
@@ -132,7 +132,7 @@ class ModernSlider {
       (e) => {
         this.handleTouchMove(e);
       },
-      { passive: false }
+      { passive: false },
     );
 
     this.sliderContainer.addEventListener(
@@ -140,7 +140,7 @@ class ModernSlider {
       (e) => {
         this.handleTouchEnd(e);
       },
-      { passive: false }
+      { passive: false },
     );
 
     let isMouseDown = false;
@@ -260,7 +260,7 @@ class ModernSlider {
         }
         lastTouchEnd = now;
       },
-      false
+      false,
     );
 
     // Previene selezione del testo
